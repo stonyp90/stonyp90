@@ -1,106 +1,88 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { FaLinkedin, FaGithub, FaEnvelope, FaHeart } from 'react-icons/fa'
 import { personalInfo, socialLinks } from '@/lib/data'
 
 export default function Footer() {
   return (
-    <footer className="bg-cyber-dark/50 border-t border-cyber-blue/20 py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+    <footer className="relative bg-cyber-dark/50 border-t border-white/5 py-10 sm:py-12 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-cyber-blue/5 blur-[100px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 mb-8 sm:mb-10">
           {/* About */}
-          <div>
-            <h3 className="text-xl font-bold gradient-text mb-4">
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg sm:text-xl font-bold gradient-text mb-3 sm:mb-4">
               {personalInfo.name}
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
               {personalInfo.title} passionate about AI-powered transformation and
               building scalable cloud solutions.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-bold text-cyber-blue mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-400 hover:text-cyber-blue transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#experience"
-                  className="text-gray-400 hover:text-cyber-blue transition-colors"
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="text-gray-400 hover:text-cyber-blue transition-colors"
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#certifications"
-                  className="text-gray-400 hover:text-cyber-blue transition-colors"
-                >
-                  Certifications
-                </a>
-              </li>
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg sm:text-xl font-bold text-cyber-blue mb-3 sm:mb-4">Quick Links</h3>
+            <ul className="space-y-2 sm:space-y-2.5">
+              {[
+                { href: '#about', label: 'About' },
+                { href: '#experience', label: 'Experience' },
+                { href: '#skills', label: 'Skills' },
+                { href: '#certifications', label: 'Certifications' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-cyber-blue transition-colors duration-300 text-sm sm:text-base inline-block"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Connect */}
-          <div>
-            <h3 className="text-xl font-bold text-cyber-blue mb-4">Connect</h3>
-            <div className="flex gap-4">
-              <a
-                href={socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:border-cyber-blue transition-all hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="text-2xl text-cyber-blue" />
-              </a>
-              <a
-                href={socialLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:border-cyber-blue transition-all hover:scale-110"
-                aria-label="GitHub"
-              >
-                <FaGithub className="text-2xl text-cyber-blue" />
-              </a>
-              <a
-                href={socialLinks.email}
-                className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:border-cyber-blue transition-all hover:scale-110"
-                aria-label="Email"
-              >
-                <FaEnvelope className="text-2xl text-cyber-blue" />
-              </a>
+          <div className="text-center sm:text-left sm:col-span-2 md:col-span-1">
+            <h3 className="text-lg sm:text-xl font-bold text-cyber-blue mb-3 sm:mb-4">Connect</h3>
+            <div className="flex gap-3 justify-center sm:justify-start mb-4">
+              {[
+                { href: socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
+                { href: socialLinks.github, icon: FaGithub, label: 'GitHub' },
+                { href: socialLinks.email, icon: FaEnvelope, label: 'Email' },
+              ].map((social) => (
+                <motion.a
+                  key={social.label}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={social.href}
+                  target={social.label !== 'Email' ? '_blank' : undefined}
+                  rel={social.label !== 'Email' ? 'noopener noreferrer' : undefined}
+                  className="w-10 h-10 sm:w-11 sm:h-11 glass rounded-lg sm:rounded-xl flex items-center justify-center hover:border-cyber-blue/50 transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon className="text-lg sm:text-xl text-cyber-blue" />
+                </motion.a>
+              ))}
             </div>
-            <div className="mt-4">
-              <p className="text-gray-400 text-sm">{personalInfo.email}</p>
-              <p className="text-gray-400 text-sm">{personalInfo.location}</p>
+            <div>
+              <p className="text-gray-400 text-xs sm:text-sm">{personalInfo.email}</p>
+              <p className="text-gray-400 text-xs sm:text-sm">{personalInfo.location}</p>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
-            Built with <FaHeart className="text-cyber-pink" /> using Next.js, TypeScript & Tailwind CSS
+        <div className="border-t border-white/5 pt-6 sm:pt-8 text-center">
+          <p className="text-gray-400 text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
+            Built with <FaHeart className="text-cyber-pink text-xs sm:text-sm" /> using Next.js, TypeScript & Tailwind CSS
           </p>
-          <p className="text-gray-500 text-xs mt-2">
+          <p className="text-gray-500 text-[10px] sm:text-xs mt-1.5 sm:mt-2">
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
         </div>
