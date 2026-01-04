@@ -62,6 +62,13 @@ I'm a **Visionary Engineering Leader** operating where **data meets context**, a
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![DynamoDB](https://img.shields.io/badge/DynamoDB-4053D6?style=for-the-badge&logo=amazon-dynamodb&logoColor=white)
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
+
+### 📊 Data & Analytics
+![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Looker](https://img.shields.io/badge/Looker-4285F4?style=for-the-badge&logo=looker&logoColor=white)
+![Datadog](https://img.shields.io/badge/Datadog-632CA6?style=for-the-badge&logo=datadog&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 
 ### 🤖 AI/ML & Specialties
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
@@ -116,22 +123,24 @@ const achievements = {
 
 ## 🚀 Featured Project
 
-### [Ursly Agent](https://github.com/stonyp90/Usrly-Agent) 🤖
+### [Ursly](https://www.ursly.io) 🚀
 
-**AI Agent Orchestration Platform**
+**AI-Powered Cloud File System & Agent Platform**
 
-> 🔒 *Full VFS desktop application available in private repository*
+> 🔓 **Open Source:** [Ursly Agent](https://github.com/stonyp90/Usrly-Agent) - AI Agent Orchestration Platform
+>
+> 🔒 **Proprietary:** AI Cloud-Driven File System (not open source)
 
 - 🧠 Multi-model LLM support (Ollama, OpenAI-compatible APIs)
 - 🔐 Enterprise-grade authentication with Keycloak OIDC
 - 🏗️ Clean Architecture & Domain-Driven Design (DDD)
 - ⚡ Real-time agent orchestration via WebSockets & gRPC
-- 🖥️ Cross-platform desktop app with Tauri 2.0
-- 🎬 Adobe Premiere Pro integration plugin
+- 🖥️ Cross-platform desktop app with Tauri 2.0 & Rust
+- ☁️ AI Cloud-Driven VFS (Private/Proprietary)
 
-**Tech Stack**: `NestJS` `React` `TypeScript` `Tauri` `MongoDB` `Keycloak` `gRPC` `WebSockets` `Ollama`
+**Tech Stack**: `NestJS` `React` `TypeScript` `Tauri` `Rust` `MongoDB` `Keycloak` `gRPC` `WebSockets` `Ollama`
 
-🌐 **Website**: [ursly.io](https://ursly.io)
+🌐 **Website**: [ursly.io](https://www.ursly.io)
 
 ---
 
@@ -161,6 +170,22 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 
 ### ☁️ AWS Certified Solutions Architect – Associate
 ### ⚡ AWS Certified Developer – Associate
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=stonyp90&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=stonyp90&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=stonyp90&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+</p>
 
 ---
 
