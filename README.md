@@ -67,7 +67,21 @@ I'm a **Visionary Engineering Leader** operating where **data meets context**, a
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
 
-**AI Agents** • **LLM Integration** • **FinOps** • **DevSecOps** • **Event-Driven Architecture** • **Serverless**
+**AI Agents** • **LLM Integration** • **FinOps** • **Event-Driven Architecture** • **Serverless**
+
+---
+
+## 🔒 DevSecOps & Security
+
+| Practice | Expertise |
+|----------|-----------|
+| 🛡️ **Security Automation** | Automated security scanning in CI/CD pipelines |
+| 🔍 **SAST/DAST** | Static & dynamic application security testing |
+| 🔐 **Secret Management** | Vault, AWS Secrets Manager, secure key rotation |
+| ✅ **Compliance Automation** | SOC 2 Type II & TPN Gold achieved in 6 months |
+| 🎯 **Vulnerability Scanning** | Container & dependency vulnerability detection |
+| 🏰 **Zero Trust Architecture** | Network segmentation & least privilege access |
+| 👤 **IAM & RBAC** | Identity management & role-based access control |
 
 ---
 
