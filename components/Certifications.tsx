@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { FaAward, FaGraduationCap, FaLanguage, FaExternalLinkAlt } from 'react-icons/fa'
 import { certifications, education, languages } from '@/lib/data'
 
@@ -61,13 +62,20 @@ export default function Certifications() {
                     rel="noopener noreferrer"
                     className="block p-4 bg-cyber-dark rounded-lg border border-cyber-blue/30 hover:border-cyber-blue hover:bg-cyber-blue/5 transition-all group cursor-pointer"
                   >
-                    <div className="flex items-start gap-4">
-                      <span className="text-4xl group-hover:scale-110 transition-transform">
-                        {cert.icon}
-                      </span>
-                      <div className="flex-1">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-16 h-16 flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Image
+                          src={cert.badgeImage}
+                          alt={cert.name}
+                          width={64}
+                          height={64}
+                          className="rounded-lg"
+                          unoptimized
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-bold text-white mb-1 group-hover:text-cyber-blue transition-colors">
+                          <h4 className="font-bold text-white mb-1 group-hover:text-cyber-blue transition-colors text-sm md:text-base">
                             {cert.name}
                           </h4>
                           <FaExternalLinkAlt className="text-cyber-blue/50 group-hover:text-cyber-blue transition-colors flex-shrink-0 mt-1" />

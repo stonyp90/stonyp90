@@ -1,0 +1,9 @@
+# robots.txt for anthonypaquet.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.anthonypaquet.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1

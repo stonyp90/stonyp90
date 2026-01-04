@@ -244,19 +244,19 @@ export const certifications = [
   {
     name: 'AWS Certified Solutions Architect – Associate',
     issuer: 'Amazon Web Services (AWS)',
-    icon: '☁️',
+    badgeImage: 'https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
     credlyUrl: 'https://www.credly.com/badges/34b7839a-dc9d-4183-95d7-0cc6b9d596d7/linked_in_profile',
   },
   {
     name: 'AWS Certified Developer – Associate',
     issuer: 'Amazon Web Services (AWS)',
-    icon: '⚡',
+    badgeImage: 'https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png',
     credlyUrl: 'https://www.credly.com/badges/2fc2506e-0e1c-4019-96c4-4f1fb09f5583/linked_in_profile',
   },
   {
     name: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services (AWS)',
-    icon: '🌐',
+    badgeImage: 'https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png',
     credlyUrl: 'https://www.credly.com/badges/ba61181f-893c-4e91-be07-790f167f6835',
   },
 ]
