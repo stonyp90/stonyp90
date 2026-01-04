@@ -179,27 +179,6 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 | ⚡ **AWS Certified Developer – Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/2fc2506e-0e1c-4019-96c4-4f1fb09f5583/linked_in_profile) |
 | 🌐 **AWS Certified Cloud Practitioner** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/ba61181f-893c-4e91-be07-790f167f6835) |
 
----
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <a href="https://github.com/stonyp90">
-    <img src="https://github-readme-stats.vercel.app/api?username=stonyp90&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub Stats" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/stonyp90">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=stonyp90&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/stonyp90">
-    <img src="https://streak-stats.demolab.com/?user=stonyp90&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-  </a>
-</p>
 
 ---
 
