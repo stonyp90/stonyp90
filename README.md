@@ -168,8 +168,11 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 
 ## 📜 Certifications
 
-### ☁️ AWS Certified Solutions Architect – Associate
-### ⚡ AWS Certified Developer – Associate
+| Certification | Verify |
+|---------------|--------|
+| ☁️ **AWS Certified Solutions Architect – Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/34b7839a-dc9d-4183-95d7-0cc6b9d596d7/linked_in_profile) |
+| ⚡ **AWS Certified Developer – Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/2fc2506e-0e1c-4019-96c4-4f1fb09f5583/linked_in_profile) |
+| 🌐 **AWS Certified Cloud Practitioner** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/ba61181f-893c-4e91-be07-790f167f6835) |
 
 ---
 

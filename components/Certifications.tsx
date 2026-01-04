@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FaAward, FaGraduationCap, FaLanguage } from 'react-icons/fa'
+import { FaAward, FaGraduationCap, FaLanguage, FaExternalLinkAlt } from 'react-icons/fa'
 import { certifications, education, languages } from '@/lib/data'
 
 export default function Certifications() {
@@ -54,20 +54,31 @@ export default function Certifications() {
               </h3>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <div
+                  <a
                     key={index}
-                    className="p-4 bg-cyber-dark rounded-lg border border-cyber-blue/30 hover:border-cyber-blue transition-all group"
+                    href={cert.credlyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 bg-cyber-dark rounded-lg border border-cyber-blue/30 hover:border-cyber-blue hover:bg-cyber-blue/5 transition-all group cursor-pointer"
                   >
                     <div className="flex items-start gap-4">
                       <span className="text-4xl group-hover:scale-110 transition-transform">
                         {cert.icon}
                       </span>
-                      <div>
-                        <h4 className="font-bold text-white mb-1">{cert.name}</h4>
+                      <div className="flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <h4 className="font-bold text-white mb-1 group-hover:text-cyber-blue transition-colors">
+                            {cert.name}
+                          </h4>
+                          <FaExternalLinkAlt className="text-cyber-blue/50 group-hover:text-cyber-blue transition-colors flex-shrink-0 mt-1" />
+                        </div>
                         <p className="text-sm text-gray-400">{cert.issuer}</p>
+                        <p className="text-xs text-cyber-blue/70 mt-2 flex items-center gap-1">
+                          <span>Verify on Credly</span>
+                        </p>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
