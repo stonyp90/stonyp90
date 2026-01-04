@@ -22,6 +22,11 @@ I'm a **Visionary Engineering Leader** operating where **data meets context**, a
 - 🌐 **Portfolio**: [anthonypaquet.com](https://www.anthonypaquet.com)
 - 🗣️ **Languages**: French (Native) | English (Fluent)
 
+### 👨‍👧‍👦 Beyond the Code
+- 👶 **Proud dad of two amazing boys**
+- 🏂 **Avid snowboarder** - hitting the slopes whenever I can
+- 💡 **Technology passionate** - always exploring what's next
+
 > 💡 *"Knowledge is the ultimate wealth — the more you share, the more it grows."*
 
 ---
@@ -179,15 +184,21 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=stonyp90&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" />
+  <a href="https://github.com/stonyp90">
+    <img src="https://github-readme-stats.vercel.app/api?username=stonyp90&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub Stats" />
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=stonyp90&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+  <a href="https://github.com/stonyp90">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=stonyp90&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" />
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=stonyp90&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <a href="https://github.com/stonyp90">
+    <img src="https://streak-stats.demolab.com/?user=stonyp90&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  </a>
 </p>
 
 ---

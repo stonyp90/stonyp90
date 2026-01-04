@@ -16,8 +16,12 @@ import {
   FaShieldAlt,
   FaClock,
   FaGlobe,
-  FaAward
+  FaAward,
+  FaSnowflake,
+  FaChild,
+  FaHeart
 } from 'react-icons/fa'
+import Image from 'next/image'
 import { personalInfo, urslyProject } from '@/lib/data'
 
 const stats = [
@@ -96,12 +100,19 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/20 to-cyber-purple/20 rounded-3xl blur-xl" />
           <div className="relative glass rounded-3xl p-8 md:p-12 border border-white/10">
             <div className="grid md:grid-cols-3 gap-8 items-center">
-              {/* Avatar/Icon Area */}
+              {/* Photo Area */}
               <div className="flex justify-center md:justify-start">
                 <div className="relative">
-                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-cyber-blue to-cyber-purple p-1">
-                    <div className="w-full h-full rounded-full bg-cyber-dark flex items-center justify-center">
-                      <span className="text-5xl md:text-6xl font-bold gradient-text">AP</span>
+                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-cyber-blue to-cyber-purple p-1 overflow-hidden">
+                    <div className="w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src={personalInfo.photo}
+                        alt="Anthony Paquet"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                        priority
+                      />
                     </div>
                   </div>
                   <motion.div 
@@ -120,6 +131,23 @@ export default function About() {
                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
                   {personalInfo.summary}
                 </p>
+                
+                {/* Personal Life */}
+                <div className="flex flex-wrap gap-4 mb-6">
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <FaChild className="text-cyber-blue" />
+                    <span>Proud dad of two boys</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <FaSnowflake className="text-cyber-purple" />
+                    <span>Avid snowboarder</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <FaHeart className="text-cyber-green" />
+                    <span>Technology passionate</span>
+                  </div>
+                </div>
+
                 <div className="flex flex-wrap gap-3">
                   <span className="px-4 py-2 bg-cyber-blue/20 border border-cyber-blue/40 rounded-full text-cyber-blue text-sm font-medium">
                     🇨🇦 Quebec, Canada

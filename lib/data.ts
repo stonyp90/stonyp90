@@ -8,6 +8,12 @@ export const personalInfo = {
   tagline: 'Operating where data meets context, accelerating innovation and business impact through AI-powered transformation.',
   summary: `Visionary Engineering Leader operating where data meets context, accelerating innovation and business impact. Passionate about AI-powered transformation, I design and scale secure, cost-optimized, and highly available systems that drive outcomes. Skilled in taking products from 0→1 to enterprise scale, I bring strong FinOps expertise to help organizations cut costs and maximize value. With a DevSecOps mindset, I enable teams to iterate faster, more securely, and with greater resilience. Customer-obsessed and outcome-driven, I have a proven track record of delivering scalable, resilient, and business-aligned cloud solutions that create lasting value.`,
   philosophy: 'Knowledge is the ultimate wealth — the more you share, the more it grows. I believe in continuous learning and empowering others through expertise.',
+  photo: '/images/anthony-paquet.jpg',
+  personal: {
+    dad: 'Proud dad of two amazing boys',
+    hobby: 'Avid snowboarder',
+    passion: 'Technology enthusiast always exploring the cutting edge',
+  },
 }
 
 export const socialLinks = {
