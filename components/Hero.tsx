@@ -1,12 +1,35 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaCheck, FaCopy } from 'react-icons/fa'
 import { personalInfo, socialLinks } from '@/lib/data'
 
+interface Particle {
+  left: number
+  top: number
+  duration: number
+  delay: number
+}
+
 export default function Hero() {
   const [copied, setCopied] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Generate particles only on client side to avoid hydration errors
+  const particles = useMemo<Particle[]>(() => {
+    if (!isMounted) return []
+    return Array.from({ length: 15 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: 4 + Math.random() * 3,
+      delay: Math.random() * 3,
+    }))
+  }, [isMounted])
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText(personalInfo.email)
@@ -171,29 +194,32 @@ export default function Hero() {
       </motion.div>
 
       {/* Floating particles effect - reduced on mobile for performance */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-cyber-blue/60 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 0.8, 0],
-              scale: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
-      </div>
+      {isMounted && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block" aria-hidden="true">
+          {particles.map((particle, i) => (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute w-1 h-1 bg-cyber-blue/60 rounded-full"
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+              }}
+              initial={{ opacity: 0 }}
+              animate={{
+                y: [0, -40, 0],
+                opacity: [0, 0.8, 0],
+                scale: [0.5, 1, 0.5],
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                delay: particle.delay,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

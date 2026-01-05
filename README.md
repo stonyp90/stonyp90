@@ -1,6 +1,6 @@
 # Hi there, I'm Anthony Paquet 👋
 
-### 🚀 Visionary Engineering Leader and builder
+### 🚀 Visionary Engineering Leader | Head of Engineering at CREE8
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/anthony-paquet-94a31085)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/stonyp90)
@@ -128,7 +128,22 @@ const achievements = {
 
 ## 🚀 Currently Building
 
-### [Ursly](https://app.ursly.io) 🚀
+### AI Agent Orchestrator 🚀
+
+**Enterprise-Grade AI Agent Orchestration Platform**
+
+Building an AI Agent Orchestrator with:
+- 🔍 **Full audit capabilities** and compliance tracking
+- 🔐 **Full IDP compliant** identity provider integration
+- 🔗 **ReBAC** (Relationship-Based Access Control)
+- 👥 **RBAC** (Role-Based Access Control)
+- 🏗️ Clean Architecture & Domain-Driven Design (DDD)
+- ⚡ Real-time agent orchestration via WebSockets & gRPC
+- 🖥️ Cross-platform desktop app with Tauri 2.0 & Rust
+
+**Tech Stack**: `NestJS` `React` `TypeScript` `Tauri` `Rust` `MongoDB` `Keycloak` `gRPC` `WebSockets` `Ollama`
+
+🌐 **Website**: [app.ursly.io](https://app.ursly.io)
 
 ---
 
@@ -178,7 +193,7 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 ```typescript
 const currentFocus = {
   role: "Building enterprise-grade cloud solutions at CREE8",
-  projects: ["Ursly Agent AI Platform", "Camera-to-Cloud workflows"],
+  projects: ["AI Agent Orchestrator", "Camera-to-Cloud workflows"],
   learning: ["Advanced LLM integration", "AI agents", "Multi-agent systems"],
   interests: ["FinOps optimization", "DevSecOps automation", "Cloud-native architecture"],
   openTo: ["Technical leadership roles", "Cloud architecture consulting", "AI/ML projects"]

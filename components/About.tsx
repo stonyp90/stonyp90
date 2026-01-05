@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { 
-  FaGithub, 
   FaRocket, 
   FaBrain, 
   FaCloud, 
@@ -240,24 +239,13 @@ export default function About() {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    href={urslyProject.agentGithubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-gradient-to-r from-cyber-blue to-cyber-blue-dark text-cyber-black font-bold rounded-lg sm:rounded-xl transition-all shadow-lg shadow-cyber-blue/20 text-sm sm:text-base"
-                  >
-                    <FaGithub className="text-lg sm:text-xl" />
-                    <span>Open Source</span>
-                  </motion.a>
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                     href={urslyProject.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-5 sm:py-3 glass border border-cyber-purple/50 text-cyber-purple font-bold rounded-lg sm:rounded-xl transition-all hover:bg-cyber-purple/10 text-sm sm:text-base"
                   >
                     <FaGlobe className="text-lg sm:text-xl" />
-                    <span>ursly.io</span>
+                    <span>app.ursly.io</span>
                   </motion.a>
                 </div>
               </div>
@@ -267,14 +255,6 @@ export default function About() {
                 {urslyProject.description}
               </p>
 
-              {/* Private Note Banner */}
-              <div className="flex items-start sm:items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r from-cyber-green/10 to-transparent border-l-4 border-cyber-green rounded-r-lg sm:rounded-r-xl mb-6 sm:mb-8">
-                <FaLock className="text-base sm:text-lg md:text-xl text-cyber-green flex-shrink-0 mt-0.5 sm:mt-0" />
-                <div className="text-xs sm:text-sm md:text-base">
-                  <span className="text-cyber-green font-semibold">Private: </span>
-                  <span className="text-gray-300">{urslyProject.privateNote}</span>
-                </div>
-              </div>
 
               {/* Tech Stack & Features Grid */}
               <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">

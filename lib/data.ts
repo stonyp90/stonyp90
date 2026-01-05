@@ -23,22 +23,22 @@ export const socialLinks = {
 }
 
 export const urslyProject = {
-  name: 'Ursly',
-  tagline: 'AI-Powered Cloud File System & Agent Platform',
-  description: 'A comprehensive AI ecosystem featuring an intelligent cloud-driven file system and an open-source AI agent orchestration platform. The Ursly Agent enables building, deploying, and managing AI agents with enterprise-grade architecture.',
+  name: 'AI Agent Orchestrator',
+  tagline: 'Enterprise-Grade AI Agent Orchestration Platform',
+  description: 'Building an AI Agent Orchestrator with full audit capabilities, full IDP compliant identity provider, ReBAC (Relationship-Based Access Control), RBAC (Role-Based Access Control), and enterprise-grade security features.',
   techStack: ['NestJS', 'React', 'TypeScript', 'Tauri', 'MongoDB', 'Keycloak', 'gRPC', 'WebSockets', 'Ollama', 'Rust'],
   agentGithubUrl: 'https://github.com/stonyp90/Usrly-Agent',
-  websiteUrl: 'https://www.ursly.io',
-  hasPrivateVFS: true,
-  privateNote: 'The AI Cloud-Driven File System is a proprietary solution (not open source). Only the Ursly Agent is open source.',
+  websiteUrl: 'https://app.ursly.io',
+  hasPrivateVFS: false,
+  privateNote: '',
   highlights: [
-    'Open-source AI Agent Orchestration Platform',
-    'Multi-model LLM support (Ollama, OpenAI-compatible APIs)',
-    'Enterprise-grade authentication with Keycloak OIDC',
+    'Full audit capabilities and compliance tracking',
+    'Full IDP compliant identity provider integration',
+    'ReBAC (Relationship-Based Access Control)',
+    'RBAC (Role-Based Access Control)',
+    'Enterprise-grade authentication and authorization',
     'Clean Architecture & Domain-Driven Design (DDD)',
     'Real-time agent orchestration via WebSockets & gRPC',
-    'Cross-platform desktop app with Tauri 2.0 & Rust',
-    'AI Cloud-Driven VFS (Private/Proprietary)',
   ],
 }
 
