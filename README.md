@@ -126,7 +126,7 @@ const achievements = {
 
 ---
 
-## 🚀 Featured Project
+## 🚀 Currently Building
 
 ### [Ursly](https://app.ursly.io) 🚀
 
