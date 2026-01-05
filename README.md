@@ -128,24 +128,7 @@ const achievements = {
 
 ## 🚀 Featured Project
 
-### [Ursly](https://www.ursly.io) 🚀
-
-**AI-Powered Cloud File System & Agent Platform**
-
-> 🔓 **Open Source:** [Ursly Agent](https://github.com/stonyp90/Usrly-Agent) - AI Agent Orchestration Platform
->
-> 🔒 **Proprietary:** AI Cloud-Driven File System (not open source)
-
-- 🧠 Multi-model LLM support (Ollama, OpenAI-compatible APIs)
-- 🔐 Enterprise-grade authentication with Keycloak OIDC
-- 🏗️ Clean Architecture & Domain-Driven Design (DDD)
-- ⚡ Real-time agent orchestration via WebSockets & gRPC
-- 🖥️ Cross-platform desktop app with Tauri 2.0 & Rust
-- ☁️ AI Cloud-Driven VFS (Private/Proprietary)
-
-**Tech Stack**: `NestJS` `React` `TypeScript` `Tauri` `Rust` `MongoDB` `Keycloak` `gRPC` `WebSockets` `Ollama`
-
-🌐 **Website**: [ursly.io](https://www.ursly.io)
+### [Ursly](https://app.ursly.io) 🚀
 
 ---
 
