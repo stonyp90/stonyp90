@@ -15,6 +15,18 @@ export const metadata: Metadata = {
     template: '%s | Anthony Paquet',
   },
   description: 'Anthony Paquet is a Visionary Engineering Leader and Head of Engineering at CREE8. Specializing in AI-powered transformation, cloud-native architecture (AWS, GCP, Azure), DevSecOps, and FinOps. Expert in building enterprise-grade solutions from 0→1 to scale.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/manifest.json',
   keywords: [
     'Anthony Paquet',
     'Head of Engineering',
@@ -130,8 +142,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://www.anthonypaquet.com" />
+        
+        {/* Favicons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Fonts */}
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
@@ -141,6 +163,8 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
