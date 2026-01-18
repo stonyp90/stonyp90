@@ -51,7 +51,7 @@ export const featuredProjects = [
     description: 'Building Ursly VFS—a unified virtual file system that abstracts block storage, object storage, and network protocols into a single high-performance layer. Mount any storage backend as a local filesystem with intelligent caching, encryption, and seamless multi-cloud support.',
     techStack: ['Rust', 'Tauri', 'gRPC', 'Protocol Buffers', 'FUSE', 'AWS S3', 'Azure Blob', 'GCS', 'NFS', 'SMB/CIFS'],
     githubUrl: null,
-    websiteUrl: null,
+    websiteUrl: 'https://ursly.io',
     highlights: [
       'Object storage: AWS S3, Azure Blob, Google Cloud Storage',
       'Block storage: EBS, Azure Disk, Persistent Disk abstraction',
@@ -77,7 +77,6 @@ export const services = {
     {
       id: 'finops-program',
       name: 'FinOps Program Build',
-      duration: '4–6 weeks',
       outcome: 'Complete cost governance framework with automated controls—typically delivering 30–60% savings and $200K–$1M+ annual cost avoidance.',
       deliverables: [
         'Multi-cloud cost audit & waste identification (AWS/Azure/GCP)',
@@ -96,7 +95,6 @@ export const services = {
     {
       id: 'compute-cost-engineering',
       name: 'Compute Cost Engineering',
-      duration: '3–4 weeks',
       outcome: 'Cut GPU, HPC, and compute-intensive workload costs by 35–55% while maintaining performance and team velocity.',
       deliverables: [
         'GPU/CPU utilization analysis & rightsizing',
@@ -116,7 +114,6 @@ export const services = {
     {
       id: 'compliance-acceleration',
       name: 'Compliance Acceleration',
-      duration: '5–8 weeks',
       outcome: 'Audit-ready in weeks, not months. Technical controls implemented for SOC2, ISO 27001, HIPAA, or PCI-DSS with continuous monitoring.',
       deliverables: [
         'Gap analysis & control mapping to framework',
@@ -135,7 +132,6 @@ export const services = {
     {
       id: 'data-security-governance',
       name: 'Data Security & Governance',
-      duration: '4–5 weeks',
       outcome: 'Enterprise-grade data protection with automated controls—audit trails, access governance, and compliance built in from day one.',
       deliverables: [
         'Data classification & sensitivity labeling',
@@ -156,7 +152,6 @@ export const services = {
     {
       id: 'dr-architecture',
       name: 'Disaster Recovery Program',
-      duration: '6–10 weeks',
       outcome: 'Battle-tested multi-region recovery that satisfies regulators, insurers, and the board with validated RTO/RPO targets.',
       deliverables: [
         'Business impact analysis & dependency mapping',
@@ -178,7 +173,6 @@ export const services = {
     {
       id: 'platform-foundation',
       name: 'Cloud Platform Foundation',
-      duration: '6–10 weeks',
       outcome: 'Production-grade foundation built for scale, security, and operational excellence from day one—with FinOps and compliance built in.',
       deliverables: [
         'Landing zone & multi-account/project structure',
@@ -197,7 +191,6 @@ export const services = {
     {
       id: 'legacy-modernization',
       name: 'Legacy Modernization & Tech Debt',
-      duration: '6–12 weeks',
       outcome: 'Transform legacy systems into modern, maintainable architectures—reduce technical debt, improve velocity, and unlock innovation.',
       deliverables: [
         'Technical debt assessment & prioritization',
@@ -216,7 +209,6 @@ export const services = {
     {
       id: 'devsecops-transformation',
       name: 'DevSecOps Transformation',
-      duration: '4–6 weeks',
       outcome: 'Ship faster and safer—security embedded in every deployment without slowing your teams down through automated controls.',
       deliverables: [
         'Secure CI/CD pipeline architecture',

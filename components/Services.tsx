@@ -202,14 +202,9 @@ export default function Services() {
                     </div>
                   </div>
 
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-3">
                     {service.name}
                   </h4>
-                  
-                  <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                    <FaCalendarAlt className="text-cyber-blue" />
-                    <span>{service.duration}</span>
-                  </div>
 
                   <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                     {service.outcome}
