@@ -67,8 +67,8 @@ const categoryInfo = {
   },
   architecture: {
     title: 'Architecture',
-    subtitle: 'Cloud Platform & DevSecOps',
-    description: 'Production-grade foundations built for scale, security, and operational excellence.',
+    subtitle: 'Modernization • Platform • DevSecOps',
+    description: 'From legacy to modern—build scalable foundations, eliminate tech debt, and accelerate your roadmap.',
   },
 }
 
@@ -77,7 +77,7 @@ type CategoryKey = keyof typeof services
 export default function Services() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [activeCategory, setActiveCategory] = useState<CategoryKey>('finops')
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('architecture')
   const [expandedService, setExpandedService] = useState<string | null>(null)
 
   const containerVariants = {
@@ -102,7 +102,7 @@ export default function Services() {
     },
   }
 
-  const categories: CategoryKey[] = ['finops', 'security', 'dr', 'architecture']
+  const categories: CategoryKey[] = ['architecture', 'finops', 'security', 'dr']
 
   return (
     <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden" id="services">
