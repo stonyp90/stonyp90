@@ -363,7 +363,7 @@ export default function Services() {
             </h4>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
               All engagements include <span className="text-cyber-green font-semibold">clearly defined scope and deliverables</span>. 
-              Flexible pricing models—fixed-price or hourly—to fit your needs. We'll discuss your specific requirements and provide a tailored proposal.
+              Flexible pricing models—fixed-price or hourly—to fit your needs. We&apos;ll discuss your specific requirements and provide a tailored proposal.
             </p>
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-400 mb-6">
               <span className="px-3 py-1.5 bg-cyber-dark rounded-full border border-white/10">
