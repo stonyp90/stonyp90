@@ -1,0 +1,7 @@
+# Security Policy for anthonypaquet.com
+# https://securitytxt.org/
+
+Contact: mailto:Anthonypaquet1508@gmail.com
+Preferred-Languages: en, fr
+Canonical: https://www.anthonypaquet.com/.well-known/security.txt
+Expires: 2027-01-16T00:00:00.000Z

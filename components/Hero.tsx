@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect, useMemo } from 'react'
-import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaCheck, FaCopy } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaCheck, FaCopy, FaCalendarAlt, FaArrowRight } from 'react-icons/fa'
 import { personalInfo, socialLinks } from '@/lib/data'
 
 interface Particle {
@@ -102,20 +102,53 @@ export default function Hero() {
         {/* Title */}
         <motion.h2
           variants={itemVariants}
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-5 sm:mb-8 text-gray-200 leading-tight"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-gray-200 leading-tight"
         >
           {personalInfo.title}
         </motion.h2>
 
+        {/* Subtitle/Specialties */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-5 sm:mb-6"
+        >
+          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-green text-xs sm:text-sm font-medium border border-cyber-green/20">
+            FinOps
+          </span>
+          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-blue text-xs sm:text-sm font-medium border border-cyber-blue/20">
+            Security & Compliance
+          </span>
+          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-purple text-xs sm:text-sm font-medium border border-cyber-purple/20">
+            Disaster Recovery
+          </span>
+          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-pink text-xs sm:text-sm font-medium border border-cyber-pink/20">
+            AI Infrastructure
+          </span>
+        </motion.div>
+
         {/* Tagline */}
         <motion.p
           variants={itemVariants}
-          className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2"
+          className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
         >
           {personalInfo.tagline}
         </motion.p>
 
-        {/* CTA Buttons - Mobile optimized */}
+        {/* Primary CTA - Book a Call */}
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+          <a
+            href={personalInfo.calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-cyber-green to-cyber-blue hover:from-cyber-green hover:to-cyber-green px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-cyber-black font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-lg text-sm sm:text-base group"
+          >
+            <FaCalendarAlt className="text-lg sm:text-xl" />
+            <span>Book a Free 15-min Scoping Call</span>
+            <FaArrowRight className="text-sm sm:text-base group-hover:translate-x-1 transition-transform" />
+          </a>
+        </motion.div>
+
+        {/* Secondary CTAs */}
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap gap-2.5 sm:gap-3 justify-center items-center px-2"
@@ -161,13 +194,13 @@ export default function Hero() {
             )}
           </button>
 
-          {/* Download Resume - Primary CTA */}
+          {/* Download Resume */}
           <a
             href="/AnthonyPaquet.pdf"
             download="AnthonyPaquet.pdf"
-            className="bg-gradient-to-r from-cyber-blue to-cyber-blue-dark hover:from-cyber-blue hover:to-cyber-blue px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl flex items-center gap-2 text-cyber-black font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-lg text-sm sm:text-base"
+            className="glass glass-hover px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-xl flex items-center gap-2 text-white font-medium group text-sm sm:text-base border border-cyber-blue/20"
           >
-            <FaFileDownload className="text-lg sm:text-xl" />
+            <FaFileDownload className="text-lg sm:text-xl group-hover:text-cyber-blue transition-colors duration-300" />
             <span>Resume</span>
           </a>
         </motion.div>

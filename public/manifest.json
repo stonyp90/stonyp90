@@ -1,12 +1,13 @@
 {
-  "name": "Anthony Paquet - Engineering Portfolio",
+  "name": "Anthony Paquet - AI & Cloud Security Architect",
   "short_name": "Anthony Paquet",
-  "description": "Visionary Engineering Leader specializing in AI-powered transformation, cloud-native architecture, DevSecOps, and FinOps",
+  "description": "Cloud Security & FinOps Consulting. Cut cloud costs 30-60%, achieve SOC2/HIPAA compliance, build from 0→1 to scale.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#00d4ff",
   "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
   "icons": [
     {
       "src": "/favicon.svg",

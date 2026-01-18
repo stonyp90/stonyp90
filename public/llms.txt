@@ -1,0 +1,63 @@
+# Anthony Paquet - AI & Cloud Security Architect
+
+> Engineering Leader & Cloud Architect helping growth-stage companies cut cloud costs 30-60%, achieve compliance, and build from 0→1 to scale. Results in weeks.
+
+## About
+
+Anthony Paquet is an AI & Cloud Security Architect based in Quebec, Canada. He works with growth-stage companies and enterprises across AWS, Azure, and GCP to reduce cloud spend, implement compliance frameworks (SOC2, HIPAA, PCI-DSS, ISO 27001), secure AI/LLM systems, and architect disaster recovery solutions.
+
+## Services & Pricing
+
+### FinOps / Cloud Cost Optimization
+- Enterprise FinOps Program: From $18,500 (3-4 weeks) - Full governance framework, typically saves 6 figures annually
+- AI Infrastructure Cost Engineering: From $16,500 (2-3 weeks) - Cut GPU/AI spend 30-50%
+- Cloud Cost Rapid Assessment: From $12,500 (2 weeks) - Identify 20-40% savings with action plan
+
+### Security & Compliance
+- Cloud Security Transformation: From $18,500 (3-4 weeks) - Zero-trust architecture, CSPM, incident response
+- AI/LLM Security & Governance: From $16,500 (3 weeks) - LLM gateway, PII filtering, prompt injection controls
+- Compliance Acceleration: From $14,500 (3-4 weeks) - SOC2, ISO 27001, HIPAA, or PCI-DSS readiness
+
+### Disaster Recovery
+- Enterprise DR Architecture: From $24,500 (4-5 weeks) - Multi-region/multi-cloud with tested failover
+- DR Strategy & Assessment: From $12,500 (2 weeks) - RTO/RPO definition, gap analysis, roadmap
+- DR Simulation & Validation: From $8,500 (1 week) - Live failover testing, compliance documentation
+
+### Architecture
+- Cloud Platform Architecture: From $22,500 (4-5 weeks) - Landing zone, IAM, observability, CI/CD blueprint
+- DevSecOps Transformation: From $15,500 (3 weeks) - Secure pipelines, SAST/DAST, secrets management
+- Cloud Migration Strategy: From $12,500 (2 weeks) - Assessment, target architecture, TCO analysis
+
+## Industries Served
+
+- Financial Services & FinTech: Multi-region DR, PCI-DSS, SOC2 for enterprise clients
+- Healthcare & HealthTech: HIPAA compliance, PHI protection, secure patient data
+- AI & SaaS Startups (Series A-C): SOC2 for enterprise sales, GPU cost control, LLM security
+- Defense & Government: Mission-critical systems, FedRAMP, secure deployments
+- Media & Entertainment: TPN/MPAA compliance, content security
+- E-commerce at Scale: PCI compliance, high availability
+
+## Track Record
+
+- CREE8: 60% cloud cost reduction ($500K+ annual savings), SOC2 Type II + TPN Gold in 6 months
+- Fairstone Bank: Multi-region DR architecture, RTO reduced from 24hrs to under 4hrs
+- Videotron: 99.9% uptime for streaming platforms serving millions of subscribers
+- Vanderlande: Built PAX Divest Assistant (airport security) from 0→1 in 6 months, deployed globally
+- PetalMD: HIPAA-compliant architecture protecting PHI for 100+ healthcare organizations
+
+## Certifications
+
+- AWS Certified Solutions Architect - Associate
+- AWS Certified Developer - Associate
+- AWS Certified Cloud Practitioner
+
+## Contact
+
+- Website: https://www.anthonypaquet.com
+- Email: Anthonypaquet1508@gmail.com
+- LinkedIn: https://linkedin.com/in/anthony-paquet-94a31085
+- Book a Call: https://calendly.com/anthonypaquet1508/15min
+
+## Engagement Model
+
+All engagements include clearly defined scope and deliverables. Flexible pricing models—fixed-price or hourly—to fit your needs. Typical timeline is 2-8 weeks depending on scope. Remote-first, serving clients worldwide.

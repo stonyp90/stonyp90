@@ -1,0 +1,27 @@
+/* TEAM */
+Name: Anthony Paquet
+Role: AI & Cloud Security Architect
+Location: Quebec, Canada
+LinkedIn: linkedin.com/in/anthony-paquet-94a31085
+GitHub: github.com/stonyp90
+
+/* SITE */
+Last update: 2026-01-16
+Language: English
+Standards: HTML5, CSS3, ES6+
+Framework: Next.js 14, React 18, TypeScript
+Styling: Tailwind CSS
+Hosting: AWS CloudFront + S3
+Domain: anthonypaquet.com
+
+/* SERVICES */
+FinOps / Cloud Cost Optimization
+Security & Compliance (SOC2, HIPAA, PCI-DSS)
+AI/LLM Security & Governance
+Disaster Recovery Architecture
+DevSecOps Transformation
+
+/* CERTIFICATIONS */
+AWS Certified Solutions Architect - Associate
+AWS Certified Developer - Associate
+AWS Certified Cloud Practitioner
