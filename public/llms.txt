@@ -10,7 +10,7 @@ Anthony Paquet is an AI & Cloud Security Architect based in Quebec, Canada. He w
 
 ### FinOps / Cloud Cost Optimization
 - Enterprise FinOps Program: From $18,500 (3-4 weeks) - Full governance framework, typically saves 6 figures annually
-- AI Infrastructure Cost Engineering: From $16,500 (2-3 weeks) - Cut GPU/AI spend 30-50%
+- Compute Cost Engineering: Cut GPU and compute-intensive workload costs 35-55%
 - Cloud Cost Rapid Assessment: From $12,500 (2 weeks) - Identify 20-40% savings with action plan
 
 ### Security & Compliance

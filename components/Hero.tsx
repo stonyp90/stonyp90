@@ -122,7 +122,7 @@ export default function Hero() {
             Disaster Recovery
           </span>
           <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-pink text-xs sm:text-sm font-medium border border-cyber-pink/20">
-            AI Infrastructure
+            Infrastructure
           </span>
         </motion.div>
 

@@ -50,7 +50,7 @@ export default function Experience() {
             Experience
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto text-xs sm:text-sm md:text-base px-4">
-            Proven outcomes across cloud, security, and AI infrastructure
+            Proven outcomes across cloud, security, and infrastructure
           </p>
         </motion.div>
 
