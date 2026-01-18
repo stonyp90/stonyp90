@@ -293,7 +293,7 @@ export default function About() {
                         className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-5 sm:py-3 glass border border-cyber-purple/50 text-cyber-purple font-bold rounded-lg sm:rounded-xl transition-all hover:bg-cyber-purple/10 text-sm sm:text-base"
                       >
                         <FaGlobe className="text-lg sm:text-xl" />
-                        <span>app.ursly.io</span>
+                        <span>{new URL(featuredProjects[activeProject].websiteUrl).hostname.replace('www.', '')}</span>
                       </motion.a>
                     )}
                     {featuredProjects[activeProject].githubUrl && (
