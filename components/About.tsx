@@ -1,26 +1,20 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { 
-  FaRocket, 
-  FaBrain, 
-  FaCloud, 
   FaQuoteLeft, 
-  FaLock,
   FaUsers,
   FaChartLine,
   FaAward,
   FaSnowflake,
   FaChild,
   FaHeart,
-  FaGlobe,
-  FaClock,
-  FaGithub
+  FaClock
 } from 'react-icons/fa'
 import Image from 'next/image'
-import { personalInfo, featuredProjects } from '@/lib/data'
+import { personalInfo } from '@/lib/data'
 
 const stats = [
   { icon: FaUsers, value: '10+', label: 'Engineers Led', color: 'cyber-blue' },
@@ -32,7 +26,6 @@ const stats = [
 export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [activeProject, setActiveProject] = useState(0)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -205,177 +198,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Featured Projects Showcase */}
-        <motion.div variants={itemVariants}>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyber-blue to-cyber-purple rounded-lg sm:rounded-xl">
-                <FaRocket className="text-lg sm:text-xl md:text-2xl text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-                  Featured Projects
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm">What I&apos;m building</p>
-              </div>
-            </div>
-
-            {/* Project Toggle */}
-            <div className="flex gap-2 p-1 glass rounded-xl">
-              {featuredProjects.map((project, index) => (
-                <button
-                  key={project.id}
-                  onClick={() => setActiveProject(index)}
-                  className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
-                    activeProject === index
-                      ? 'bg-gradient-to-r from-cyber-blue to-cyber-purple text-white shadow-lg'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  {project.id === 'ai-orchestrator' ? (
-                    <span className="flex items-center gap-1.5 sm:gap-2">
-                      <FaBrain className="text-sm sm:text-base" />
-                      <span className="hidden xs:inline">AI Edge Platform</span>
-                      <span className="xs:hidden">AI</span>
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-1.5 sm:gap-2">
-                      <FaCloud className="text-sm sm:text-base" />
-                      <span className="hidden xs:inline">Cloud VFS</span>
-                      <span className="xs:hidden">VFS</span>
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeProject}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
-              <div className={`absolute inset-0 rounded-2xl sm:rounded-3xl ${
-                featuredProjects[activeProject].color === 'cyber-purple' 
-                  ? 'bg-gradient-to-br from-cyber-purple/5 via-transparent to-cyber-blue/5' 
-                  : 'bg-gradient-to-br from-cyber-blue/5 via-transparent to-cyber-green/5'
-              }`} />
-              <div className="relative glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/5 hover:border-cyber-blue/20 transition-all duration-500">
-                {/* Project Header */}
-                <div className="flex flex-col gap-4 sm:gap-6 mb-6 sm:mb-8">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-                      <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">
-                        {featuredProjects[activeProject].name}
-                      </h4>
-                      <span className="px-2.5 py-1 sm:px-3 sm:py-1 bg-cyber-green/15 border border-cyber-green/30 rounded-full text-cyber-green text-[10px] sm:text-xs font-medium uppercase tracking-wider">
-                        Active
-                      </span>
-                    </div>
-                    <p className={`text-base sm:text-lg md:text-xl font-medium ${
-                      featuredProjects[activeProject].color === 'cyber-purple' ? 'text-cyber-purple' : 'text-cyber-blue'
-                    }`}>
-                      {featuredProjects[activeProject].tagline}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 sm:gap-3">
-                    {featuredProjects[activeProject].websiteUrl && (
-                      <motion.a
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        href={featuredProjects[activeProject].websiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-5 sm:py-3 glass border border-cyber-purple/50 text-cyber-purple font-bold rounded-lg sm:rounded-xl transition-all hover:bg-cyber-purple/10 text-sm sm:text-base"
-                      >
-                        <FaGlobe className="text-lg sm:text-xl" />
-                        <span>{new URL(featuredProjects[activeProject].websiteUrl).hostname.replace('www.', '')}</span>
-                      </motion.a>
-                    )}
-                    {featuredProjects[activeProject].githubUrl && (
-                      <motion.a
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        href={featuredProjects[activeProject].githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-5 sm:py-3 glass border border-gray-600 text-gray-300 font-bold rounded-lg sm:rounded-xl transition-all hover:bg-white/5 hover:border-gray-500 text-sm sm:text-base"
-                      >
-                        <FaGithub className="text-lg sm:text-xl" />
-                        <span>GitHub</span>
-                      </motion.a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Project Description */}
-                <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-6 sm:mb-8">
-                  {featuredProjects[activeProject].description}
-                </p>
-
-                {/* Tech Stack & Features Grid */}
-                <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                  {/* Tech Stack */}
-                  <div>
-                    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                      <FaBrain className={`text-lg sm:text-xl md:text-2xl ${
-                        featuredProjects[activeProject].color === 'cyber-purple' ? 'text-cyber-purple' : 'text-cyber-blue'
-                      }`} />
-                      <h5 className="text-base sm:text-lg md:text-xl font-bold text-white">Tech Stack</h5>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {featuredProjects[activeProject].techStack.map((tech, index) => (
-                        <motion.span
-                          key={`${activeProject}-tech-${index}`}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.03 }}
-                          className={`px-2.5 py-1.5 sm:px-3 sm:py-2 bg-cyber-dark border rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all cursor-default ${
-                            featuredProjects[activeProject].color === 'cyber-purple'
-                              ? 'border-cyber-purple/20 text-cyber-purple hover:border-cyber-purple/50 hover:bg-cyber-purple/5'
-                              : 'border-cyber-blue/20 text-cyber-blue hover:border-cyber-blue/50 hover:bg-cyber-blue/5'
-                          }`}
-                        >
-                          {tech}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Key Features */}
-                  <div>
-                    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                      <FaCloud className="text-lg sm:text-xl md:text-2xl text-cyber-green" />
-                      <h5 className="text-base sm:text-lg md:text-xl font-bold text-white">Key Features</h5>
-                    </div>
-                    <ul className="space-y-2 sm:space-y-3">
-                      {featuredProjects[activeProject].highlights.map((highlight, index) => (
-                        <motion.li 
-                          key={`${activeProject}-highlight-${index}`}
-                          initial={{ opacity: 0, x: -15 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
-                          className="flex items-start gap-2 sm:gap-3 text-gray-300 group text-xs sm:text-sm md:text-base"
-                        >
-                          <span className={`mt-1.5 sm:mt-2 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0 group-hover:scale-150 transition-transform duration-300 ${
-                            featuredProjects[activeProject].color === 'cyber-purple'
-                              ? 'bg-gradient-to-r from-cyber-purple to-cyber-blue'
-                              : 'bg-gradient-to-r from-cyber-blue to-cyber-green'
-                          }`} />
-                          <span className="group-hover:text-white transition-colors duration-300">{highlight}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
       </motion.div>
     </section>
   )

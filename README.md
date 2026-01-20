@@ -126,27 +126,6 @@ const achievements = {
 
 ---
 
-## 🚀 Currently Building
-
-### AI Agent Orchestrator 🚀
-
-**Enterprise-Grade AI Agent Orchestration Platform**
-
-Building an AI Agent Orchestrator with:
-- 🔍 **Full audit capabilities** and compliance tracking
-- 🔐 **Full IDP compliant** identity provider integration
-- 🔗 **ReBAC** (Relationship-Based Access Control)
-- 👥 **RBAC** (Role-Based Access Control)
-- 🏗️ Clean Architecture & Domain-Driven Design (DDD)
-- ⚡ Real-time agent orchestration via WebSockets & gRPC
-- 🖥️ Cross-platform desktop app with Tauri 2.0 & Rust
-
-**Tech Stack**: `NestJS` `React` `TypeScript` `Tauri` `Rust` `MongoDB` `Keycloak` `gRPC` `WebSockets` `Ollama`
-
-🌐 **Website**: [app.ursly.io](https://app.ursly.io)
-
----
-
 ## 💼 Professional Experience
 
 ### 🚀 **Head of Engineering** @ CREE8

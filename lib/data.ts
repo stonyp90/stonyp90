@@ -23,53 +23,6 @@ export const socialLinks = {
   email: 'mailto:Anthonypaquet1508@gmail.com',
 }
 
-export const featuredProjects = [
-  {
-    id: 'ai-orchestrator',
-    name: 'Ursly AI Edge Platform',
-    tagline: 'AI Edge Orchestration for the Modern Enterprise',
-    description: 'Building a next-generation AI Edge Orchestration Platform that brings intelligence to the edge. Run AI agents locally or in hybrid environments with full audit trails, enterprise identity integration, and granular access controls—all while maintaining data sovereignty and low-latency inference.',
-  techStack: ['NestJS', 'React', 'TypeScript', 'Tauri', 'MongoDB', 'Keycloak', 'gRPC', 'WebSockets', 'Ollama', 'Rust'],
-    githubUrl: null,
-  websiteUrl: 'https://app.ursly.io',
-  highlights: [
-      'Edge-first AI agent deployment & orchestration',
-      'Hybrid cloud/edge inference with automatic failover',
-    'Full audit capabilities and compliance tracking',
-      'Enterprise IDP integration (SAML, OIDC, LDAP)',
-      'ReBAC & RBAC fine-grained access control',
-      'Real-time agent coordination via WebSockets & gRPC',
-      'Local LLM support with Ollama integration',
-    ],
-    icon: 'brain',
-    color: 'cyber-purple',
-  },
-  {
-    id: 'cloud-vfs',
-    name: 'Ursly Cloud VFS',
-    tagline: 'Universal Storage Fabric for AI Workloads',
-    description: 'Building Ursly VFS—a unified virtual file system that abstracts block storage, object storage, and network protocols into a single high-performance layer. Mount any storage backend as a local filesystem with intelligent caching, encryption, and seamless multi-cloud support.',
-    techStack: ['Rust', 'Tauri', 'gRPC', 'Protocol Buffers', 'FUSE', 'AWS S3', 'Azure Blob', 'GCS', 'NFS', 'SMB/CIFS'],
-    githubUrl: null,
-    websiteUrl: 'https://ursly.io',
-    highlights: [
-      'Object storage: AWS S3, Azure Blob, Google Cloud Storage',
-      'Block storage: EBS, Azure Disk, Persistent Disk abstraction',
-      'Network protocols: NFS v3/v4, SMB/CIFS support',
-      'High-performance Rust core with zero-copy I/O',
-      'Intelligent tiered caching (memory → SSD → cloud)',
-      'FUSE integration for native OS filesystem mounting',
-      'End-to-end encryption with key management',
-      'Built for AI/ML dataset pipelines at scale',
-    ],
-    icon: 'cloud',
-    color: 'cyber-blue',
-  },
-]
-
-// Keep legacy export for compatibility
-export const urslyProject = featuredProjects[0]
-
 // Services packages for consulting
 // Pricing aligned with market rates for senior cloud/security architects ($200-300/hr equivalent)
 export const services = {
