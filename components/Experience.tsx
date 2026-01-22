@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { FaBriefcase, FaMapMarkerAlt, FaChevronDown, FaTrophy, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaBriefcase, FaMapMarkerAlt, FaChevronDown, FaTrophy } from 'react-icons/fa'
 import { experiences } from '@/lib/data'
 
 export default function Experience() {
@@ -34,12 +34,12 @@ export default function Experience() {
   }
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20" id="experience">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24" id="experience">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-4xl mx-auto"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Section Title */}
         <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-10 md:mb-12">
@@ -49,13 +49,13 @@ export default function Experience() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-3 sm:mb-4">
             Experience
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-xs sm:text-sm md:text-base px-4">
+          <p className="text-gray-400 max-w-xl mx-auto text-xs sm:text-sm md:text-base">
             Proven outcomes across cloud, security, and infrastructure
           </p>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
+        {/* Timeline - centered with max width for readability */}
+        <div className="relative max-w-4xl mx-auto">
           {/* Vertical line - tighter on mobile */}
           <div className="absolute left-[7px] sm:left-4 md:left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyber-blue via-cyber-purple to-cyber-pink" />
 
@@ -182,19 +182,6 @@ export default function Experience() {
                         ))}
                       </div>
 
-                      {/* Project URL */}
-                      {exp.projectUrl && (
-                        <a
-                          href={exp.projectUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-cyber-blue/10 border border-cyber-blue/30 rounded-md sm:rounded-lg text-cyber-blue text-[10px] sm:text-xs md:text-sm hover:bg-cyber-blue/20 hover:border-cyber-blue/50 transition-all"
-                        >
-                          <FaExternalLinkAlt className="text-[9px] sm:text-[10px] md:text-xs" />
-                          View Project
-                        </a>
-                      )}
                     </div>
                   </motion.div>
                 </motion.div>

@@ -4,20 +4,33 @@ import { useEffect, useState } from 'react'
 
 export default function LoadingIndicator() {
   const [isLoading, setIsLoading] = useState(true)
+  const [isFading, setIsFading] = useState(false)
 
   useEffect(() => {
-    // Hide loading indicator once page is loaded
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 100)
+    // Start fade out immediately, then remove from DOM
+    const fadeTimer = setTimeout(() => {
+      setIsFading(true)
+    }, 50)
 
-    return () => clearTimeout(timer)
+    // Remove from DOM after fade completes
+    const removeTimer = setTimeout(() => {
+      setIsLoading(false)
+    }, 400) // Match transition duration
+
+    return () => {
+      clearTimeout(fadeTimer)
+      clearTimeout(removeTimer)
+    }
   }, [])
 
   if (!isLoading) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-cyber-black">
+    <div 
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-cyber-black transition-opacity duration-300 ${
+        isFading ? 'opacity-0' : 'opacity-100'
+      }`}
+    >
       <div className="relative">
         <div className="w-16 h-16 border-4 border-cyber-blue/20 border-t-cyber-blue rounded-full animate-spin" />
         <div className="absolute inset-0 flex items-center justify-center">

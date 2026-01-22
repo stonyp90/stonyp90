@@ -6,13 +6,13 @@ import { personalInfo, socialLinks } from '@/lib/data'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-cyber-dark/50 border-t border-white/5 py-10 sm:py-12 overflow-hidden">
+    <footer className="relative bg-cyber-dark/50 border-t border-white/5 py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-cyber-blue/5 blur-[100px]" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 mb-8 sm:mb-10">
           {/* About */}
           <div className="text-center sm:text-left">
@@ -30,9 +30,9 @@ export default function Footer() {
             <h3 className="text-lg sm:text-xl font-bold text-cyber-blue mb-3 sm:mb-4">Quick Links</h3>
             <ul className="space-y-2 sm:space-y-2.5">
               {[
+                { href: '#services', label: 'Services' },
                 { href: '#about', label: 'About' },
                 { href: '#experience', label: 'Experience' },
-                { href: '#skills', label: 'Skills' },
                 { href: '#certifications', label: 'Certifications' },
               ].map((link) => (
                 <li key={link.href}>
@@ -44,41 +44,6 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-            </ul>
-            
-            {/* Consulting Brands */}
-            <h4 className="text-sm font-semibold text-gray-500 mt-5 mb-2">Consulting Brands</h4>
-            <ul className="space-y-1.5">
-              <li>
-                <a
-                  href="https://www.scaleforged.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-indigo-400 transition-colors duration-300 text-xs inline-block"
-                >
-                  ScaleForged – Cloud Architecture
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.disasterproof.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-blue-400 transition-colors duration-300 text-xs inline-block"
-                >
-                  DisasterProof – Disaster Recovery
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.controlcraft.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-teal-400 transition-colors duration-300 text-xs inline-block"
-                >
-                  ControlCraft – Compliance
-                </a>
-              </li>
             </ul>
           </div>
 

@@ -11,10 +11,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.anthonypaquet.com'),
   title: {
-    default: 'Anthony Paquet | AI & Cloud Security Architect | FinOps, SOC2, Disaster Recovery',
+    default: 'Anthony Paquet | Fractional CTO & Cloud Architect | Cut Costs 30-60%, SOC2 in Weeks',
     template: '%s | Anthony Paquet',
   },
-  description: 'Engineering Leader & Cloud Architect helping growth-stage companies cut cloud costs 30-60%, achieve SOC2/HIPAA/PCI compliance, and build from 0→1 to scale. AWS, Azure, GCP expertise across Financial Services, Healthcare, Media & Entertainment, and high-growth startups.',
+  description: 'Fractional CTO & Cloud Architect for CTOs and engineering leaders. Cut cloud costs 30-60% (millions saved), pass SOC2/HIPAA audits in weeks (95%+ pass rate), scale from 0→1 to enterprise. Ex-Head of Engineering. AWS, Azure, GCP. Book a free strategy call.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -28,6 +28,13 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   keywords: [
+    // Executive searches
+    'Fractional CTO',
+    'Fractional CTO for hire',
+    'Interim CTO',
+    'Cloud consultant for startups',
+    'Engineering leadership consultant',
+    'Technical advisor for startups',
     // Primary services
     'Cloud Security Consultant',
     'FinOps Consultant',
@@ -164,7 +171,6 @@ const serviceSchema = {
   description: 'Cloud security, FinOps, and compliance consulting for growth-stage companies. From 0→1 to enterprise scale.',
   url: 'https://www.anthonypaquet.com',
   image: 'https://www.anthonypaquet.com/images/anthony-paquet.jpg',
-  priceRange: '$8,500 - $24,500',
   areaServed: {
     '@type': 'Place',
     name: 'Worldwide (Remote)',
@@ -287,7 +293,7 @@ const faqSchema = {
       name: 'Can Anthony Paquet help with SOC2 compliance?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Anthony Paquet has achieved SOC2 Type II certification for clients in 6 months. His Compliance Acceleration service ($14,500+) includes gap analysis, control mapping, IAM implementation, secrets management, logging & evidence automation, and auditor-ready documentation for SOC2, ISO 27001, HIPAA, and PCI-DSS.',
+        text: 'Yes. Anthony Paquet has achieved SOC2 Type II certification for clients in 6 months. His Compliance Acceleration service includes gap analysis, control mapping, IAM implementation, secrets management, logging & evidence automation, and auditor-ready documentation for SOC2, ISO 27001, HIPAA, and PCI-DSS.',
       },
     },
     {
@@ -295,7 +301,7 @@ const faqSchema = {
       name: 'Does Anthony Paquet help with AI and LLM security?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. The AI/LLM Security & Governance service ($16,500+) includes LLM gateway with policy enforcement, PII/PHI detection and redaction, prompt injection controls, usage metering and cost limits, and compliance audit logging. Designed for production AI systems requiring SOC2 compliance.',
+        text: 'Yes. The AI/LLM Security & Governance service includes LLM gateway with policy enforcement, PII/PHI detection and redaction, prompt injection controls, usage metering and cost limits, and compliance audit logging. Designed for production AI systems requiring SOC2 compliance.',
       },
     },
   ],
@@ -341,7 +347,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        
+      </body>
     </html>
   )
 }

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
-import { FaAward, FaGraduationCap, FaLanguage, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaAward, FaGraduationCap, FaLanguage } from 'react-icons/fa'
 import { certifications, education, languages } from '@/lib/data'
 
 export default function Certifications() {
@@ -34,19 +34,19 @@ export default function Certifications() {
   }
 
   return (
-    <section ref={ref} className="py-16 sm:py-20" id="certifications">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24" id="certifications">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-5xl mx-auto"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Section Title */}
         <motion.h2 variants={itemVariants} className="section-title gradient-text mb-10 sm:mb-12">
           Certifications & Education
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
           {/* Certifications */}
           <motion.div variants={itemVariants}>
             <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full">
@@ -56,15 +56,12 @@ export default function Certifications() {
               </h3>
               <div className="space-y-3 sm:space-y-4">
                 {certifications.map((cert, index) => (
-                  <a
+                  <div
                     key={index}
-                    href={cert.credlyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-3 sm:p-4 bg-cyber-dark/50 rounded-lg sm:rounded-xl border border-white/5 hover:border-cyber-blue/40 hover:bg-cyber-blue/5 transition-all duration-300 group active:scale-[0.99]"
+                    className="block p-3 sm:p-4 bg-cyber-dark/50 rounded-lg sm:rounded-xl border border-white/5"
                   >
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex-shrink-0">
                         <Image
                           src={cert.badgeImage}
                           alt={cert.name}
@@ -75,19 +72,13 @@ export default function Certifications() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-bold text-white mb-0.5 sm:mb-1 group-hover:text-cyber-blue transition-colors duration-300 text-xs sm:text-sm md:text-base leading-tight">
-                            {cert.name}
-                          </h4>
-                          <FaExternalLinkAlt className="text-cyber-blue/40 group-hover:text-cyber-blue transition-colors duration-300 flex-shrink-0 mt-0.5 text-xs sm:text-sm" />
-                        </div>
+                        <h4 className="font-bold text-white mb-0.5 sm:mb-1 text-xs sm:text-sm md:text-base leading-tight">
+                          {cert.name}
+                        </h4>
                         <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">{cert.issuer}</p>
-                        <p className="text-[10px] sm:text-xs text-cyber-blue/60 mt-1 sm:mt-1.5 flex items-center gap-1">
-                          <span>Verify on Credly</span>
-                        </p>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>

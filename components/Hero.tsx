@@ -2,7 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect, useMemo } from 'react'
-import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaCheck, FaCopy, FaCalendarAlt, FaArrowRight, FaPhone } from 'react-icons/fa'
+import { 
+  FaCalendarAlt, 
+  FaArrowRight, 
+  FaCheckCircle, 
+  FaLinkedin,
+  FaFileDownload
+} from 'react-icons/fa'
 import { personalInfo, socialLinks } from '@/lib/data'
 
 interface Particle {
@@ -13,13 +19,11 @@ interface Particle {
 }
 
 export default function Hero() {
-  const [copied, setCopied] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  // Generate particles only on client side to avoid hydration errors
   const particles = useMemo<Particle[]>(() => {
     if (!isMounted) return []
-    return Array.from({ length: 15 }, () => ({
+    return Array.from({ length: 12 }, () => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
       duration: 4 + Math.random() * 3,
@@ -31,39 +35,33 @@ export default function Hero() {
     setIsMounted(true)
   }, [])
 
-  const copyEmail = async () => {
-    await navigator.clipboard.writeText(personalInfo.email)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.7,
         ease: [0.4, 0, 0.2, 1],
       },
     },
   }
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-8 pb-16 sm:pt-0 sm:pb-0">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-4 pb-8 sm:pt-0 sm:pb-0">
       {/* Animated grid background */}
-      <div className="absolute inset-0 opacity-[0.15]">
+      <div className="absolute inset-0 opacity-[0.12]">
         <div className="absolute inset-0" style={{
           backgroundImage: `
             linear-gradient(to right, rgba(0, 212, 255, 0.15) 1px, transparent 1px),
@@ -74,155 +72,112 @@ export default function Hero() {
       </div>
 
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-cyber-blue/10 rounded-full blur-[100px] animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-cyber-purple/10 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-cyber-green/8 rounded-full blur-[100px] animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-cyber-blue/8 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
       {/* Content */}
       <motion.div
-        className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto w-full"
+        className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Greeting */}
-        <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
-          <span className="text-cyber-blue text-sm sm:text-base md:text-lg font-mono tracking-wider">
-            Hi, I&apos;m
-          </span>
+        {/* Availability Badge */}
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-green/10 border border-cyber-green/30 backdrop-blur-sm">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green"></span>
+            </span>
+            <span className="text-cyber-green text-xs sm:text-sm font-medium">
+              Currently accepting new engagements
+            </span>
+          </div>
         </motion.div>
 
-        {/* Name with gradient */}
+        {/* Main Headline - Outcome Focused */}
         <motion.h1
           variants={itemVariants}
-          className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 gradient-text leading-[1.1] tracking-tight"
+          className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 leading-[1.15] tracking-tight"
         >
-          {personalInfo.name}
+          <span className="text-white">I Help Engineering Leaders</span>
+          <br />
+          <span className="gradient-text">Ship Faster, Cut Costs & Stay Compliant</span>
         </motion.h1>
 
-        {/* Title */}
-        <motion.h2
-          variants={itemVariants}
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 sm:mb-4 text-gray-200 leading-tight"
-        >
-          {personalInfo.title}
-        </motion.h2>
-
-        {/* Subtitle/Specialties */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-5 sm:mb-6"
-        >
-          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-green text-xs sm:text-sm font-medium border border-cyber-green/20">
-            FinOps
-          </span>
-          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-blue text-xs sm:text-sm font-medium border border-cyber-blue/20">
-            Security & Compliance
-          </span>
-          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-purple text-xs sm:text-sm font-medium border border-cyber-purple/20">
-            Disaster Recovery
-          </span>
-          <span className="px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-cyber-pink text-xs sm:text-sm font-medium border border-cyber-pink/20">
-            Infrastructure
-          </span>
-        </motion.div>
-
-        {/* Tagline */}
+        {/* Value Proposition */}
         <motion.p
           variants={itemVariants}
-          className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed"
         >
-          {personalInfo.tagline}
+          Senior Cloud Architect & Engineering Leader. I embed with your team to 
+          <span className="text-cyber-green font-semibold"> cut cloud spend 30-60%</span>, 
+          <span className="text-cyber-blue font-semibold"> pass SOC2/HIPAA audits in weeks</span>, and 
+          <span className="text-cyber-purple font-semibold"> build infrastructure that scales</span>.
+          <br className="hidden sm:block" />
+          <span className="text-gray-400">Results in weeks, not quarters. No long-term contracts required.</span>
         </motion.p>
 
-        {/* Primary CTAs - Book a Call + Phone */}
-        <motion.div variants={itemVariants} className="mb-6 sm:mb-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+        {/* Trust Indicators - Quick Hits */}
+        <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 mb-6 sm:mb-8 text-xs sm:text-sm text-gray-400">
+          <div className="flex items-center gap-1.5">
+            <FaCheckCircle className="text-cyber-green text-xs" />
+            <span>AWS Certified Architect</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <FaCheckCircle className="text-cyber-green text-xs" />
+            <span>Ex-Head of Engineering</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <FaCheckCircle className="text-cyber-green text-xs" />
+            <span>Fortune 500 & Startup Experience</span>
+          </div>
+        </motion.div>
+
+        {/* Primary CTAs */}
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <a
             href={personalInfo.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-cyber-green to-cyber-blue hover:from-cyber-green hover:to-cyber-green px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-cyber-black font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-lg text-sm sm:text-base group"
+            className="group inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-cyber-green to-cyber-blue hover:from-cyber-green hover:to-cyber-green px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl text-cyber-black font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-lg text-sm sm:text-base w-full sm:w-auto justify-center"
           >
-            <FaCalendarAlt className="text-lg sm:text-xl" />
-            <span>Book a Free 15-min Scoping Call</span>
-            <FaArrowRight className="text-sm sm:text-base group-hover:translate-x-1 transition-transform" />
+            <FaCalendarAlt className="text-lg" />
+            <span>Book Free Strategy Call</span>
+            <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
           </a>
-          <a
-            href={`tel:+1${personalInfo.phone.replace(/-/g, '')}`}
-            className="inline-flex items-center gap-2 glass glass-hover px-5 py-3 sm:px-6 sm:py-4 rounded-xl text-white font-medium transition-all text-sm sm:text-base"
-          >
-            <FaPhone className="text-cyber-green" />
-            <span>({personalInfo.phone.slice(0, 3)}) {personalInfo.phone.slice(4)}</span>
-          </a>
-        </motion.div>
-
-        {/* Secondary CTAs */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap gap-2.5 sm:gap-3 justify-center items-center px-2"
-        >
-          {/* LinkedIn */}
-          <a
-            href={socialLinks.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass glass-hover px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-xl flex items-center gap-2 text-white font-medium group text-sm sm:text-base"
-          >
-            <FaLinkedin className="text-lg sm:text-xl group-hover:text-cyber-blue transition-colors duration-300" />
-            <span className="hidden xs:inline">LinkedIn</span>
-          </a>
-
-          {/* GitHub */}
-          <a
-            href={socialLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass glass-hover px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-xl flex items-center gap-2 text-white font-medium group text-sm sm:text-base"
-          >
-            <FaGithub className="text-lg sm:text-xl group-hover:text-cyber-blue transition-colors duration-300" />
-            <span className="hidden xs:inline">GitHub</span>
-          </a>
-
-          {/* Copy Email */}
-          <button
-            onClick={copyEmail}
-            className="glass glass-hover px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-xl flex items-center gap-2 text-white font-medium group cursor-pointer text-sm sm:text-base"
-          >
-            {copied ? (
-              <>
-                <FaCheck className="text-lg sm:text-xl text-cyber-green" />
-                <span className="text-cyber-green">Copied!</span>
-              </>
-            ) : (
-              <>
-                <FaEnvelope className="text-lg sm:text-xl group-hover:text-cyber-blue transition-colors duration-300" />
-                <span className="hidden xs:inline">Email</span>
-                <FaCopy className="text-xs opacity-50 hidden sm:inline" />
-              </>
-            )}
-          </button>
-
-          {/* Download Resume */}
-          <a
-            href="/AnthonyPaquet.pdf"
-            download="AnthonyPaquet.pdf"
-            className="glass glass-hover px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-xl flex items-center gap-2 text-white font-medium group text-sm sm:text-base border border-cyber-blue/20"
-          >
-            <FaFileDownload className="text-lg sm:text-xl group-hover:text-cyber-blue transition-colors duration-300" />
-            <span>Resume</span>
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href={socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass glass-hover px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl flex items-center gap-2 text-white font-medium text-sm sm:text-base"
+            >
+              <FaLinkedin className="text-lg text-[#0A66C2]" />
+              <span className="hidden xs:inline">LinkedIn</span>
+            </a>
+            <a
+              href="/AnthonyPaquet.pdf"
+              download
+              className="glass glass-hover px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl flex items-center gap-2 text-white font-medium text-sm sm:text-base"
+            >
+              <FaFileDownload className="text-lg text-cyber-blue" />
+              <span>Resume</span>
+            </a>
+          </div>
         </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
           variants={itemVariants}
-          className="mt-12 sm:mt-16 md:mt-20"
+          className="mt-8 sm:mt-12"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
             className="inline-block"
           >
-            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-cyber-blue/50 rounded-full flex items-start justify-center p-1.5 sm:p-2">
+            <div className="w-5 h-8 sm:w-6 sm:h-9 border-2 border-cyber-blue/40 rounded-full flex items-start justify-center p-1.5 sm:p-2">
               <motion.div
                 animate={{ opacity: [0.3, 1, 0.3], y: [0, 8, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -233,13 +188,13 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Floating particles effect - reduced on mobile for performance */}
+      {/* Floating particles */}
       {isMounted && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block" aria-hidden="true">
           {particles.map((particle, i) => (
             <motion.div
               key={`particle-${i}`}
-              className="absolute w-1 h-1 bg-cyber-blue/60 rounded-full"
+              className="absolute w-1 h-1 bg-cyber-blue/50 rounded-full"
               style={{
                 left: `${particle.left}%`,
                 top: `${particle.top}%`,
@@ -247,7 +202,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{
                 y: [0, -40, 0],
-                opacity: [0, 0.8, 0],
+                opacity: [0, 0.6, 0],
                 scale: [0.5, 1, 0.5],
               }}
               transition={{

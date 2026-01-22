@@ -1,12 +1,11 @@
 export const personalInfo = {
   name: 'Anthony Paquet',
-  title: 'Engineering Leader & Cloud Architect',
+  title: 'Fractional CTO & Cloud Architect',
   subtitle: 'FinOps • Security & Compliance • 0→1 to Scale',
   location: 'Canada, Quebec',
-  phone: '418-564-6162',
   email: 'Anthonypaquet1508@gmail.com',
-  tagline: 'Seasoned Engineering Leader who helps companies cut cloud costs 30–60%, pass compliance audits, and build from 0→1 to scale—without slowing your roadmap. Results in weeks.',
-  summary: `Operating at the intersection of data and context, I design and scale secure, cost-optimized, and resilient systems that accelerate business outcomes. Passionate about AI-powered transformation, I take products from 0→1 to enterprise scale with strong FinOps expertise (30–60% cost reduction), compliance acceleration (SOC2, HIPAA, PCI-DSS, ISO 27001), and a DevSecOps mindset that enables teams to iterate faster and more securely. I've delivered scalable, business-aligned cloud solutions across AWS, Azure, and GCP for Financial Services, Healthcare, Media & Entertainment, and high-growth startups. Customer-obsessed, outcome-driven, with flexible engagement models to fit your needs.`,
+  tagline: 'I help CTOs and engineering leaders cut cloud costs 30-60%, pass SOC2/HIPAA audits in weeks, and build infrastructure that scales—without slowing your roadmap.',
+  summary: `Former Head of Engineering who's been in your shoes. I've built and scaled teams from 3 to 10+ engineers, cut cloud spend significantly annually, and achieved SOC2/TPN certifications in 6 months. I embed with your team to deliver results—not just recommendations. Whether you need a fractional CTO for strategic guidance, hands-on architecture work, or someone to get you audit-ready fast, I bring Fortune 500 rigor with startup speed. My clients include financial services, healthcare systems, SaaS companies, and media enterprises across 10+ countries.`,
   philosophy: 'Knowledge is the ultimate wealth — the more you share, the more it grows. I believe in continuous learning and empowering others through expertise.',
   photo: '/images/anthony-paquet.jpg',
   personal: {
@@ -30,7 +29,7 @@ export const services = {
     {
       id: 'finops-program',
       name: 'FinOps Program Build',
-      outcome: 'Complete cost governance framework with automated controls—typically delivering 30–60% savings and $200K–$1M+ annual cost avoidance.',
+      outcome: 'Complete cost governance framework with automated controls—typically delivering 30–60% savings and significant annual cost avoidance.',
       deliverables: [
         'Multi-cloud cost audit & waste identification (AWS/Azure/GCP)',
         'FinOps maturity assessment & transformation roadmap',
@@ -292,13 +291,13 @@ export const experiences = [
     period: 'Previous',
     description: 'CREE8 streamlines cloud adoption, easing creator workflows through centralization, efficiency, and automation. It empowers creative teams to fully leverage cloud-native capabilities by simplifying complex processes.',
     outcomes: [
-      { metric: '60%', description: 'Cloud cost reduction ($500K+ annual savings)' },
+      { metric: '60%', description: 'Cloud cost reduction (significant annual savings)' },
       { metric: '6 months', description: 'SOC 2 Type II + TPN Gold certifications' },
       { metric: '40%', description: 'Faster deployment through DevSecOps' },
       { metric: '10+', description: 'Senior engineers led' },
     ],
     achievements: [
-      'Cut multi-cloud costs by 60% ($500K+ annually) across AWS, GCP, and Azure through FinOps optimization and architecture redesign',
+      'Cut multi-cloud costs by 60% (significant annual savings) across AWS, GCP, and Azure through FinOps optimization and architecture redesign',
       'Achieved SOC 2 Type II and TPN Gold (MPAA) certifications in 6 months—enabling enterprise studio contracts',
       'Built and scaled engineering team from 3 to 10+ senior engineers (SRE, DevOps, Full-Stack)',
       'Architected camera-to-cloud workflows securing content for 50+ distributed creative teams',
@@ -344,10 +343,10 @@ export const experiences = [
     position: 'Data Platform Engineer',
     location: 'Montréal, Canada',
     period: 'Previous',
-    description: 'Built real-time data infrastructure for a $1B+ luxury e-commerce platform serving global customers.',
+    description: 'Built real-time data infrastructure for a large-scale luxury e-commerce platform serving global customers.',
     outcomes: [
       { metric: 'Real-time', description: 'Customer data sync at scale' },
-      { metric: '$1B+', description: 'GMV platform supported' },
+      { metric: 'Billions', description: 'GMV platform supported' },
     ],
     achievements: [
       'Architected real-time loyalty system handling millions of customer events',
@@ -389,7 +388,6 @@ export const experiences = [
       'Developed decentralized software optimizing luggage throughput and passenger flow',
     ],
     tags: ['Cloud Software', 'Airport Systems', 'Mission-Critical', 'Global Deployment'],
-    projectUrl: 'https://www.vanderlande.com/news-insights/vanderlande-introduces-new-self-service-application-for-security-checkpoints/',
   },
   {
     company: 'PetalMD',
@@ -525,19 +523,16 @@ export const certifications = [
     name: 'AWS Certified Solutions Architect – Associate',
     issuer: 'Amazon Web Services (AWS)',
     badgeImage: 'https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
-    credlyUrl: 'https://www.credly.com/badges/34b7839a-dc9d-4183-95d7-0cc6b9d596d7/linked_in_profile',
   },
   {
     name: 'AWS Certified Developer – Associate',
     issuer: 'Amazon Web Services (AWS)',
     badgeImage: 'https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png',
-    credlyUrl: 'https://www.credly.com/badges/2fc2506e-0e1c-4019-96c4-4f1fb09f5583/linked_in_profile',
   },
   {
     name: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services (AWS)',
     badgeImage: 'https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png',
-    credlyUrl: 'https://www.credly.com/badges/ba61181f-893c-4e91-be07-790f167f6835',
   },
 ]
 

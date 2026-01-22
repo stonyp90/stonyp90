@@ -63,12 +63,12 @@ export default function Skills() {
   ]
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 bg-cyber-dark/30" id="skills">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24 bg-cyber-dark/30" id="skills">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Section Title */}
         <motion.h2 variants={itemVariants} className="section-title gradient-text mb-10 sm:mb-12">

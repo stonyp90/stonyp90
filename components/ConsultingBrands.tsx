@@ -3,60 +3,80 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FaRocket, FaShieldAlt, FaCheckCircle, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaGlobe, FaChartLine, FaShieldAlt, FaCloud, FaServer, FaCheckCircle, FaArrowRight } from 'react-icons/fa'
 
-const consultingBrands = [
+const expertiseAreas = [
   {
-    name: 'ScaleForged',
-    tagline: 'From Startup to Enterprise. Engineered.',
-    description: 'Enterprise cloud architecture for ambitious startups. We architect and scale infrastructure to enterprise-grade with a FinOps mindset across AWS, GCP, and Azure.',
-    services: [
-      'Cloud Architecture Design',
-      'FinOps & Cost Optimization',
-      'Migration & Modernization',
-      'Platform Engineering',
+    title: 'Cloud Cost Optimization',
+    subtitle: 'FinOps & Cost Engineering',
+    description: 'Delivered significant savings across 20+ enterprise clients. Specialized in AWS, Azure, and GCP cost optimization with typical 30-50% reduction.',
+    metrics: [
+      { value: 'Millions', label: 'Client Savings' },
+      { value: '30-50%', label: 'Cost Reduction' },
+      { value: '20+', label: 'Enterprises' },
     ],
-    industries: 'SaaS, FinTech, HealthTech, E-commerce',
-    url: 'https://www.scaleforged.io',
-    color: 'from-indigo-500 to-cyan-500',
-    bgColor: 'bg-indigo-500/10',
-    textColor: 'text-indigo-400',
-    icon: FaRocket,
+    capabilities: ['FinOps Implementation', 'Reserved Instance Optimization', 'Kubernetes Cost Management', 'Multi-cloud Consolidation'],
+    regions: 'North America, Europe, APAC',
+    color: 'from-emerald-500 to-green-400',
+    iconColor: 'text-emerald-400',
+    bgGlow: 'bg-emerald-500/20',
+    icon: FaChartLine,
   },
   {
-    name: 'DisasterProof',
-    tagline: 'Multi-cloud, multi-region. Always on.',
-    description: 'Enterprise disaster recovery for financial services. Achieve 99.99% uptime with end-to-end DR planning, implementation, and 24/7 monitoring.',
-    services: [
-      'DR Strategy & Planning',
-      'Multi-Cloud Architecture',
-      'Multi-Region Failover',
-      '24/7 Monitoring & Response',
+    title: 'Security & Compliance',
+    subtitle: 'SOC 2, ISO 27001, HIPAA',
+    description: 'Led 20+ successful compliance certifications with 95%+ audit pass rate. Expert implementation using Vanta, Drata, and Scrut platforms.',
+    metrics: [
+      { value: '20+', label: 'Certifications' },
+      { value: '95%+', label: 'Pass Rate' },
+      { value: '6-8wks', label: 'Avg Timeline' },
     ],
-    industries: 'Banking, FinTech, Insurance, Healthcare',
-    url: 'https://www.disasterproof.io',
-    color: 'from-blue-500 to-amber-500',
-    bgColor: 'bg-blue-500/10',
-    textColor: 'text-blue-400',
+    capabilities: ['SOC 2 Type I & II', 'ISO 27001 Certification', 'HIPAA Compliance', 'GDPR Implementation'],
+    regions: 'USA, Canada, UK, EU',
+    color: 'from-teal-500 to-cyan-400',
+    iconColor: 'text-teal-400',
+    bgGlow: 'bg-teal-500/20',
     icon: FaShieldAlt,
   },
   {
-    name: 'ControlCraft',
-    tagline: 'SOC 2 in 8 weeks. 100% pass rate.',
-    description: 'Expert compliance implementation for teams using Vanta, Drata, and Scrut. Get SOC 2, ISO 27001, and HIPAA certified in 6-8 weeks instead of 6-12 months.',
-    services: [
-      'SOC 2 Type I & II',
-      'ISO 27001 Certification',
-      'HIPAA Compliance',
-      'GDPR Compliance',
+    title: 'Disaster Recovery',
+    subtitle: 'Multi-Cloud Resilience',
+    description: 'Architected enterprise DR solutions for financial services achieving 99.9%+ uptime. Multi-cloud, multi-region failover expertise.',
+    metrics: [
+      { value: '99.9%+', label: 'Uptime SLA' },
+      { value: '<15min', label: 'RTO Achieved' },
+      { value: 'Billions', label: 'Assets Protected' },
     ],
-    industries: 'Startups, Enterprise SaaS, HealthTech',
-    url: 'https://www.controlcraft.io',
-    color: 'from-teal-500 to-emerald-500',
-    bgColor: 'bg-teal-500/10',
-    textColor: 'text-teal-400',
-    icon: FaCheckCircle,
+    capabilities: ['DR Strategy & Planning', 'Multi-Region Architecture', 'Automated Failover', '24/7 Monitoring'],
+    regions: 'Global Financial Hubs',
+    color: 'from-blue-500 to-indigo-400',
+    iconColor: 'text-blue-400',
+    bgGlow: 'bg-blue-500/20',
+    icon: FaServer,
   },
+  {
+    title: 'Cloud Architecture',
+    subtitle: 'Scale & Modernization',
+    description: 'Scaled startups from MVP to millions of users. Enterprise-grade infrastructure with built-in FinOps from day one.',
+    metrics: [
+      { value: '1M+', label: 'Users Scaled' },
+      { value: '50+', label: 'Architectures' },
+      { value: '2-3x', label: 'Avg Performance' },
+    ],
+    capabilities: ['Cloud-Native Architecture', 'Kubernetes & Containers', 'Migration & Modernization', 'Platform Engineering'],
+    regions: 'Worldwide',
+    color: 'from-violet-500 to-purple-400',
+    iconColor: 'text-violet-400',
+    bgGlow: 'bg-violet-500/20',
+    icon: FaCloud,
+  },
+]
+
+const globalStats = [
+  { value: '10+', label: 'Countries Served' },
+  { value: '50+', label: 'Successful Projects' },
+  { value: 'Significant', label: 'Business Impact' },
+  { value: '95%+', label: 'Client Satisfaction' },
 ]
 
 export default function ConsultingBrands() {
@@ -67,30 +87,26 @@ export default function ConsultingBrands() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.4, 0, 0.2, 1],
-      },
+      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
     },
   }
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden" id="consulting-brands">
-      {/* Background */}
+    <section ref={ref} className="py-20 sm:py-28 lg:py-32 relative overflow-hidden" id="expertise">
+      {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-500/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-teal-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-cyber-green/5 to-transparent rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 -right-32 w-96 h-96 bg-violet-500/5 rounded-full blur-[100px]" />
       </div>
 
       <motion.div
@@ -100,106 +116,128 @@ export default function ConsultingBrands() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
-          <span className="text-cyber-green text-sm font-mono tracking-wider mb-3 block">
-            SPECIALIZED CONSULTING PRACTICES
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-white">Cloud Consulting </span>
-            <span className="gradient-text">Brands</span>
+        <motion.div variants={itemVariants} className="text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-green/10 border border-cyber-green/20 mb-6">
+            <FaGlobe className="text-cyber-green text-sm" />
+            <span className="text-cyber-green text-sm font-medium">Delivering Results Worldwide</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-white">Proven Expertise.</span>
+            <br />
+            <span className="gradient-text">Global Impact.</span>
           </h2>
-          <p className="text-gray-400 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg">
-            Focused expertise through specialized practices. Each brand delivers deep domain knowledge 
-            with proven methodologies and measurable outcomes.
+          <p className="text-gray-400 max-w-3xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed">
+            From Fortune 500 enterprises to high-growth startups, I&apos;ve delivered transformative 
+            cloud solutions across 10+ countries. Here&apos;s what I specialize in.
           </p>
-          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-cyber-green to-cyber-blue mx-auto rounded-full mt-6" />
         </motion.div>
 
-        {/* Brand Cards */}
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {consultingBrands.map((brand, index) => {
-            const IconComponent = brand.icon
-            return (
-              <motion.article
-                key={brand.name}
-                variants={itemVariants}
-                className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-white/10 transition-all group"
-                itemScope
-                itemType="https://schema.org/Organization"
+        {/* Global Stats Bar */}
+        <motion.div variants={itemVariants} className="mb-16 sm:mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {globalStats.map((stat, index) => (
+              <div 
+                key={index} 
+                className="text-center p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm"
               >
-                {/* Header */}
-                <div className={`p-6 bg-gradient-to-r ${brand.color} bg-opacity-10`}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`p-2.5 rounded-xl ${brand.bgColor}`}>
-                      <IconComponent className={`text-xl ${brand.textColor}`} />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white" itemProp="name">
-                        {brand.name}
-                      </h3>
-                      <p className="text-xs text-gray-400" itemProp="slogan">
-                        {brand.tagline}
-                      </p>
-                    </div>
-                  </div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text mb-1">
+                  {stat.value}
                 </div>
+                <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <p className="text-gray-300 text-sm mb-5 leading-relaxed" itemProp="description">
-                    {brand.description}
-                  </p>
+        {/* Expertise Cards */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {expertiseAreas.map((area, index) => {
+            const IconComponent = area.icon
+            return (
+              <motion.div
+                key={area.title}
+                variants={itemVariants}
+                className="group relative"
+              >
+                {/* Card */}
+                <div className="relative h-full rounded-3xl bg-gradient-to-b from-white/[0.05] to-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden">
+                  {/* Glow Effect */}
+                  <div className={`absolute top-0 right-0 w-64 h-64 ${area.bgGlow} rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  <div className="relative p-6 sm:p-8">
+                    {/* Header */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-2xl bg-gradient-to-br ${area.color} bg-opacity-20`}>
+                          <IconComponent className={`text-2xl ${area.iconColor}`} />
+                        </div>
+                        <div>
+                          <h3 className="text-xl sm:text-2xl font-bold text-white">
+                            {area.title}
+                          </h3>
+                          <p className="text-sm text-gray-500">{area.subtitle}</p>
+                        </div>
+                      </div>
+                      <span className="text-xs text-gray-600 flex items-center gap-1">
+                        <FaGlobe className="text-[10px]" />
+                        {area.regions}
+                      </span>
+                    </div>
 
-                  {/* Services */}
-                  <div className="mb-5">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
-                      Services
-                    </h4>
-                    <ul className="grid grid-cols-2 gap-2">
-                      {brand.services.map((service, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-xs text-gray-400">
-                          <span className={brand.textColor}>•</span>
-                          <span>{service}</span>
-                        </li>
+                    {/* Description */}
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+                      {area.description}
+                    </p>
+
+                    {/* Metrics */}
+                    <div className="grid grid-cols-3 gap-4 mb-6 p-4 rounded-2xl bg-white/[0.02]">
+                      {area.metrics.map((metric, idx) => (
+                        <div key={idx} className="text-center">
+                          <div className={`text-lg sm:text-xl font-bold ${area.iconColor}`}>
+                            {metric.value}
+                          </div>
+                          <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider">
+                            {metric.label}
+                          </div>
+                        </div>
                       ))}
-                    </ul>
-                  </div>
+                    </div>
 
-                  {/* Industries */}
-                  <div className="mb-6">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                      Industries
-                    </h4>
-                    <p className="text-xs text-gray-400">{brand.industries}</p>
-                  </div>
+                    {/* Capabilities */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {area.capabilities.map((cap, idx) => (
+                        <span 
+                          key={idx} 
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 text-xs text-gray-400"
+                        >
+                          <FaCheckCircle className={`text-[10px] ${area.iconColor}`} />
+                          {cap}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* CTA - SEO optimized dofollow link */}
-                  <a
-                    href={brand.url}
-                    target="_blank"
-                    rel="noopener"
-                    title={`${brand.name} - ${brand.tagline}`}
-                    className={`w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r ${brand.color} text-white font-semibold rounded-xl hover:opacity-90 transition-all text-sm`}
-                    itemProp="url"
-                  >
-                    <span>Visit {brand.name}</span>
-                    <FaExternalLinkAlt className="text-xs" />
-                  </a>
+                    {/* CTA */}
+                    <a
+                      href="https://calendly.com/anthonypaquet1508/15min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 text-sm font-medium ${area.iconColor} hover:underline underline-offset-4 transition-all`}
+                    >
+                      <span>Get in touch</span>
+                      <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
                 </div>
-              </motion.article>
+              </motion.div>
             )
           })}
         </div>
 
         {/* Bottom CTA */}
-        <motion.div variants={itemVariants} className="text-center mt-12 sm:mt-16">
-          <div className="glass rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto border border-white/5">
-            <h4 className="text-lg sm:text-xl font-bold text-white mb-3">
-              Not Sure Which Service You Need?
-            </h4>
-            <p className="text-gray-400 text-sm mb-5">
-              Schedule a free 15-minute consultation to discuss your specific challenges. 
-              We&apos;ll help identify the right approach for your organization.
+        <motion.div variants={itemVariants} className="text-center mt-16 sm:mt-20">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <p className="text-gray-400">
+              Ready to discuss your project?
             </p>
             <a
               href="https://calendly.com/anthonypaquet1508/15min"
@@ -207,7 +245,7 @@ export default function ConsultingBrands() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber-green to-cyber-blue text-cyber-black font-bold rounded-xl hover:shadow-lg hover:shadow-cyber-green/20 transition-all"
             >
-              <span>Schedule Free Consultation</span>
+              <span>Book a Free Call</span>
               <FaArrowRight />
             </a>
           </div>

@@ -163,15 +163,6 @@ body::before {
 section {
   position: relative;
   z-index: 1;
-  padding: var(--space-xl) var(--space-md);
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  section {
-    padding: var(--space-2xl) var(--space-lg);
-  }
 }
 
 /* Container */
@@ -258,6 +249,22 @@ section {
 
 .reveal {
   animation: smoothReveal 0.8s var(--ease-smooth) forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s var(--ease-smooth) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 /* Staggered children animation */

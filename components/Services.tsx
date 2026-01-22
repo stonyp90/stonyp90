@@ -15,16 +15,9 @@ import {
   FaCheckCircle,
   FaTimesCircle,
   FaArrowRight,
-  FaCalendarAlt,
-  FaFilm,
-  FaUniversity,
-  FaHeartbeat,
-  FaShoppingCart,
-  FaRocket,
-  FaBroadcastTower,
-  FaMicrochip
+  FaCalendarAlt
 } from 'react-icons/fa'
-import { services, retainers, personalInfo, industries } from '@/lib/data'
+import { services, personalInfo } from '@/lib/data'
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   chart: FaChartLine,
@@ -36,17 +29,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   cloud: FaCloud,
   architecture: FaLayerGroup,
   governance: FaChartLine,
-}
-
-const industryIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  film: FaFilm,
-  bank: FaUniversity,
-  health: FaHeartbeat,
-  cart: FaShoppingCart,
-  rocket: FaRocket,
-  signal: FaBroadcastTower,
-  chip: FaMicrochip,
-  shield: FaShieldAlt,
 }
 
 const categoryInfo = {
@@ -116,7 +98,7 @@ export default function Services() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-7xl mx-auto relative z-10"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
@@ -278,76 +260,6 @@ export default function Services() {
               </motion.div>
             )
           })}
-        </motion.div>
-
-        {/* Industries Section */}
-        <motion.div variants={itemVariants} className="mb-12 sm:mb-16">
-          <div className="text-center mb-6 sm:mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-              Industries Served
-            </h3>
-            <p className="text-gray-400 text-sm">
-              Proven experience across regulated and high-growth sectors
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {industries.map((industry, index) => {
-              const IconComponent = industryIconMap[industry.icon] || FaCloud
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className={`glass rounded-xl p-4 sm:p-5 border border-white/5 hover:border-${industry.color}/30 transition-all group`}
-                >
-                  <IconComponent className={`text-xl sm:text-2xl text-${industry.color} mb-2 group-hover:scale-110 transition-transform`} />
-                  <div className="text-sm sm:text-base font-semibold text-white mb-1">
-                    {industry.name}
-                  </div>
-                  <div className="text-[10px] sm:text-xs text-gray-500">
-                    {industry.description}
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
-        </motion.div>
-
-        {/* Retainers Section */}
-        <motion.div variants={itemVariants} className="mb-12 sm:mb-16">
-          <div className="text-center mb-6 sm:mb-8">
-            <span className="text-cyber-purple text-sm font-mono tracking-wider mb-2 block">
-              ONGOING PARTNERSHIPS
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-              Monthly Retainer Programs
-            </h3>
-            <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-              Continuous access to senior expertise. Lock in availability and build lasting strategic partnerships with flexible engagement models.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
-            {retainers.map((retainer, index) => (
-              <div
-                key={index}
-                className="glass rounded-2xl p-5 sm:p-6 border border-white/5 hover:border-cyber-purple/30 transition-all group"
-              >
-                <div className="text-lg sm:text-xl font-bold text-white mb-3">{retainer.name}</div>
-                <p className="text-sm text-gray-300 mb-4 leading-relaxed">{retainer.description}</p>
-                <ul className="space-y-2">
-                  {retainer.includes.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-gray-400">
-                      <span className="text-cyber-purple mt-0.5">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Engagement Approach */}
