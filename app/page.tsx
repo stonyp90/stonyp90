@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Services from '@/components/Services'
+import ConsultingBrands from '@/components/ConsultingBrands'
 import Experience from '@/components/Experience'
 import Skills from '@/components/Skills'
 import Certifications from '@/components/Certifications'
@@ -13,6 +14,7 @@ export default function Home() {
       <LoadingIndicator />
       <Hero />
       <Services />
+      <ConsultingBrands />
       <About />
       <Experience />
       <Skills />
