@@ -181,6 +181,19 @@ const currentFocus = {
 
 ---
 
+## 🌐 My Ventures & Projects
+
+| Project | Description | Link |
+|---------|-------------|------|
+| 🚀 **ScaleForged** | Enterprise cloud architecture consulting for ambitious startups. FinOps-driven scaling from startup to enterprise-grade infrastructure. | [scaleforged.io](https://scaleforged.io) |
+| 🛡️ **DisasterProof** | Multi-cloud, multi-region disaster recovery solutions for fintech, banking, and enterprise. 99.99% uptime guaranteed. | [disasterproof.io](https://disasterproof.io) |
+| ✅ **ControlCraft** | Compliance implementation consulting for Vanta, Drata & Scrut. SOC 2, ISO 27001, HIPAA certification in 8 weeks. | [controlcraft.io](https://controlcraft.io) |
+| 🏗️ **Excavation Durable** | Professional excavation, landscaping, asphalt paving & snow removal services in Quebec City. (French) | [excavationdurable.ca](https://excavationdurable.ca) |
+| 📁 **Ursly** | One app for all your files. Connect 15+ storage services (S3, Azure, GCS, Dropbox, NAS). AI-powered search. Built with Tauri + Rust. | [GitHub](https://github.com/stonyp90/Ursly) |
+| 🤖 **Ursly Agent** | AI Agent Orchestration Platform. Build, deploy, and manage AI agents with enterprise-grade architecture. | [GitHub](https://github.com/stonyp90/Usrly-Agent) |
+
+---
+
 ## 🎯 Core Competencies
 
 - 🏗️ **Cloud Architecture**: Multi-cloud design, serverless, microservices

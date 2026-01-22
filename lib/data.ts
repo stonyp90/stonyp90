@@ -100,6 +100,24 @@ export const services = {
       icon: 'robot',
       color: 'cyber-purple',
     },
+    {
+      id: 'cloud-infrastructure-security',
+      name: 'Cloud Infrastructure Security',
+      outcome: 'Harden your cloud infrastructure with Zero Trust architecture, secure network access, and defense-in-depth controls—protecting your assets from modern threats.',
+      deliverables: [
+        'Zero Trust architecture design & implementation',
+        'VPN & secure remote access setup (WireGuard, OpenVPN, cloud-native)',
+        'Network segmentation & micro-segmentation',
+        'Cloud firewall & WAF configuration',
+        'Identity-aware proxy & conditional access',
+        'Bastion hosts & privileged access management',
+        'Endpoint security integration',
+        'Security monitoring & threat detection',
+      ],
+      notIncluded: ['Physical security', 'Endpoint device management', 'Security operations (SOC)', '24/7 monitoring services'],
+      icon: 'shield',
+      color: 'cyber-blue',
+    },
   ],
   dr: [
     {
@@ -497,7 +515,7 @@ export const skills = {
     { name: 'Compliance Automation', level: 95 },
     { name: 'SOC 2 / TPN Gold', level: 95 },
     { name: 'Vulnerability Scanning', level: 90 },
-    { name: 'Zero Trust Architecture', level: 85 },
+    { name: 'Zero Trust Architecture', level: 95 },
     { name: 'IAM & RBAC', level: 90 },
   ],
 }
@@ -544,6 +562,9 @@ export const additionalExpertise = [
   'Elasticsearch',
   'Datadog & Monitoring',
   'Security Best Practices',
+  'Zero Trust Architecture',
+  'VPN & Secure Access',
+  'Network Security',
   'Performance Optimization',
   'System Design',
   'Technical Leadership',
