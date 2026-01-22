@@ -45,6 +45,41 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            
+            {/* Consulting Brands */}
+            <h4 className="text-sm font-semibold text-gray-500 mt-5 mb-2">Consulting Brands</h4>
+            <ul className="space-y-1.5">
+              <li>
+                <a
+                  href="https://www.scaleforged.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-indigo-400 transition-colors duration-300 text-xs inline-block"
+                >
+                  ScaleForged – Cloud Architecture
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.disasterproof.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-blue-400 transition-colors duration-300 text-xs inline-block"
+                >
+                  DisasterProof – Disaster Recovery
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.controlcraft.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-teal-400 transition-colors duration-300 text-xs inline-block"
+                >
+                  ControlCraft – Compliance
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Connect */}
