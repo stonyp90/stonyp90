@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect, useMemo } from 'react'
-import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaCheck, FaCopy, FaCalendarAlt, FaArrowRight } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaCheck, FaCopy, FaCalendarAlt, FaArrowRight, FaPhone } from 'react-icons/fa'
 import { personalInfo, socialLinks } from '@/lib/data'
 
 interface Particle {
@@ -134,8 +134,8 @@ export default function Hero() {
           {personalInfo.tagline}
         </motion.p>
 
-        {/* Primary CTA - Book a Call */}
-        <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+        {/* Primary CTAs - Book a Call + Phone */}
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
           <a
             href={personalInfo.calendlyUrl}
             target="_blank"
@@ -145,6 +145,13 @@ export default function Hero() {
             <FaCalendarAlt className="text-lg sm:text-xl" />
             <span>Book a Free 15-min Scoping Call</span>
             <FaArrowRight className="text-sm sm:text-base group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href={`tel:+1${personalInfo.phone.replace(/-/g, '')}`}
+            className="inline-flex items-center gap-2 glass glass-hover px-5 py-3 sm:px-6 sm:py-4 rounded-xl text-white font-medium transition-all text-sm sm:text-base"
+          >
+            <FaPhone className="text-cyber-green" />
+            <span>({personalInfo.phone.slice(0, 3)}) {personalInfo.phone.slice(4)}</span>
           </a>
         </motion.div>
 
