@@ -173,11 +173,12 @@ export default function ConsultingBrands() {
                     <p className="text-xs text-gray-400">{brand.industries}</p>
                   </div>
 
-                  {/* CTA */}
+                  {/* CTA - SEO optimized dofollow link */}
                   <a
                     href={brand.url}
                     target="_blank"
                     rel="noopener"
+                    title={`${brand.name} - ${brand.tagline}`}
                     className={`w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r ${brand.color} text-white font-semibold rounded-xl hover:opacity-90 transition-all text-sm`}
                     itemProp="url"
                   >
