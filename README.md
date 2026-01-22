@@ -181,16 +181,22 @@ const currentFocus = {
 
 ---
 
-## 🌐 My Ventures & Projects
+## 🌐 Cloud Consulting Services
 
-| Project | Description | Link |
-|---------|-------------|------|
-| 🚀 **ScaleForged** | Enterprise cloud architecture consulting for ambitious startups. FinOps-driven scaling from startup to enterprise-grade infrastructure. | [scaleforged.io](https://scaleforged.io) |
-| 🛡️ **DisasterProof** | Multi-cloud, multi-region disaster recovery solutions for fintech, banking, and enterprise. 99.99% uptime guaranteed. | [disasterproof.io](https://disasterproof.io) |
-| ✅ **ControlCraft** | Compliance implementation consulting for Vanta, Drata & Scrut. SOC 2, ISO 27001, HIPAA certification in 8 weeks. | [controlcraft.io](https://controlcraft.io) |
-| 🏗️ **Excavation Durable** | Professional excavation, landscaping, asphalt paving & snow removal services in Quebec City. (French) | [excavationdurable.ca](https://excavationdurable.ca) |
-| 📁 **Ursly** | One app for all your files. Connect 15+ storage services (S3, Azure, GCS, Dropbox, NAS). AI-powered search. Built with Tauri + Rust. | [GitHub](https://github.com/stonyp90/Ursly) |
-| 🤖 **Ursly Agent** | AI Agent Orchestration Platform. Build, deploy, and manage AI agents with enterprise-grade architecture. | [GitHub](https://github.com/stonyp90/Usrly-Agent) |
+| Service | Description | Website |
+|---------|-------------|---------|
+| 🚀 **ScaleForged** | Enterprise cloud architecture for ambitious startups. FinOps-driven scaling to enterprise-grade. | [![Website](https://img.shields.io/badge/scaleforged.io-6366f1?style=flat-square&logo=google-chrome&logoColor=white)](https://scaleforged.io) |
+| 🛡️ **DisasterProof** | Multi-cloud disaster recovery for fintech & banking. 99.99% uptime guaranteed. | [![Website](https://img.shields.io/badge/disasterproof.io-2563eb?style=flat-square&logo=google-chrome&logoColor=white)](https://disasterproof.io) |
+| ✅ **ControlCraft** | Compliance implementation for Vanta, Drata & Scrut. SOC 2, ISO 27001, HIPAA in 8 weeks. | [![Website](https://img.shields.io/badge/controlcraft.io-14b8a6?style=flat-square&logo=google-chrome&logoColor=white)](https://controlcraft.io) |
+
+---
+
+## 🛠️ Open Source Projects
+
+| Project | Description | Repository |
+|---------|-------------|------------|
+| 📁 **Ursly** | One app for all your files. Connect 15+ storage services. AI-powered search. Tauri + Rust. | [![GitHub](https://img.shields.io/badge/Ursly-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/stonyp90/Ursly) |
+| 🤖 **Ursly Agent** | AI Agent Orchestration Platform. Build & deploy AI agents with enterprise architecture. | [![GitHub](https://img.shields.io/badge/Ursly--Agent-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/stonyp90/Usrly-Agent) |
 
 ---
 
