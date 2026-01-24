@@ -1,11 +1,11 @@
 export const personalInfo = {
   name: 'Anthony Paquet',
-  title: 'Fractional CTO & Cloud Architect',
+  title: 'AI & Cloud Architect | Engineering Leader',
   subtitle: 'FinOps • Security & Compliance • 0→1 to Scale',
   location: 'Canada, Quebec',
   email: 'Anthonypaquet1508@gmail.com',
   tagline: 'I help CTOs and engineering leaders cut cloud costs 30-60%, pass SOC2/HIPAA audits in weeks, and build infrastructure that scales—without slowing your roadmap.',
-  summary: `Former Head of Engineering who's been in your shoes. I've built and scaled teams from 3 to 10+ engineers, cut cloud spend significantly annually, and achieved SOC2/TPN certifications in 6 months. I embed with your team to deliver results—not just recommendations. Whether you need a fractional CTO for strategic guidance, hands-on architecture work, or someone to get you audit-ready fast, I bring Fortune 500 rigor with startup speed. My clients include financial services, healthcare systems, SaaS companies, and media enterprises across 10+ countries.`,
+  summary: `I've built and scaled engineering teams, cut cloud spend significantly, and achieved SOC2/TPN certifications in 6 months. I embed with your team to deliver results—not just recommendations. Whether you need AI architecture, hands-on cloud infrastructure work, or someone to get you audit-ready fast, I bring Fortune 500 rigor with startup speed. My clients include financial services, healthcare systems, SaaS companies, and media enterprises across 10+ countries.`,
   philosophy: 'Knowledge is the ultimate wealth — the more you share, the more it grows. I believe in continuous learning and empowering others through expertise.',
   photo: '/images/anthony-paquet.jpg',
   personal: {
@@ -286,7 +286,7 @@ export const industries = [
 export const experiences = [
   {
     company: 'CREE8',
-    position: 'Head of Engineering | Founding Engineer',
+    position: 'Engineering Leader | Founding Engineer',
     location: 'California, United States',
     period: 'Previous',
     description: 'CREE8 streamlines cloud adoption, easing creator workflows through centralization, efficiency, and automation. It empowers creative teams to fully leverage cloud-native capabilities by simplifying complex processes.',

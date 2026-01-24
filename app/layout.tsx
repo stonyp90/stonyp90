@@ -11,10 +11,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.anthonypaquet.com'),
   title: {
-    default: 'Anthony Paquet | Fractional CTO & Cloud Architect | Cut Costs 30-60%, SOC2 in Weeks',
+    default: 'Anthony Paquet | AI & Cloud Architect | Engineering Leader',
     template: '%s | Anthony Paquet',
   },
-  description: 'Fractional CTO & Cloud Architect for CTOs and engineering leaders. Cut cloud costs 30-60% (millions saved), pass SOC2/HIPAA audits in weeks (95%+ pass rate), scale from 0→1 to enterprise. Ex-Head of Engineering. AWS, Azure, GCP. Book a free strategy call.',
+  description: 'AI & Cloud Architect helping engineering leaders cut cloud costs 30-60%, pass SOC2/HIPAA audits in weeks, and scale from 0→1 to enterprise. AWS, Azure, GCP. Book a free strategy call.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   keywords: [
     // Executive searches
-    'Fractional CTO',
-    'Fractional CTO for hire',
-    'Interim CTO',
+    'AI Architect',
+    'Cloud Architect',
+    'Engineering Leader',
     'Cloud consultant for startups',
     'Engineering leadership consultant',
     'Technical advisor for startups',
@@ -93,10 +93,11 @@ export const metadata: Metadata = {
     siteName: 'Anthony Paquet - Cloud Security & FinOps Consulting',
     images: [
       {
-        url: '/images/anthony-paquet.jpg',
-        width: 400,
-        height: 400,
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
         alt: 'Anthony Paquet - AI & Cloud Security Architect',
+        type: 'image/png',
       },
     ],
   },
@@ -104,7 +105,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Anthony Paquet | AI & Cloud Security Architect',
     description: 'Cut cloud costs 30-60%, achieve SOC2/HIPAA compliance, build and scale cloud systems. Expert consulting.',
-    images: ['/images/anthony-paquet.jpg'],
+    images: {
+      url: '/og-image.png',
+      alt: 'Anthony Paquet - AI & Cloud Security Architect',
+    },
     creator: '@anthonypaquet',
   },
   alternates: {

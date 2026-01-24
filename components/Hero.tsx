@@ -126,7 +126,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-1.5">
             <FaCheckCircle className="text-cyber-green text-xs" />
-            <span>Ex-Head of Engineering</span>
+            <span>AI & Cloud Architecture</span>
           </div>
           <div className="flex items-center gap-1.5">
             <FaCheckCircle className="text-cyber-green text-xs" />
