@@ -1,0 +1,101 @@
+name: Deploy to S3 + CloudFront
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Cancel in-progress deploys for the same ref so a quick second push doesn't race.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check-config:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - name: Verify deploy configuration
+        id: check
+        env:
+          ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+          BUCKET: ${{ vars.S3_BUCKET }}
+          DIST_ID: ${{ vars.CLOUDFRONT_DIST_ID }}
+        run: |
+          MISSING=""
+          [ -z "$ROLE_ARN" ] && MISSING="$MISSING AWS_ROLE_ARN(secret)"
+          [ -z "$BUCKET" ]   && MISSING="$MISSING S3_BUCKET(variable)"
+          [ -z "$DIST_ID" ]  && MISSING="$MISSING CLOUDFRONT_DIST_ID(variable)"
+          if [ -n "$MISSING" ]; then
+            echo "::warning title=Deploy skipped::Missing configuration:$MISSING. See .github/DEPLOY.md for one-time setup."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy:
+    needs: check-config
+    if: needs.check-config.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: github-actions-anthonypaquet-com
+          aws-region: ca-central-1
+
+      - name: Sync static export to S3
+        run: |
+          aws s3 sync out/ "s3://${{ vars.S3_BUCKET }}/" \
+            --delete \
+            --exclude "*.html" \
+            --cache-control "public, max-age=31536000, immutable"
+          # HTML files: no immutable caching (so invalidation is meaningful for content updates)
+          aws s3 sync out/ "s3://${{ vars.S3_BUCKET }}/" \
+            --exclude "*" --include "*.html" \
+            --cache-control "public, max-age=0, must-revalidate"
+
+      - name: Invalidate CloudFront cache
+        id: invalidate
+        run: |
+          INVALIDATION_ID=$(aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.CLOUDFRONT_DIST_ID }}" \
+            --paths "/*" \
+            --query 'Invalidation.Id' --output text)
+          echo "invalidation_id=$INVALIDATION_ID" >> "$GITHUB_OUTPUT"
+          echo "::notice::CloudFront invalidation $INVALIDATION_ID created. Propagation typically takes 1-3 minutes."
+
+      - name: Wait for CloudFront invalidation to complete
+        run: |
+          aws cloudfront wait invalidation-completed \
+            --distribution-id "${{ vars.CLOUDFRONT_DIST_ID }}" \
+            --id "${{ steps.invalidate.outputs.invalidation_id }}"
+
+      - name: Smoke check live site
+        run: |
+          STATUS=$(curl -sL -o /dev/null -w "%{http_code}" https://www.anthonypaquet.com/)
+          if [ "$STATUS" != "200" ]; then
+            echo "::error::Live site returned HTTP $STATUS after deploy"
+            exit 1
+          fi
+          echo "::notice::Live site healthy (HTTP $STATUS)"

@@ -1,0 +1,110 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  GitHub Actions OIDC federation + IAM deploy role for anthonypaquet.com.
+  Creates a role that GitHub Actions can assume (no long-lived AWS keys),
+  scoped to S3 sync and CloudFront invalidation for a specific bucket and
+  distribution. Trust policy restricts assumption to pushes from the main
+  branch of the configured GitHub repo.
+
+Parameters:
+  GitHubOrg:
+    Type: String
+    Default: stonyp90
+    Description: GitHub user or org that owns the repo.
+
+  RepoName:
+    Type: String
+    Default: stonyp90
+    Description: Repository name (without org).
+
+  S3BucketName:
+    Type: String
+    Description: Name of the S3 bucket hosting the static site (e.g., anthonypaquet.com).
+
+  CloudFrontDistributionId:
+    Type: String
+    Description: CloudFront distribution ID (e.g., E1ABCD2EFGHIJK).
+    AllowedPattern: '^[A-Z0-9]+$'
+
+  ExistingOIDCProvider:
+    Type: String
+    Default: 'false'
+    AllowedValues: ['true', 'false']
+    Description: |
+      Set to 'true' if an OIDC provider for token.actions.githubusercontent.com already
+      exists in this AWS account (you'd hit a duplicate-resource error otherwise).
+      Set to 'false' (default) to create one.
+
+Conditions:
+  CreateOIDCProvider: !Equals [!Ref ExistingOIDCProvider, 'false']
+
+Resources:
+  GitHubOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Condition: CreateOIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      # Thumbprint is no longer validated by AWS for the GitHub OIDC issuer (since 2023),
+      # but the field is still required by CloudFormation. This is the documented value.
+      ThumbprintList:
+        - 6938fd4d98bab03faadb97b34396831e3780aea1
+
+  DeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: GitHubActions-AnthonypaquetCom-Deploy
+      Description: !Sub 'Deploys ${GitHubOrg}/${RepoName} (main branch) to S3 ${S3BucketName} and invalidates CloudFront ${CloudFrontDistributionId}.'
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub 'arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com'
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+              # Restrict to main branch pushes from this specific repo. Tighten or
+              # broaden the StringLike pattern if you need to deploy from other refs.
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubOrg}/${RepoName}:ref:refs/heads/main'
+      Policies:
+        - PolicyName: S3DeployAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:ListBucket
+                Resource: !Sub 'arn:aws:s3:::${S3BucketName}'
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:GetObject
+                Resource: !Sub 'arn:aws:s3:::${S3BucketName}/*'
+        - PolicyName: CloudFrontInvalidate
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - cloudfront:CreateInvalidation
+                  - cloudfront:GetInvalidation
+                Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistributionId}'
+
+Outputs:
+  DeployRoleArn:
+    Description: Add this as a GitHub repo secret named AWS_ROLE_ARN.
+    Value: !GetAtt DeployRole.Arn
+
+  S3BucketEnvVar:
+    Description: Add this as a GitHub repo variable named S3_BUCKET.
+    Value: !Ref S3BucketName
+
+  CloudFrontDistEnvVar:
+    Description: Add this as a GitHub repo variable named CLOUDFRONT_DIST_ID.
+    Value: !Ref CloudFrontDistributionId
