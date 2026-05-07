@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'Anthony Paquet | AI & Cloud Architect | Engineering Leader',
     template: '%s | Anthony Paquet',
   },
-  description: 'AI & Cloud Architect helping engineering leaders cut cloud costs 30-60%, pass SOC2/HIPAA audits in weeks, and scale from 0→1 to enterprise. AWS, Azure, GCP. Book a free strategy call.',
+  description: 'AI & Cloud Architect for Series A AI labs and growth-stage companies. Cut cloud costs 30-60%, achieve SOC 2 / HIPAA in weeks, scale 0→1 to enterprise. Currently with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS for RDPRM, REQ, and hypothèque extraction). AWS, Azure, GCP.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -63,8 +63,27 @@ export const metadata: Metadata = {
     'Cloud Architecture Review',
     'GPU Cost Optimization',
     'LLM Security',
+    // AI Lab / Series A
+    'Series A Cloud Architect',
+    'AI Lab Cloud Engineer',
+    'AI Lab FinOps',
+    'AI Training Infrastructure',
+    'RL Lab Cloud Architect',
+    'RL Lab Security',
+    'AI Startup SOC 2 Series A',
+    // Owned product
+    'Tablix',
+    'Tablix RDPRM',
+    'RDPRM extraction software',
+    'Quebec Legal Tech',
+    'Logiciel extraction RDPRM',
+    'PDF data extraction lawyers Quebec',
+    // Current engagements
+    'Bespoke Labs',
+    'Horizon AI product',
     // Location
     'Cloud Consultant Canada',
+    'Cloud Consultant Quebec',
     'Remote Cloud Architect',
     // Name
     'Anthony Paquet',
@@ -88,9 +107,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     alternateLocale: 'fr_CA',
     url: 'https://www.anthonypaquet.com',
-    title: 'Anthony Paquet | AI & Cloud Security Architect',
-    description: 'Engineering Leader helping companies cut cloud costs 30-60%, achieve compliance (SOC2, HIPAA, PCI), and build from 0→1 to scale. Results in weeks.',
-    siteName: 'Anthony Paquet - Cloud Security & FinOps Consulting',
+    title: 'Anthony Paquet | AI & Cloud Security Architect | Bespoke Labs · Tablix',
+    description: 'AI & Cloud Architect for Series A AI labs and growth-stage companies. Cloud cost reduction 30-60%, SOC 2 / HIPAA in weeks, infrastructure security. Currently with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS).',
+    siteName: 'Anthony Paquet - AI & Cloud Architect | Bespoke Labs · Tablix Founder',
     images: [
       {
         url: '/og-image.png',
@@ -103,16 +122,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anthony Paquet | AI & Cloud Security Architect',
-    description: 'Cut cloud costs 30-60%, achieve SOC2/HIPAA compliance, build and scale cloud systems. Expert consulting.',
+    title: 'Anthony Paquet | AI & Cloud Architect | Bespoke Labs · Tablix',
+    description: 'AI & Cloud Architect for Series A AI labs. Cloud cost 30-60%, SOC 2 / HIPAA in weeks. Currently with Bespoke Labs · founder of Tablix (Quebec legal-tech).',
     images: {
       url: '/og-image.png',
-      alt: 'Anthony Paquet - AI & Cloud Security Architect',
+      alt: 'Anthony Paquet - AI & Cloud Architect | Bespoke Labs and Tablix',
     },
     creator: '@anthonypaquet',
   },
   alternates: {
     canonical: 'https://www.anthonypaquet.com',
+    languages: {
+      'en-CA': 'https://www.anthonypaquet.com',
+      'fr-CA': 'https://www.anthonypaquet.com',
+      'x-default': 'https://www.anthonypaquet.com',
+    },
   },
   category: 'technology',
   classification: 'Professional Services',
@@ -127,15 +151,16 @@ const personSchema = {
   url: 'https://www.anthonypaquet.com',
   image: 'https://www.anthonypaquet.com/images/anthony-paquet.jpg',
   jobTitle: 'AI & Cloud Security Architect',
-  description: 'Independent cloud consultant specializing in FinOps (30-60% cost reduction), compliance (SOC2, HIPAA, PCI-DSS), AI/LLM security, and disaster recovery. Serving Financial Services, Healthcare, AI startups, and Defense industries.',
+  description: 'Independent AI & Cloud Architect specializing in FinOps (30-60% cost reduction), compliance (SOC 2, HIPAA, PCI-DSS), infrastructure security, and disaster recovery for Series A AI labs and growth-stage companies. Currently engaged with Bespoke Labs (Series A RL lab) and founder of Tablix Inc., a Quebec SaaS for legal-document extraction.',
   sameAs: [
     'https://linkedin.com/in/anthony-paquet-94a31085',
     'https://github.com/stonyp90',
+    'https://tablix.ca',
   ],
   knowsAbout: [
     'Cloud Cost Optimization',
     'FinOps',
-    'SOC2 Compliance',
+    'SOC 2 Compliance',
     'HIPAA Compliance',
     'PCI-DSS',
     'ISO 27001',
@@ -143,9 +168,16 @@ const personSchema = {
     'Azure Security',
     'Google Cloud Platform',
     'AI/LLM Security',
+    'AI Lab Cloud Architecture',
+    'AI Training Infrastructure',
+    'Series A Startup Scaling',
+    'RL Lab Operations',
     'Disaster Recovery',
     'DevSecOps',
     'GPU Cost Optimization',
+    'Legal Tech (Quebec)',
+    'PDF Data Extraction',
+    'RDPRM Extraction',
   ],
   hasCredential: [
     {
@@ -159,6 +191,34 @@ const personSchema = {
       credentialCategory: 'certification',
     },
   ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Bespoke Labs',
+    description: 'Series A-funded cutting-edge RL (reinforcement learning) lab running on Google Cloud Platform (GCP). Anthony is engaged as a contractor (via a.team) for GCP cost reduction (FinOps), SOC 2 compliance, infrastructure security, and engineering contributions to Horizon, the lab\'s core product.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Mountain View',
+      addressRegion: 'California',
+      addressCountry: 'United States',
+    },
+  },
+  owns: {
+    '@type': 'Organization',
+    '@id': 'https://tablix.ca/#org',
+    name: 'Tablix Inc.',
+    url: 'https://tablix.ca',
+    logo: 'https://www.anthonypaquet.com/images/logos/tablix-icon.svg',
+    description: 'Quebec-based SaaS that turns legal PDFs (RDPRM, REQ, hypothèques, contracts) into structured Excel, Word, or branded-PDF tables. Built in partnership with Stein Monast for avocats, notaires, and assistantes juridiques. Full coverage of all 112 RDPRM natures de droit, automated hypothèque deduplication, output formatted to industry best practices.',
+    areaServed: {
+      '@type': 'Place',
+      name: 'Quebec, Canada',
+    },
+    memberOf: {
+      '@type': 'Organization',
+      name: 'Stein Monast',
+      description: 'Quebec law firm. Tablix partner.',
+    },
+  },
   address: {
     '@type': 'PostalAddress',
     addressRegion: 'Quebec',
@@ -308,11 +368,82 @@ const faqSchema = {
         text: 'Yes. The AI/LLM Security & Governance service includes LLM gateway with policy enforcement, PII/PHI detection and redaction, prompt injection controls, usage metering and cost limits, and compliance audit logging. Designed for production AI systems requiring SOC2 compliance.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'Does Anthony Paquet work with Series A AI labs and AI startups?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Anthony is currently engaged with Bespoke Labs, a Series A-funded RL (reinforcement learning) lab, where he drives cloud cost reduction (FinOps), SOC 2 compliance, infrastructure security, and contributes engineering to their core product Horizon. He is well-suited for AI startups Series A through C that need to control GPU and inference costs, achieve SOC 2 for enterprise sales, and harden security before scaling.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Tablix and who is it for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tablix (https://tablix.ca) is a Quebec-based SaaS founded by Anthony Paquet, built in partnership with Stein Monast. It compresses hours of paralegal work into seconds by pulling legal cross-references straight from RDPRM, REQ, and hypothèque PDFs into structured Excel, Word, or branded-PDF tables formatted to industry best practices. Built for avocats (lawyers), notaires (notaries), and assistantes juridiques (legal assistants) in Quebec, it covers all 112 RDPRM natures de droit and includes automatic hypothèque deduplication across legal entity names. The ROI is concrete: an afternoon of manual transcription per file, returned to billable client work.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is RDPRM extraction and does Tablix cover the full register?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'RDPRM (Registre des droits personnels et réels mobiliers) is Quebec\'s personal and movable property security register. Tablix performs full RDPRM extraction across all 112 natures de droit (rights categories), turning RDPRM PDF extracts into clean structured tables with automatic deduplication of hypothèque entries across entity names. It also handles REQ (Registraire des entreprises) extracts and other Quebec legal documents.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is Anthony Paquet based and does he work remotely?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Anthony Paquet is based in Quebec, Canada and works remotely worldwide. He has delivered cloud and security projects for clients in North America, Europe, and across Quebec and Canada. Engagements are remote-first with on-site meetings as needed.',
+      },
+    },
   ],
 }
 
+// SoftwareApplication Schema - for Tablix (Anthony's owned product)
+const tablixSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': 'https://tablix.ca/#software',
+  name: 'Tablix',
+  url: 'https://tablix.ca',
+  logo: 'https://www.anthonypaquet.com/images/logos/tablix-icon.svg',
+  image: 'https://www.anthonypaquet.com/images/logos/tablix-og.png',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description: 'Quebec SaaS for legal-document extraction, built in partnership with Stein Monast. Turns RDPRM, REQ, and hypothèque PDFs into structured Excel, Word, or branded-PDF tables in seconds. Full coverage of all 112 RDPRM natures de droit with automatic hypothèque deduplication, output formatted to industry best practices. ROI for law firms: an afternoon of paralegal transcription, returned to billable client work.',
+  inLanguage: ['fr-CA', 'en-CA'],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Lawyers, notaries, and legal assistants in Quebec',
+  },
+  featureList: [
+    'Full RDPRM extraction (112 natures de droit)',
+    'REQ (Registraire des entreprises) extraction',
+    'Hypothèque deduplication across legal entity names',
+    'Excel, Word, and branded PDF output',
+    'AI-powered column detection',
+    'Output formatted to industry best practices',
+  ],
+  publisher: {
+    '@id': 'https://www.anthonypaquet.com/#person',
+  },
+  mentions: {
+    '@type': 'Organization',
+    name: 'Stein Monast',
+    description: 'Quebec law firm and Tablix product partner.',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+  },
+}
+
 // Combined schema array
-const jsonLd = [personSchema, serviceSchema, faqSchema]
+const jsonLd = [personSchema, serviceSchema, faqSchema, tablixSchema]
 
 export default function RootLayout({
   children,

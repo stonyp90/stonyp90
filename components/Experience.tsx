@@ -106,6 +106,11 @@ export default function Experience() {
                       <h4 className="text-sm sm:text-base md:text-lg lg:text-xl text-cyber-blue font-semibold mb-1 sm:mb-2">
                         {exp.company}
                       </h4>
+                      {(exp as { via?: string }).via && (
+                        <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 italic -mt-1 mb-1 sm:mb-2">
+                          via {(exp as { via?: string }).via}
+                        </p>
+                      )}
                       {/* Location */}
                       <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 text-[10px] sm:text-xs md:text-sm text-gray-400">
                         <span className="flex items-center gap-1">

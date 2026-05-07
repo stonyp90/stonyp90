@@ -285,6 +285,26 @@ export const industries = [
 
 export const experiences = [
   {
+    company: 'Bespoke Labs',
+    via: 'a.team',
+    position: 'Senior Cloud & Security Architect | Contractor',
+    location: 'Mountain View, California',
+    period: 'Current',
+    description: 'Series A-funded cutting-edge RL lab. Driving cloud cost reduction, SOC 2 compliance, and infrastructure security, with engineering contributions to Horizon, their core product.',
+    outcomes: [
+      { metric: 'FinOps', description: 'Multi-cloud cost reduction program' },
+      { metric: 'SOC 2', description: 'Compliance roadmap and controls' },
+      { metric: 'Horizon', description: 'Core product contributor' },
+    ],
+    achievements: [
+      'FinOps program reducing multi-cloud spend across training and inference infrastructure',
+      'SOC 2 compliance roadmap and technical controls (IAM, logging, encryption, evidence automation)',
+      'Infrastructure security hardening across the production environment',
+      'Engineering contributions to Horizon, the core product',
+    ],
+    tags: ['Series A', 'RL Lab', 'FinOps', 'SOC 2', 'Cloud Security', 'GCP', 'DevSecOps', 'Horizon'],
+  },
+  {
     company: 'CREE8',
     position: 'Engineering Leader | Founding Engineer',
     location: 'California, United States',

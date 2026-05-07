@@ -3,39 +3,39 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { 
-  FaRobot, 
-  FaBolt, 
-  FaChartLine, 
-  FaUserCog,
-  FaArrowRight,
-  FaBalanceScale,
+import Image from 'next/image'
+import {
+  FaCheckDouble,
+  FaMapMarkerAlt,
+  FaFileExcel,
+  FaLayerGroup,
+  FaHandshake,
   FaExternalLinkAlt
 } from 'react-icons/fa'
 
 const benefits = [
   {
-    icon: FaRobot,
-    title: 'AI-Powered Assessment',
-    description: 'Our 12-step guided process captures your full case details. AI analyzes patterns for instant, accurate assessments.',
+    icon: FaCheckDouble,
+    title: 'Every Nature de Droit, All 112',
+    description: 'Tablix parses the full RDPRM register in seconds. No missed categories, no manual transcription, no edge case left behind.',
     color: 'cyber-purple',
   },
   {
-    icon: FaBolt,
-    title: 'Zero Bureaucracy',
-    description: 'Tell your story once. No repeating yourself, no endless intake calls. Lawyers receive your complete case package upfront.',
+    icon: FaMapMarkerAlt,
+    title: 'Built for Quebec Practice',
+    description: 'Tuned for the documents Quebec firms handle every day. RDPRM, REQ, hypothèques, contracts. Generic OCR misses the structure these files actually have.',
     color: 'cyber-green',
   },
   {
-    icon: FaChartLine,
-    title: 'Faster Time to Value',
-    description: 'Get matched with qualified lawyers in minutes, not weeks. Save hours per case with pre-organized documentation.',
+    icon: FaFileExcel,
+    title: 'Client-Ready Output',
+    description: 'Pick the format your matter calls for. Apply your firm\'s letterhead to PDF exports and send them straight to your client with no reformatting.',
     color: 'cyber-blue',
   },
   {
-    icon: FaUserCog,
-    title: 'Case-Based Experience',
-    description: 'Personalized journeys for independent workers. Smart matching connects you with lawyers who specialize in your situation.',
+    icon: FaLayerGroup,
+    title: 'Hypothèque Deduplication',
+    description: 'Match hypothèque entries across every spelling and variation of an entity name. Hours of cross-checking, in a single pass.',
     color: 'cyber-pink',
   },
 ]
@@ -67,7 +67,7 @@ export default function AgentMarketplace() {
   }
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden" id="jurisclaim">
+    <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden" id="tablix">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -right-32 w-96 h-96 bg-cyber-purple/8 rounded-full blur-[120px]" />
@@ -83,31 +83,49 @@ export default function AgentMarketplace() {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 backdrop-blur-sm mb-6">
-            <FaBalanceScale className="text-cyber-purple text-sm" />
+            <FaHandshake className="text-cyber-purple text-sm" />
             <span className="text-cyber-purple text-xs sm:text-sm font-medium">
-              Building — AI Legal Marketplace
+              In Partnership with Stein Monast
             </span>
           </div>
-          
+
           {/* Logo */}
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              <FaBalanceScale className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="text-white">Juris</span>
-              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Claim</span>
-            </h2>
+            <a
+              href="https://tablix.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Tablix — Quebec legal-document extraction SaaS"
+              title="Tablix — RDPRM, REQ, hypothèque PDF extraction"
+              className="block w-14 h-14 sm:w-16 sm:h-16 shadow-lg shadow-black/40 hover:scale-105 transition-transform"
+            >
+              <Image
+                src="/images/logos/tablix-icon.svg"
+                alt="Tablix logo — Quebec legal-document extraction SaaS"
+                width={64}
+                height={64}
+                className="w-full h-full"
+                priority={false}
+              />
+            </a>
+            <a
+              href="https://tablix.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-90 transition-opacity"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+                <span className="text-white">Tab</span>
+                <span className="bg-gradient-to-r from-emerald-400 to-lime-400 bg-clip-text text-transparent">lix</span>
+              </h2>
+            </a>
           </div>
-          
+
           <p className="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
-            I&apos;m building an <span className="text-cyber-green font-semibold">AI-powered legal marketplace</span> that helps 
-            independent workers get free case assessments and connect with qualified lawyers—
-            <span className="text-cyber-blue font-semibold">eliminating bureaucracy and accelerating justice</span>.
+            <span className="text-cyber-green font-semibold">An afternoon of paralegal work, done in seconds.</span> Drop an RDPRM, REQ, or hypothèque PDF, and Tablix returns the cross-references as <span className="text-cyber-blue font-semibold">clean Excel, Word, or branded-PDF tables</span>, presented the way Quebec firms deliver them to clients.
           </p>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Employment law, consumer rights, personal injury—know your case strength before you spend on consultations.
+            Made for Quebec avocats, notaires, and assistantes juridiques. Every RDPRM nature de droit covered. Hypothèque entries deduplicated across entity names.
           </p>
           
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-cyber-purple to-cyber-pink mx-auto rounded-full mt-6" />
@@ -146,28 +164,28 @@ export default function AgentMarketplace() {
             <div className="relative glass rounded-2xl p-6 sm:p-8 border border-white/5">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="w-3 h-3 rounded-full bg-cyber-green animate-pulse" />
-                <span className="text-sm text-gray-400">Live — Try it now</span>
+                <span className="text-sm text-gray-400">Live · Try it now</span>
               </div>
-              
+
               <h4 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                Get Your Free Case Assessment
+                Try Tablix Free
               </h4>
               <p className="text-gray-300 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-                Independent worker facing wrongful dismissal? Consumer rights issue? Complete our 12-step assessment in 10-15 minutes and know where you stand—100% free.
+                Drop your first RDPRM, REQ, or hypothèque PDF and watch it convert in seconds. No credit card required.
               </p>
-              
+
               <a
-                href="https://www.jurisclaim.com"
+                href="https://tablix.ca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber-purple to-cyber-pink text-white font-bold rounded-xl hover:shadow-lg hover:shadow-cyber-purple/20 transition-all"
               >
-                <span>Visit JurisClaim</span>
+                <span>Visit Tablix</span>
                 <FaExternalLinkAlt className="text-sm" />
               </a>
-              
+
               <p className="text-xs text-gray-500 mt-4">
-                Bank-level encryption • 100% confidential • Lawyer-designed process
+                Built in Quebec • All 112 RDPRM natures de droit • Excel & Word export
               </p>
             </div>
           </div>
