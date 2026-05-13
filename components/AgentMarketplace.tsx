@@ -16,14 +16,14 @@ import {
 const benefits = [
   {
     icon: FaCheckDouble,
-    title: 'Every Nature de Droit, All 112',
-    description: 'Tablix parses the full RDPRM register in seconds. No missed categories, no manual transcription, no edge case left behind.',
+    title: 'Every RDPRM Right Category',
+    description: 'Tablix parses the full RDPRM register in seconds. All 112 categories covered, no manual transcription, no edge cases left behind.',
     color: 'cyber-purple',
   },
   {
     icon: FaMapMarkerAlt,
     title: 'Built for Quebec Practice',
-    description: 'Tuned for the documents Quebec firms handle every day. RDPRM, REQ, hypothèques, contracts. Generic OCR misses the structure these files actually have.',
+    description: 'Tuned for the documents Quebec firms handle every day. RDPRM, REQ, hypothecs, contracts. Generic OCR misses the structure these files actually have.',
     color: 'cyber-green',
   },
   {
@@ -34,8 +34,8 @@ const benefits = [
   },
   {
     icon: FaLayerGroup,
-    title: 'Hypothèque Deduplication',
-    description: 'Match hypothèque entries across every spelling and variation of an entity name. Hours of cross-checking, in a single pass.',
+    title: 'Hypothec Deduplication',
+    description: 'Match hypothec entries across every spelling and variation of an entity name. Hours of cross-checking in a single pass.',
     color: 'cyber-pink',
   },
 ]
@@ -95,13 +95,13 @@ export default function AgentMarketplace() {
               href="https://tablix.ca"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit Tablix — Quebec legal-document extraction SaaS"
-              title="Tablix — RDPRM, REQ, hypothèque PDF extraction"
+              aria-label="Visit Tablix, Quebec legal-document extraction SaaS"
+              title="Tablix for RDPRM, REQ, and hypothec PDF extraction"
               className="block w-14 h-14 sm:w-16 sm:h-16 shadow-lg shadow-black/40 hover:scale-105 transition-transform"
             >
               <Image
                 src="/images/logos/tablix-icon.svg"
-                alt="Tablix logo — Quebec legal-document extraction SaaS"
+                alt="Tablix logo, Quebec legal-document extraction SaaS"
                 width={64}
                 height={64}
                 className="w-full h-full"
@@ -122,10 +122,10 @@ export default function AgentMarketplace() {
           </div>
 
           <p className="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
-            <span className="text-cyber-green font-semibold">An afternoon of paralegal work, done in seconds.</span> Drop an RDPRM, REQ, or hypothèque PDF, and Tablix returns the cross-references as <span className="text-cyber-blue font-semibold">clean Excel, Word, or branded-PDF tables</span>, presented the way Quebec firms deliver them to clients.
+            <span className="text-cyber-green font-semibold">An afternoon of paralegal work, done in seconds.</span> Drop an RDPRM, REQ, or hypothec PDF into Tablix and get back <span className="text-cyber-blue font-semibold">clean cross-reference tables as Excel, Word, or branded PDF</span>, formatted the way Quebec firms deliver them to clients.
           </p>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Made for Quebec avocats, notaires, and assistantes juridiques. Every RDPRM nature de droit covered. Hypothèque entries deduplicated across entity names.
+            Built for Quebec lawyers, notaries, and legal assistants. Every RDPRM right category is covered. Hypothec entries are deduplicated across entity names.
           </p>
           
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-cyber-purple to-cyber-pink mx-auto rounded-full mt-6" />
@@ -171,7 +171,7 @@ export default function AgentMarketplace() {
                 Try Tablix Free
               </h4>
               <p className="text-gray-300 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-                Drop your first RDPRM, REQ, or hypothèque PDF and watch it convert in seconds. No credit card required.
+                Drop your first RDPRM, REQ, or hypothec PDF and watch it convert in seconds. No credit card required.
               </p>
 
               <a
@@ -185,7 +185,7 @@ export default function AgentMarketplace() {
               </a>
 
               <p className="text-xs text-gray-500 mt-4">
-                Built in Quebec • All 112 RDPRM natures de droit • Excel & Word export
+                Built in Quebec • All 112 RDPRM right categories • Excel & Word export
               </p>
             </div>
           </div>
