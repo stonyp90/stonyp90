@@ -62,7 +62,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           role-session-name: github-actions-anthonypaquet-com
-          aws-region: ca-central-1
+          aws-region: us-east-1
 
       - name: Sync static export to S3
         run: |
