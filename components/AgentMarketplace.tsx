@@ -9,8 +9,7 @@ import {
   FaMapMarkerAlt,
   FaFileExcel,
   FaLayerGroup,
-  FaHandshake,
-  FaExternalLinkAlt
+  FaArrowRight
 } from 'react-icons/fa'
 
 const benefits = [
@@ -82,44 +81,27 @@ export default function AgentMarketplace() {
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 backdrop-blur-sm mb-6">
-            <FaHandshake className="text-cyber-purple text-sm" />
-            <span className="text-cyber-purple text-xs sm:text-sm font-medium">
-              In Partnership with Stein Monast
+          {/* Logo lockup — real Tablix mark + wordmark */}
+          <a
+            href="https://tablix.ca"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Tablix, Quebec legal-document extraction SaaS"
+            title="Tablix for RDPRM, REQ, and hypothec PDF extraction"
+            className="inline-flex items-center justify-center gap-3 sm:gap-4 mb-6 hover:opacity-90 transition-opacity"
+          >
+            <Image
+              src="/images/logos/tablix-mark.svg"
+              alt="Tablix logo, Quebec legal-document extraction SaaS"
+              width={56}
+              height={56}
+              className="w-11 h-11 sm:w-14 sm:h-14"
+              priority={false}
+            />
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+              Tablix<span className="text-tablix-green">.</span>
             </span>
-          </div>
-
-          {/* Logo */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <a
-              href="https://tablix.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Tablix, Quebec legal-document extraction SaaS"
-              title="Tablix for RDPRM, REQ, and hypothec PDF extraction"
-              className="block w-14 h-14 sm:w-16 sm:h-16 shadow-lg shadow-black/40 hover:scale-105 transition-transform"
-            >
-              <Image
-                src="/images/logos/tablix-icon.svg"
-                alt="Tablix logo, Quebec legal-document extraction SaaS"
-                width={64}
-                height={64}
-                className="w-full h-full"
-                priority={false}
-              />
-            </a>
-            <a
-              href="https://tablix.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-90 transition-opacity"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-                <span className="text-white">Tab</span>
-                <span className="bg-gradient-to-r from-emerald-400 to-lime-400 bg-clip-text text-transparent">lix</span>
-              </h2>
-            </a>
-          </div>
+          </a>
 
           <p className="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
             <span className="text-cyber-green font-semibold">An afternoon of paralegal work, done in seconds.</span> Drop an RDPRM, REQ, or hypothec PDF into Tablix and get back <span className="text-cyber-blue font-semibold">clean cross-reference tables as Excel, Word, or branded PDF</span>, formatted the way Quebec firms deliver them to clients.
@@ -142,11 +124,9 @@ export default function AgentMarketplace() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + index * 0.1 }}
-              className="glass rounded-2xl p-5 sm:p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group"
+              className="glass rounded-2xl p-5 sm:p-6 border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300 group"
             >
-              <div className={`w-12 h-12 rounded-xl bg-${benefit.color}/10 border border-${benefit.color}/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                <benefit.icon className={`text-xl text-${benefit.color}`} />
-              </div>
+              <benefit.icon className={`tech-icon text-[1.75rem] mb-5 text-${benefit.color}`} />
               <h3 className="text-lg font-bold text-white mb-2">
                 {benefit.title}
               </h3>
@@ -160,11 +140,14 @@ export default function AgentMarketplace() {
         {/* CTA Card */}
         <motion.div variants={itemVariants} className="text-center">
           <div className="relative max-w-2xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyber-purple/20 to-cyber-pink/20 rounded-2xl blur-xl opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-cyber-purple/10 to-cyber-pink/10 rounded-2xl blur-2xl opacity-60" />
             <div className="relative glass rounded-2xl p-6 sm:p-8 border border-white/5">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-3 h-3 rounded-full bg-cyber-green animate-pulse" />
-                <span className="text-sm text-gray-400">Live · Try it now</span>
+              <div className="inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-cyber-green/30">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green" />
+                </span>
+                <span className="text-xs font-medium text-cyber-green tracking-wide">Live · Try it now</span>
               </div>
 
               <h4 className="text-xl sm:text-2xl font-bold text-white mb-3">
@@ -178,10 +161,10 @@ export default function AgentMarketplace() {
                 href="https://tablix.ca"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber-purple to-cyber-pink text-white font-bold rounded-xl hover:shadow-lg hover:shadow-cyber-purple/20 transition-all"
+                className="btn-outline accent-purple group/cta"
               >
                 <span>Visit Tablix</span>
-                <FaExternalLinkAlt className="text-sm" />
+                <FaArrowRight className="text-sm transition-transform group-hover/cta:translate-x-1" />
               </a>
 
               <p className="text-xs text-gray-500 mt-4">

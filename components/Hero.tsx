@@ -84,7 +84,7 @@ export default function Hero() {
       >
         {/* Availability Badge */}
         <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-green/10 border border-cyber-green/30 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyber-green/30 backdrop-blur-sm">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green"></span>
@@ -113,7 +113,7 @@ export default function Hero() {
           Senior Cloud Architect & Engineering Leader. I embed with your team to 
           <span className="text-cyber-green font-semibold"> cut cloud spend 30-60%</span>, 
           <span className="text-cyber-blue font-semibold"> pass SOC2/HIPAA audits in weeks</span>, and 
-          <span className="text-cyber-purple font-semibold"> build infrastructure that scales</span>.
+          <span className="text-cyber-purple font-semibold"> build infrastructure that scales</span>.{' '}
           <br className="hidden sm:block" />
           <span className="text-gray-400">Results in weeks, not quarters. No long-term contracts required.</span>
         </motion.p>
@@ -140,18 +140,18 @@ export default function Hero() {
             href={personalInfo.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-cyber-green to-cyber-blue hover:from-cyber-green hover:to-cyber-green px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl text-cyber-black font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-glow hover:shadow-glow-lg text-sm sm:text-base w-full sm:w-auto justify-center"
+            className="btn-outline accent-green btn-lg group w-full sm:w-auto"
           >
             <FaCalendarAlt className="text-lg" />
             <span>Book Free Strategy Call</span>
             <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
           </a>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
             <a
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass glass-hover px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl flex items-center gap-2 text-white font-medium text-sm sm:text-base"
+              className="btn-ghost btn-lg flex-1 sm:flex-none"
             >
               <FaLinkedin className="text-lg text-[#0A66C2]" />
               <span className="hidden xs:inline">LinkedIn</span>
@@ -159,7 +159,7 @@ export default function Hero() {
             <a
               href="/AnthonyPaquet.pdf"
               download
-              className="glass glass-hover px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl flex items-center gap-2 text-white font-medium text-sm sm:text-base"
+              className="btn-ghost btn-lg flex-1 sm:flex-none"
             >
               <FaFileDownload className="text-lg text-cyber-blue" />
               <span>Resume</span>

@@ -68,16 +68,18 @@ export default function Experience() {
                 className="relative pl-6 sm:pl-12 md:pl-20"
               >
                 {/* Timeline dot - smaller on mobile */}
-                <div className={`absolute left-[7px] sm:left-4 md:left-8 top-4 sm:top-5 md:top-6 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 -translate-x-[4px] sm:-translate-x-[6px] md:-translate-x-[7px] rounded-full border-2 sm:border-[3px] md:border-4 border-cyber-black shadow-lg ${
-                  exp.period === 'Current' 
-                    ? 'bg-cyber-green shadow-cyber-green/50' 
-                    : 'bg-cyber-blue shadow-cyber-blue/50'
+                <div className={`absolute left-[7px] sm:left-4 md:left-8 top-4 sm:top-5 md:top-6 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 -translate-x-[4px] sm:-translate-x-[6px] md:-translate-x-[7px] rounded-full border-2 sm:border-[3px] md:border-4 border-cyber-black shadow-lg ring-2 ${
+                  exp.period === 'Current'
+                    ? 'bg-cyber-green shadow-cyber-green/50 ring-cyber-green/20'
+                    : 'bg-cyber-blue shadow-cyber-blue/50 ring-cyber-blue/10'
                 }`} />
 
                 {/* Content card - optimized padding */}
                 <motion.div
-                  className={`glass rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 cursor-pointer transition-all duration-300 border ${
-                    expandedIndex === index ? 'border-cyber-blue/50' : 'border-transparent'
+                  className={`group glass rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 cursor-pointer transition-all duration-300 border ${
+                    expandedIndex === index
+                      ? 'border-cyber-blue/50'
+                      : 'border-white/5 hover:border-cyber-blue/30'
                   } active:scale-[0.99]`}
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                   whileTap={{ scale: 0.995 }}
@@ -88,16 +90,16 @@ export default function Experience() {
                       {/* Position with badge */}
                       <div className="flex items-start sm:items-center gap-1.5 sm:gap-2 flex-wrap mb-1">
                         <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white flex items-center gap-1.5 sm:gap-2">
-                          <FaBriefcase className="text-cyber-blue text-xs sm:text-sm md:text-base flex-shrink-0" />
+                          <FaBriefcase className="tech-icon text-cyber-blue text-xs sm:text-sm md:text-base flex-shrink-0" />
                           <span className="leading-snug">{exp.position}</span>
                         </h3>
                         {exp.period === 'Current' && (
-                          <span className="px-1.5 py-0.5 sm:px-2 bg-cyber-green/15 border border-cyber-green/30 rounded-full text-cyber-green text-[9px] sm:text-[10px] md:text-xs font-medium whitespace-nowrap">
+                          <span className="px-1.5 py-0.5 sm:px-2 border border-cyber-green/40 rounded-full text-cyber-green text-[9px] sm:text-[10px] md:text-xs font-medium whitespace-nowrap">
                             Current
                           </span>
                         )}
                         {exp.period === 'Founded' && (
-                          <span className="px-1.5 py-0.5 sm:px-2 bg-cyber-purple/15 border border-cyber-purple/30 rounded-full text-cyber-purple text-[9px] sm:text-[10px] md:text-xs font-medium whitespace-nowrap">
+                          <span className="px-1.5 py-0.5 sm:px-2 border border-cyber-purple/40 rounded-full text-cyber-purple text-[9px] sm:text-[10px] md:text-xs font-medium whitespace-nowrap">
                             Founder
                           </span>
                         )}
@@ -138,7 +140,7 @@ export default function Experience() {
                       {exp.outcomes.slice(0, 3).map((outcome, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-cyber-dark border border-cyber-blue/20 rounded-md sm:rounded-lg"
+                          className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-cyber-dark/60 border border-cyber-blue/20 rounded-md sm:rounded-lg transition-colors duration-300 group-hover:border-cyber-blue/30"
                         >
                           <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-cyber-blue whitespace-nowrap">
                             {outcome.metric}
@@ -180,7 +182,7 @@ export default function Experience() {
                         {exp.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 bg-cyber-dark border border-cyber-blue/20 rounded-full text-[9px] sm:text-[10px] md:text-xs text-cyber-blue hover:border-cyber-blue/40 transition-colors"
+                            className="px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 bg-cyber-dark/60 border border-cyber-blue/20 rounded-full text-[9px] sm:text-[10px] md:text-xs text-cyber-blue hover:border-cyber-blue/40 transition-colors"
                           >
                             {tag}
                           </span>

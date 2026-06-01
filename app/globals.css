@@ -204,35 +204,106 @@ section {
   }
 }
 
-/* Primary button */
-.btn-primary {
-  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-blue-dark));
-  color: var(--cyber-black);
-  font-weight: 700;
-  box-shadow: 0 4px 15px -3px rgba(0, 212, 255, 0.3);
+/* ===================================================================
+   Buttons & icons: outline / ghost only — no filled backgrounds.
+   Accent colour is driven by a single --accent token so every
+   variant shares one definition (no per-colour duplication).
+   =================================================================== */
+
+/* Accent setters — pair with .btn-outline / .icon-accent */
+.accent-blue   { --accent: var(--cyber-blue); }
+.accent-green  { --accent: var(--cyber-green); }
+.accent-purple { --accent: var(--cyber-purple); }
+.accent-pink   { --accent: var(--cyber-pink); }
+
+/* Outline button — transparent fill, accent border + label.
+   Accent defaults to blue via the var() fallback so the .accent-*
+   setter classes win regardless of stylesheet source order. */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+  color: var(--accent, var(--cyber-blue));
+  border: 1px solid color-mix(in srgb, var(--accent, var(--cyber-blue)) 38%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--cyber-blue)) 6%, transparent);
+  transition: color 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth),
+              background 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth),
+              transform 0.3s var(--ease-smooth);
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
 }
 
-.btn-primary:hover {
+.btn-outline:hover {
+  border-color: var(--accent, var(--cyber-blue));
+  background: color-mix(in srgb, var(--accent, var(--cyber-blue)) 12%, transparent);
+  box-shadow: 0 0 26px -8px var(--accent, var(--cyber-blue));
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px rgba(0, 212, 255, 0.4);
-  filter: brightness(1.05);
 }
 
-.btn-primary:active {
+.btn-outline:active {
   transform: translateY(0) scale(0.98);
 }
 
-/* Secondary button */
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
-  transition: all 0.25s ease;
+/* Neutral ghost button — outlined, no accent fill */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  transition: all 0.3s var(--ease-smooth);
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(0, 212, 255, 0.4);
+.btn-ghost:hover {
+  border-color: color-mix(in srgb, var(--cyber-blue) 45%, transparent);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Large size modifier for prominent CTAs (declared after the base
+   button rules so its padding/size wins). */
+.btn-lg {
+  padding: 0.9rem 1.75rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* Bare technical icon — no chip/box behind it. Sits on the page
+   directly and gains a soft glow + lift when its card is hovered. */
+.tech-icon {
+  display: inline-flex;
+  transition: transform 0.3s var(--ease-smooth), filter 0.3s var(--ease-smooth);
+}
+
+.group:hover .tech-icon {
+  transform: translateY(-2px) scale(1.08);
+  filter: drop-shadow(0 0 12px currentColor);
 }
 
 /* Smooth reveal animation */

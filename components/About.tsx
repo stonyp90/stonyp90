@@ -66,8 +66,8 @@ export default function About() {
           className="relative max-w-4xl mx-auto"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/10 to-cyber-purple/10 rounded-2xl sm:rounded-3xl blur-xl opacity-50" />
-          <div className="relative glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/5">
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 items-center">
+          <div className="relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-9 md:p-11 border border-white/5 hover:border-white/10 transition-colors duration-300">
+            <div className="grid md:grid-cols-3 gap-8 sm:gap-10 items-center">
               {/* Photo Area */}
               <div className="flex justify-center md:justify-start">
                 <div className="relative">
@@ -96,26 +96,26 @@ export default function About() {
                 </p>
                 
                 {/* Personal Life */}
-                <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 justify-center md:justify-start">
-                  <div className="flex items-center gap-1.5 sm:gap-2 text-gray-300 text-xs sm:text-sm">
-                    <FaChild className="text-cyber-blue text-sm sm:text-base" />
+                <div className="flex flex-wrap gap-x-5 gap-y-3 sm:gap-x-6 mb-5 sm:mb-7 justify-center md:justify-start">
+                  <div className="group flex items-center gap-2 text-gray-300 text-xs sm:text-sm">
+                    <FaChild className="tech-icon text-cyber-blue text-base sm:text-lg" />
                     <span>Proud dad of two</span>
                   </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 text-gray-300 text-xs sm:text-sm">
-                    <FaSnowflake className="text-cyber-purple text-sm sm:text-base" />
+                  <div className="group flex items-center gap-2 text-gray-300 text-xs sm:text-sm">
+                    <FaSnowflake className="tech-icon text-cyber-purple text-base sm:text-lg" />
                     <span>Avid snowboarder</span>
                   </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 text-gray-300 text-xs sm:text-sm">
-                    <FaHeart className="text-cyber-green text-sm sm:text-base" />
+                  <div className="group flex items-center gap-2 text-gray-300 text-xs sm:text-sm">
+                    <FaHeart className="tech-icon text-cyber-green text-base sm:text-lg" />
                     <span>Tech passionate</span>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                  <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-cyber-blue/10 border border-cyber-blue/30 rounded-full text-cyber-blue text-xs sm:text-sm font-medium">
+                <div className="flex flex-wrap gap-2.5 justify-center md:justify-start">
+                  <span className="px-3.5 py-1.5 sm:px-4 sm:py-2 border border-cyber-blue/30 hover:border-cyber-blue/60 rounded-full text-cyber-blue text-xs sm:text-sm font-medium transition-colors duration-300">
                     Quebec, Canada
                   </span>
-                  <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-cyber-green/10 border border-cyber-green/30 rounded-full text-cyber-green text-xs sm:text-sm font-medium">
+                  <span className="px-3.5 py-1.5 sm:px-4 sm:py-2 border border-cyber-green/30 hover:border-cyber-green/60 rounded-full text-cyber-green text-xs sm:text-sm font-medium transition-colors duration-300">
                     French & English
                   </span>
                 </div>

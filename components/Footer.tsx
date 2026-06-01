@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Connect */}
           <div className="text-center sm:text-left sm:col-span-2 md:col-span-1">
             <h3 className="text-lg sm:text-xl font-bold text-cyber-blue mb-3 sm:mb-4">Connect</h3>
-            <div className="flex gap-3 justify-center sm:justify-start mb-4">
+            <div className="flex gap-5 justify-center sm:justify-start mb-4">
               {[
                 { href: socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
                 { href: socialLinks.github, icon: FaGithub, label: 'GitHub' },
@@ -58,15 +58,15 @@ export default function Footer() {
               ].map((social) => (
                 <motion.a
                   key={social.label}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href={social.href}
                   target={social.label !== 'Email' ? '_blank' : undefined}
                   rel={social.label !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="w-10 h-10 sm:w-11 sm:h-11 glass rounded-lg sm:rounded-xl flex items-center justify-center hover:border-cyber-blue/50 transition-all duration-300"
+                  className="p-1.5 text-cyber-blue hover:text-white transition-colors duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon className="text-lg sm:text-xl text-cyber-blue" />
+                  <social.icon className="text-2xl sm:text-[1.6rem]" />
                 </motion.a>
               ))}
             </div>

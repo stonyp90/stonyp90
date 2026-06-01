@@ -49,16 +49,16 @@ export default function Certifications() {
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
           {/* Certifications */}
           <motion.div variants={itemVariants}>
-            <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full">
+            <div className="group glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 md:mb-6 flex items-center gap-2 sm:gap-3 text-cyber-blue">
-                <FaAward className="text-xl sm:text-2xl md:text-3xl" />
+                <FaAward className="tech-icon text-xl sm:text-2xl md:text-3xl" />
                 AWS Certifications
               </h3>
               <div className="space-y-3 sm:space-y-4">
                 {certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className="block p-3 sm:p-4 bg-cyber-dark/50 rounded-lg sm:rounded-xl border border-white/5"
+                    className="block p-3 sm:p-4 bg-cyber-dark/50 rounded-lg sm:rounded-xl border border-white/5 hover:border-cyber-blue/30 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <div className="flex items-center gap-3 sm:gap-4">
                       <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex-shrink-0">
@@ -87,9 +87,9 @@ export default function Certifications() {
           {/* Education & Languages */}
           <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6">
             {/* Education */}
-            <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
+            <div className="group glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-5 flex items-center gap-2 sm:gap-3 text-cyber-purple">
-                <FaGraduationCap className="text-xl sm:text-2xl md:text-3xl" />
+                <FaGraduationCap className="tech-icon text-xl sm:text-2xl md:text-3xl" />
                 Education
               </h3>
               <div className="space-y-1.5 sm:space-y-2">
@@ -101,16 +101,16 @@ export default function Certifications() {
             </div>
 
             {/* Languages */}
-            <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
+            <div className="group glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300">
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-5 flex items-center gap-2 sm:gap-3 text-cyber-green">
-                <FaLanguage className="text-xl sm:text-2xl md:text-3xl" />
+                <FaLanguage className="tech-icon text-xl sm:text-2xl md:text-3xl" />
                 Languages
               </h3>
-              <div className="space-y-2 sm:space-y-3">
+              <div className="space-y-1 sm:space-y-1.5">
                 {languages.map((lang, index) => (
-                  <div key={index} className="flex items-center justify-between p-2 sm:p-2.5 rounded-lg hover:bg-white/5 transition-colors">
+                  <div key={index} className="flex items-center justify-between gap-3 p-2 sm:p-2.5 rounded-lg border border-transparent hover:border-cyber-green/20 hover:bg-white/5 transition-all duration-300">
                     <span className="text-sm sm:text-base md:text-lg font-medium text-white">{lang.name}</span>
-                    <span className="text-cyber-blue font-semibold text-xs sm:text-sm md:text-base">{lang.level}</span>
+                    <span className="text-cyber-green font-semibold text-xs sm:text-sm md:text-base">{lang.level}</span>
                   </div>
                 ))}
               </div>

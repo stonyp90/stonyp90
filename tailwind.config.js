@@ -5,6 +5,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // Icon colours are data-driven (e.g. text-${service.color}); keep them
+  // generated even though the full class names never appear as literals.
+  safelist: [
+    'text-cyber-blue',
+    'text-cyber-green',
+    'text-cyber-purple',
+    'text-cyber-pink',
+  ],
   theme: {
     extend: {
       colors: {
@@ -16,6 +24,8 @@ module.exports = {
         'cyber-purple': '#9d4edd',
         'cyber-pink': '#ff006e',
         'cyber-green': '#06ffa5',
+        'tablix-green': '#22c55e',
+        'tablix-green-light': '#4ade80',
       },
       fontFamily: {
         sans: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],

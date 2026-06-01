@@ -124,10 +124,10 @@ export default function Services() {
                 setActiveCategory(category)
                 setExpandedService(null)
               }}
-              className={`px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-all duration-300 ${
+              className={`px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-medium text-sm sm:text-base border transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-cyber-blue to-cyber-purple text-white shadow-lg shadow-cyber-blue/20'
-                  : 'glass text-gray-300 hover:text-white hover:border-cyber-blue/30'
+                  ? 'border-cyber-blue/60 text-cyber-blue bg-cyber-blue/5 shadow-glow-sm'
+                  : 'border-white/10 text-gray-400 hover:text-white hover:border-white/25'
               }`}
             >
               {categoryInfo[category].title}
@@ -169,20 +169,16 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative glass rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${
-                  isExpanded 
-                    ? 'border-cyber-blue/50 shadow-lg shadow-cyber-blue/10' 
+                className={`group relative glass rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${
+                  isExpanded
+                    ? 'border-cyber-blue/50 shadow-lg shadow-cyber-blue/10'
                     : 'border-transparent hover:border-white/10'
                 }`}
                 onClick={() => setExpandedService(isExpanded ? null : service.id)}
               >
                 {/* Card Header */}
                 <div className="p-5 sm:p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-xl bg-${service.color}/10 border border-${service.color}/20`}>
-                      <IconComponent className={`text-xl sm:text-2xl text-${service.color}`} />
-                    </div>
-                  </div>
+                  <IconComponent className={`tech-icon text-2xl sm:text-3xl mb-5 text-${service.color}`} />
 
                   <h4 className="text-lg sm:text-xl font-bold text-white mb-3">
                     {service.name}
@@ -242,10 +238,10 @@ export default function Services() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-cyber-blue to-cyber-blue-dark text-cyber-black font-bold rounded-xl hover:shadow-lg hover:shadow-cyber-blue/20 transition-all"
+                      className="btn-outline accent-blue w-full group/cta"
                     >
                       <span>Book a 15-min Scope Call</span>
-                      <FaArrowRight />
+                      <FaArrowRight className="transition-transform group-hover/cta:translate-x-1" />
                     </a>
                   </div>
                 </motion.div>
@@ -273,16 +269,16 @@ export default function Services() {
               Flexible pricing models—fixed-price or hourly—to fit your needs. We&apos;ll discuss your specific requirements and provide a tailored proposal.
             </p>
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-400 mb-6">
-              <span className="px-3 py-1.5 bg-cyber-dark rounded-full border border-white/10">
+              <span className="px-3 py-1.5 rounded-full border border-white/10">
                 Scoped for your environment
               </span>
-              <span className="px-3 py-1.5 bg-cyber-dark rounded-full border border-white/10">
+              <span className="px-3 py-1.5 rounded-full border border-white/10">
                 Clear deliverables
               </span>
-              <span className="px-3 py-1.5 bg-cyber-dark rounded-full border border-white/10">
+              <span className="px-3 py-1.5 rounded-full border border-white/10">
                 Defined timeline
               </span>
-              <span className="px-3 py-1.5 bg-cyber-dark rounded-full border border-white/10">
+              <span className="px-3 py-1.5 rounded-full border border-white/10">
                 Measurable outcomes
               </span>
             </div>
@@ -299,11 +295,11 @@ export default function Services() {
                 href={personalInfo.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber-green to-cyber-blue text-cyber-black font-bold rounded-xl hover:shadow-lg hover:shadow-cyber-green/20 transition-all"
+                className="btn-outline accent-green btn-lg group/cta"
               >
                 <FaCalendarAlt />
                 <span>Schedule a Consultation</span>
-                <FaArrowRight />
+                <FaArrowRight className="transition-transform group-hover/cta:translate-x-1" />
               </a>
               <p className="text-xs text-gray-500 mt-3">
                 15 minutes to discuss your challenges and explore how we can help.
