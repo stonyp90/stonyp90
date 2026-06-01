@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { FaLinkedin, FaGithub, FaEnvelope, FaHeart } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import { personalInfo, socialLinks } from '@/lib/data'
+import ShareButtons from './ShareButtons'
 
 export default function Footer() {
   return (
@@ -53,6 +55,7 @@ export default function Footer() {
             <div className="flex gap-5 justify-center sm:justify-start mb-4">
               {[
                 { href: socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
+                { href: socialLinks.x, icon: FaXTwitter, label: 'X' },
                 { href: socialLinks.github, icon: FaGithub, label: 'GitHub' },
                 { href: socialLinks.email, icon: FaEnvelope, label: 'Email' },
               ].map((social) => (
@@ -75,6 +78,11 @@ export default function Footer() {
               <p className="text-gray-400 text-xs sm:text-sm">{personalInfo.location}</p>
             </div>
           </div>
+        </div>
+
+        {/* Share */}
+        <div className="border-t border-white/5 pt-6 sm:pt-8 mb-6 sm:mb-8">
+          <ShareButtons />
         </div>
 
         {/* Bottom bar */}

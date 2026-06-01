@@ -6,10 +6,10 @@ LinkedIn: linkedin.com/in/anthony-paquet-94a31085
 GitHub: github.com/stonyp90
 
 /* SITE */
-Last update: 2026-01-16
+Last update: 2026-06-01
 Language: English
 Standards: HTML5, CSS3, ES6+
-Framework: Next.js 14, React 18, TypeScript
+Framework: Next.js 15, React 19, TypeScript
 Styling: Tailwind CSS
 Hosting: AWS CloudFront + S3
 Domain: anthonypaquet.com

@@ -128,6 +128,7 @@ export const metadata: Metadata = {
       url: '/og-image.png',
       alt: 'Anthony Paquet - AI & Cloud Architect | Bespoke Labs and Tablix',
     },
+    site: '@anthonypaquet',
     creator: '@anthonypaquet',
   },
   alternates: {
@@ -155,6 +156,7 @@ const personSchema = {
   sameAs: [
     'https://linkedin.com/in/anthony-paquet-94a31085',
     'https://github.com/stonyp90',
+    'https://x.com/anthonypaquet',
     'https://tablix.ca',
   ],
   knowsAbout: [
@@ -442,8 +444,21 @@ const tablixSchema = {
   },
 }
 
+// WebSite Schema - entity home for search engines and AI answer engines
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.anthonypaquet.com/#website',
+  url: 'https://www.anthonypaquet.com',
+  name: 'Anthony Paquet',
+  description: 'AI & Cloud Security Architect. FinOps, SOC 2 / HIPAA compliance, infrastructure security, and disaster recovery for Series A AI labs and growth-stage companies.',
+  inLanguage: ['en-CA', 'fr-CA'],
+  publisher: { '@id': 'https://www.anthonypaquet.com/#person' },
+  about: { '@id': 'https://www.anthonypaquet.com/#person' },
+}
+
 // Combined schema array
-const jsonLd = [personSchema, serviceSchema, faqSchema, tablixSchema]
+const jsonLd = [websiteSchema, personSchema, serviceSchema, faqSchema, tablixSchema]
 
 export default function RootLayout({
   children,

@@ -6,7 +6,7 @@
 
 Anthony Paquet is an AI & Cloud Security Architect based in Quebec, Canada. He works with growth-stage companies and AI labs across AWS, Azure, and GCP to reduce cloud spend, implement compliance frameworks (SOC 2, HIPAA, PCI-DSS, ISO 27001), secure AI/LLM systems, and architect disaster recovery solutions. He has delivered SOC 2 Type II + TPN Gold certifications in 6 months for media-enterprise clients and 60% multi-cloud cost reductions for engineering teams.
 
-Last updated: 2026-05-07.
+Last updated: 2026-06-01.
 
 ## Current Engagements (2026)
 

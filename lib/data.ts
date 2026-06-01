@@ -19,8 +19,14 @@ export const personalInfo = {
 export const socialLinks = {
   linkedin: 'https://linkedin.com/in/anthony-paquet-94a31085',
   github: 'https://github.com/stonyp90',
+  x: 'https://x.com/anthonypaquet',
   email: 'mailto:Anthonypaquet1508@gmail.com',
 }
+
+// Canonical site URL + a no-AI-tells share blurb (no em-dashes/semicolons)
+export const siteUrl = 'https://www.anthonypaquet.com'
+export const shareText =
+  'Anthony Paquet, AI & Cloud Architect. Cut cloud costs 30-60%, pass SOC2/HIPAA in weeks, scale from 0 to 1 to enterprise.'
 
 // Services packages for consulting
 // Pricing aligned with market rates for senior cloud/security architects ($200-300/hr equivalent)
