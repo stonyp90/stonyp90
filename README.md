@@ -195,8 +195,8 @@ const currentFocus = {
 
 | Project | Description | Repository |
 |---------|-------------|------------|
-| 📁 **Ursly** | One app for all your files. Connect 15+ storage services. AI-powered search. Tauri + Rust. | [![GitHub](https://img.shields.io/badge/Ursly-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/stonyp90/Ursly) |
-| 🤖 **Ursly Agent** | AI Agent Orchestration Platform. Build & deploy AI agents with enterprise architecture. | [![GitHub](https://img.shields.io/badge/Ursly--Agent-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/stonyp90/Usrly-Agent) |
+| 📁 **Diaspor** | Compute that travels well. Distributed VFS for ML/CI, written in Rust. OSS-friendly DAG layer over heterogeneous storage backends. | [![GitHub](https://img.shields.io/badge/Diaspor-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/stonyp90/diaspor) |
+| 🤖 **Diaspor Agent** | Agent orchestration layer for the Diaspor VFS. Build, deploy, and observe AI agents over data that travels with them. | [![GitHub](https://img.shields.io/badge/Diaspor--Agent-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/stonyp90/diaspor-agent) |
 
 ---
 
