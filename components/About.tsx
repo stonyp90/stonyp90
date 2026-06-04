@@ -82,12 +82,12 @@ export default function About() {
 
           {/* Bio */}
           <div>
-            <motion.h3
-              variants={itemVariants}
-              className="editorial-h3 text-xl lg:text-2xl mb-4"
-            >
-              {personalInfo.title}
-            </motion.h3>
+            <motion.div variants={itemVariants} className="mb-5 sm:mb-6">
+              <h3 className="editorial-h3 text-2xl lg:text-3xl">Anthony Paquet</h3>
+              <p className="font-mono text-[0.7rem] sm:text-xs uppercase tracking-[0.12em] text-accent-text mt-2">
+                {personalInfo.title}
+              </p>
+            </motion.div>
 
             <motion.p variants={itemVariants} className="editorial-lead max-w-3xl mb-8">
               {personalInfo.summary}
