@@ -65,7 +65,7 @@ export default function About() {
           Fortune 500 rigor <span className="accent-text">·</span> startup speed.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-[14rem_1fr] gap-10 lg:gap-14 items-center">
+        <div className="grid lg:grid-cols-[16rem_1fr] gap-10 lg:gap-14 items-start">
           {/* Portrait — clean framed image */}
           <motion.div variants={itemVariants} className="group mx-auto lg:mx-0">
             <div className="overflow-hidden rounded-sm border border-[var(--color-border)] bg-paper shadow-[0_16px_36px_-28px_rgba(26,26,26,0.18)] transition-[border-color,box-shadow,transform] duration-300 ease-smooth group-hover:-translate-y-0.5 group-hover:border-border-strong group-hover:shadow-[0_24px_48px_-28px_rgba(26,26,26,0.24)]">
@@ -74,7 +74,7 @@ export default function About() {
                 alt="Anthony Paquet"
                 width={256}
                 height={288}
-                className="w-44 h-auto lg:w-56 object-cover transition-transform duration-500 ease-smooth group-hover:scale-[1.03]"
+                className="w-44 h-auto lg:w-full object-cover transition-transform duration-500 ease-smooth group-hover:scale-[1.03]"
                 priority
               />
             </div>
