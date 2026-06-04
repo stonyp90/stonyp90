@@ -2,7 +2,6 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import DevelopmentCycle from '@/components/DevelopmentCycle'
 import Services from '@/components/Services'
-import AgentMarketplace from '@/components/AgentMarketplace'
 import Experience from '@/components/Experience'
 import Certifications from '@/components/Certifications'
 import Footer from '@/components/Footer'
@@ -14,10 +13,9 @@ export default function Home() {
       <LoadingIndicator />
       <div className="animate-fade-in">
         <Hero />
-        <Services />
-        <AgentMarketplace />
-        <About />
         <DevelopmentCycle />
+        <Services />
+        <About />
         <Experience />
         <Certifications />
         <Footer />
