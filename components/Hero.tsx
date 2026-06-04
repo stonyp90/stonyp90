@@ -64,7 +64,7 @@ export default function Hero() {
         >
           I help engineering leaders
           <br />
-          <span className="underline-accent">ship faster, cut costs &amp; become compliant</span>
+          <span className="underline-accent">ship faster, cut costs, become secure and compliant</span>
           <span className="accent-text">.</span>
         </motion.h1>
 
