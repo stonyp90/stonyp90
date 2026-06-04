@@ -197,7 +197,7 @@ export function IterationLoopSection({
           <span className="name">{sectionName}</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
           {/* ------------------------------ Copy ------------------------------ */}
           <div>
             <h2 className="editorial-h2 text-2xl lg:text-4xl mb-6">{heading}</h2>

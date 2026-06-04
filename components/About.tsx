@@ -65,66 +65,65 @@ export default function About() {
           Fortune 500 rigor <span className="accent-text">·</span> startup speed.
         </motion.h2>
 
-        <div className="max-w-3xl">
-          {/* Profile header — portrait beside name + title, one left-aligned unit */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-5 sm:gap-7 mb-8 sm:mb-10"
-          >
-            <div className="group shrink-0 w-28 sm:w-32 md:w-36">
-              <div className="overflow-hidden rounded-sm border border-[var(--color-border)] bg-paper shadow-[0_16px_36px_-28px_rgba(26,26,26,0.18)] transition-[border-color,box-shadow,transform] duration-300 ease-smooth group-hover:-translate-y-0.5 group-hover:border-border-strong group-hover:shadow-[0_24px_48px_-28px_rgba(26,26,26,0.24)]">
-                <Image
-                  src={personalInfo.photo}
-                  alt="Anthony Paquet"
-                  width={256}
-                  height={288}
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-smooth group-hover:scale-[1.03]"
-                  priority
-                />
-              </div>
+        <div className="grid md:grid-cols-[18rem_1fr] lg:grid-cols-[20rem_1fr] gap-8 md:gap-10 lg:gap-14 items-start">
+          {/* Portrait — left column, larger */}
+          <motion.div variants={itemVariants} className="group w-56 sm:w-64 md:w-full">
+            <div className="overflow-hidden rounded-sm border border-[var(--color-border)] bg-paper shadow-[0_16px_36px_-28px_rgba(26,26,26,0.18)] transition-[border-color,box-shadow,transform] duration-300 ease-smooth group-hover:-translate-y-0.5 group-hover:border-border-strong group-hover:shadow-[0_24px_48px_-28px_rgba(26,26,26,0.24)]">
+              <Image
+                src={personalInfo.photo}
+                alt="Anthony Paquet"
+                width={320}
+                height={360}
+                className="w-full h-auto object-cover transition-transform duration-500 ease-smooth group-hover:scale-[1.03]"
+                priority
+              />
             </div>
-            <div className="min-w-0">
-              <h3 className="editorial-h3 text-2xl sm:text-3xl">Anthony Paquet</h3>
+          </motion.div>
+
+          {/* Right column — name, title, and bio */}
+          <div>
+            <motion.div variants={itemVariants} className="mb-5 sm:mb-6">
+              <h3 className="editorial-h3 text-2xl lg:text-3xl">Anthony Paquet</h3>
               <p className="font-mono text-[0.7rem] sm:text-xs uppercase tracking-[0.12em] text-accent-text mt-2">
                 {personalInfo.title}
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Summary */}
-          <motion.p variants={itemVariants} className="editorial-lead mb-8">
-            {personalInfo.summary}
-          </motion.p>
+            {/* Summary */}
+            <motion.p variants={itemVariants} className="editorial-lead mb-8">
+              {personalInfo.summary}
+            </motion.p>
 
-          {/* Philosophy as a pull quote */}
-          <motion.blockquote
-            variants={itemVariants}
-            className="pull-quote text-lg lg:text-xl mb-8"
-          >
-            {personalInfo.philosophy}
-          </motion.blockquote>
+            {/* Philosophy as a pull quote */}
+            <motion.blockquote
+              variants={itemVariants}
+              className="pull-quote text-lg lg:text-xl mb-8"
+            >
+              {personalInfo.philosophy}
+            </motion.blockquote>
 
-          {/* Personal-life facts — bare brass icons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-x-6 gap-y-3 mb-7"
-          >
-            {facts.map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="group flex items-center gap-2 text-sm text-ink-soft transition-colors duration-200 hover:text-ink"
-              >
-                <Icon className="text-accent-text text-base transition-transform duration-200 ease-smooth group-hover:-translate-y-0.5" aria-hidden="true" />
-                <span>{label}</span>
-              </div>
-            ))}
-          </motion.div>
+            {/* Personal-life facts — bare brass icons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-x-6 gap-y-3 mb-7"
+            >
+              {facts.map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="group flex items-center gap-2 text-sm text-ink-soft transition-colors duration-200 hover:text-ink"
+                >
+                  <Icon className="text-accent-text text-base transition-transform duration-200 ease-smooth group-hover:-translate-y-0.5" aria-hidden="true" />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </motion.div>
 
-          {/* Location + languages as editorial tags */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-2.5">
-            <span className="tech-tag">Quebec, Canada</span>
-            <span className="tech-tag">French &amp; English</span>
-          </motion.div>
+            {/* Location + languages as editorial tags */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-2.5">
+              <span className="tech-tag">Quebec, Canada</span>
+              <span className="tech-tag">French &amp; English</span>
+            </motion.div>
+          </div>
         </div>
       </motion.div>
     </section>
