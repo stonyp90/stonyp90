@@ -34,7 +34,7 @@ export default function Certifications() {
   }
 
   return (
-    <section ref={ref} className="py-20 lg:py-28" id="certifications">
+    <section ref={ref} className="section-grid py-20 lg:py-28" id="certifications">
       <motion.div
         variants={containerVariants}
         initial="hidden"

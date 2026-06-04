@@ -14,9 +14,7 @@ export default function Home() {
       <div className="animate-fade-in">
         <Hero />
         <About />
-        <div className="section-grid">
-          <DevelopmentCycle />
-        </div>
+        <DevelopmentCycle />
         <Services />
         <Experience />
         <Certifications />

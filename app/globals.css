@@ -160,10 +160,43 @@ section { position: relative; z-index: 1; }
 
 /* Subtle paper grid backgrounds ------------------------------------------- */
 .paper-hero {
+  position: relative;
   background-color: var(--color-paper);
   background-image:
     linear-gradient(to right, transparent 49.5%, rgba(212, 131, 31, 0.03) 50%, transparent 50.5%),
     linear-gradient(to bottom, transparent 49.5%, rgba(212, 131, 31, 0.03) 50%, transparent 50.5%);
+}
+/* Drifting graph-paper grid, radially masked so it frames the centred copy
+   without crossing the headline. Sits behind the hero content (z-10). */
+.paper-hero::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(196, 179, 148, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 179, 148, 0.22) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 44%, transparent 28%, #000 82%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 44%, transparent 28%, #000 82%);
+  animation: grid-drift 36s linear infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+/* Faint warm glow that slowly breathes behind the headline. */
+.paper-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 44%;
+  width: min(680px, 82vw);
+  height: min(680px, 82vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(212, 131, 31, 0.07), transparent 68%);
+  animation: glow-breathe 9s var(--ease-smooth) infinite;
+  will-change: opacity, transform;
+  pointer-events: none;
 }
 .bg-grid {
   background-color: var(--color-cream);
@@ -178,11 +211,24 @@ section { position: relative; z-index: 1; }
    staying light; lines use the warm border-strong hue (196,179,148) at low
    opacity. Dark ink text stays highly legible. */
 .section-grid {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background-color: #f1e8d4;
+}
+/* Slowly drifting graph-paper lines, painted behind section content. */
+.section-grid::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
   background-image:
     linear-gradient(to right, rgba(196, 179, 148, 0.16) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(196, 179, 148, 0.16) 1px, transparent 1px);
   background-size: 40px 40px;
+  animation: grid-drift 36s linear infinite;
+  will-change: transform;
+  pointer-events: none;
 }
 
 /* Floating card on the grid ------------------------------------------------ */
@@ -255,6 +301,13 @@ section { position: relative; z-index: 1; }
    ========================================================================== */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .animate-fade-in { animation: fadeIn 0.4s var(--ease-smooth) forwards; animation-delay: 0.1s; opacity: 0; }
+
+/* Ambient background motion — one grid tile of travel, seamless loop. */
+@keyframes grid-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(40px, 40px, 0); } }
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+}
 
 @keyframes smoothReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { animation: smoothReveal 0.8s var(--ease-smooth) forwards; }

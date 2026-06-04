@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Anthony Paquet">
   <title>Anthony Paquet</title>
   <rect width="64" height="64" rx="13" fill="#1A1A1A"/>
-  <text x="32" y="41" font-family="Georgia, 'Times New Roman', 'Playfair Display', serif" font-size="29" font-weight="700" letter-spacing="0.5" fill="#FBF5EA" text-anchor="middle">AP</text>
-  <rect x="17" y="47" width="30" height="3" rx="1.5" fill="#D9892A"/>
+  <text x="32" y="43" font-family="Georgia, 'Times New Roman', 'Playfair Display', serif" font-size="37" font-weight="700" letter-spacing="-1.5" fill="#FBF5EA" text-anchor="middle">AP</text>
+  <rect x="15" y="49" width="34" height="4" rx="2" fill="#D9892A"/>
 </svg>

@@ -34,7 +34,7 @@ export default function Experience() {
   }
 
   return (
-    <section ref={ref} className="section-grid py-20 lg:py-28" id="experience">
+    <section ref={ref} className="py-20 lg:py-28" id="experience">
       <motion.div
         variants={containerVariants}
         initial="hidden"
