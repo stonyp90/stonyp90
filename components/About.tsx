@@ -57,17 +57,9 @@ export default function About() {
           <span className="name">About</span>
         </motion.div>
 
-        {/* Heading */}
-        <motion.h2
-          variants={itemVariants}
-          className="editorial-h2 text-3xl lg:text-4xl mb-6 max-w-3xl"
-        >
-          Fortune 500 rigor <span className="accent-text">·</span> startup speed.
-        </motion.h2>
-
         <div className="grid md:grid-cols-[18rem_1fr] lg:grid-cols-[20rem_1fr] gap-8 md:gap-10 lg:gap-14 items-start">
           {/* Portrait — left column, larger */}
-          <motion.div variants={itemVariants} className="group w-56 sm:w-64 md:w-full">
+          <motion.div variants={itemVariants} className="group w-56 sm:w-64 md:w-full md:mt-3 lg:mt-4">
             <div className="overflow-hidden rounded-sm border border-[var(--color-border)] bg-paper shadow-[0_16px_36px_-28px_rgba(26,26,26,0.18)] transition-[border-color,box-shadow,transform] duration-300 ease-smooth group-hover:-translate-y-0.5 group-hover:border-border-strong group-hover:shadow-[0_24px_48px_-28px_rgba(26,26,26,0.24)]">
               <Image
                 src={personalInfo.photo}

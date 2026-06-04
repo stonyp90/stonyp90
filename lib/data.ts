@@ -5,7 +5,7 @@ export const personalInfo = {
   location: 'Canada, Quebec',
   email: 'me@anthonypaquet.com',
   tagline: 'I help CTOs and engineering leaders cut cloud costs 30-60%, pass SOC2/HIPAA audits in weeks, and build infrastructure that scales—without slowing your roadmap.',
-  summary: `I've built and scaled engineering teams, cut cloud spend significantly, and achieved SOC2/TPN certifications in 6 months. I embed with your team to deliver results—not just recommendations. Whether you need AI architecture, hands-on cloud infrastructure work, or someone to get you audit-ready fast, I bring Fortune 500 rigor with startup speed. My clients include financial services, healthcare systems, SaaS companies, and media enterprises across 10+ countries.`,
+  summary: `Seasoned Engineering Leader operating at the intersection of data and context. Passionate about AI-powered transformation, I design and scale secure, cost-optimized, and available systems that accelerate business outcomes. Skilled in taking products from 0→1 to enterprise scale. With strong FinOps expertise, I help organizations cut cloud costs and optimize outcomes. Through a DevSecOps mindset, I enable teams to iterate faster, more securely, and with greater resilience. Customer-obsessed and outcome-driven, I have a proven record of delivering scalable, resilient, and business-aligned cloud solutions that create long-term value.`,
   philosophy: 'Knowledge is the ultimate wealth — the more you share, the more it grows. I believe in continuous learning and empowering others through expertise.',
   photo: '/images/anthony-paquet.jpg',
   personal: {
