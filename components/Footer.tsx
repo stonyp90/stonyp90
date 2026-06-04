@@ -1,64 +1,82 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaLinkedin, FaGithub, FaEnvelope, FaHeart } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { personalInfo, socialLinks } from '@/lib/data'
 import ShareButtons from './ShareButtons'
 
-export default function Footer() {
-  return (
-    <footer className="relative bg-cyber-dark/50 border-t border-white/5 py-12 sm:py-16 lg:py-20 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-cyber-blue/5 blur-[100px]" />
-      </div>
+const quickLinks = [
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#certifications', label: 'Certifications' },
+]
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 mb-8 sm:mb-10">
-          {/* About */}
-          <div className="text-center sm:text-left">
-            <h3 className="text-lg sm:text-xl font-bold gradient-text mb-3 sm:mb-4">
-              {personalInfo.name}
-            </h3>
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-              {personalInfo.title} passionate about AI-powered transformation and
-              building scalable cloud solutions.
+const socials = [
+  { href: socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
+  { href: socialLinks.github, icon: FaGithub, label: 'GitHub' },
+  { href: socialLinks.email, icon: FaEnvelope, label: 'Email' },
+]
+
+export default function Footer() {
+  const year = new Date().getFullYear()
+
+  return (
+    <footer className="bg-paper border-t border-[var(--color-border)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+        <div className="grid gap-10 sm:gap-12 md:grid-cols-12">
+          {/* Brand + positioning */}
+          <div className="md:col-span-5 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-2.5 mb-4">
+              <span className="brand-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span className="brand-name text-lg sm:text-xl">{personalInfo.name}</span>
+            </div>
+            <p className="font-display text-ink text-lg sm:text-xl leading-snug max-w-sm mx-auto sm:mx-0">
+              Builder and engineering leader.
             </p>
+            <p className="text-ink-soft text-sm sm:text-base leading-relaxed mt-2 max-w-sm mx-auto sm:mx-0">
+              I help teams ship faster, cut costs, and become compliant.
+            </p>
+            <a
+              href={personalInfo.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-6 inline-flex"
+            >
+              Book a call
+            </a>
           </div>
 
           {/* Quick Links */}
-          <div className="text-center sm:text-left">
-            <h3 className="text-lg sm:text-xl font-bold text-cyber-blue mb-3 sm:mb-4">Quick Links</h3>
-            <ul className="space-y-2 sm:space-y-2.5">
-              {[
-                { href: '#services', label: 'Services' },
-                { href: '#about', label: 'About' },
-                { href: '#experience', label: 'Experience' },
-                { href: '#certifications', label: 'Certifications' },
-              ].map((link) => (
+          <nav className="md:col-span-3 text-center sm:text-left" aria-label="Footer">
+            <h3 className="font-mono text-gray-warm text-xs uppercase tracking-[0.18em] mb-4">
+              Explore
+            </h3>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-cyber-blue transition-colors duration-300 text-sm sm:text-base inline-block"
+                    className="text-ink-soft hover:text-accent-text transition-colors duration-300 text-sm sm:text-base inline-block"
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Connect */}
-          <div className="text-center sm:text-left sm:col-span-2 md:col-span-1">
-            <h3 className="text-lg sm:text-xl font-bold text-cyber-blue mb-3 sm:mb-4">Connect</h3>
-            <div className="flex gap-5 justify-center sm:justify-start mb-4">
-              {[
-                { href: socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
-                { href: socialLinks.x, icon: FaXTwitter, label: 'X' },
-                { href: socialLinks.github, icon: FaGithub, label: 'GitHub' },
-                { href: socialLinks.email, icon: FaEnvelope, label: 'Email' },
-              ].map((social) => (
+          <div className="md:col-span-4 text-center sm:text-left">
+            <h3 className="font-mono text-gray-warm text-xs uppercase tracking-[0.18em] mb-4">
+              Connect
+            </h3>
+            <div className="flex gap-5 justify-center sm:justify-start mb-5">
+              {socials.map((social) => (
                 <motion.a
                   key={social.label}
                   whileHover={{ scale: 1.15, y: -2 }}
@@ -66,32 +84,35 @@ export default function Footer() {
                   href={social.href}
                   target={social.label !== 'Email' ? '_blank' : undefined}
                   rel={social.label !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="p-1.5 text-cyber-blue hover:text-white transition-colors duration-300"
+                  className="p-1.5 text-ink-soft hover:text-accent-text transition-colors duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="text-2xl sm:text-[1.6rem]" />
                 </motion.a>
               ))}
             </div>
-            <div>
-              <p className="text-gray-400 text-xs sm:text-sm">{personalInfo.email}</p>
-              <p className="text-gray-400 text-xs sm:text-sm">{personalInfo.location}</p>
-            </div>
+            <a
+              href={socialLinks.email}
+              className="text-ink-soft hover:text-accent-text transition-colors duration-300 text-sm sm:text-base block"
+            >
+              {personalInfo.email}
+            </a>
+            <p className="text-gray-warm text-sm sm:text-base mt-1">{personalInfo.location}</p>
           </div>
         </div>
 
         {/* Share */}
-        <div className="border-t border-white/5 pt-6 sm:pt-8 mb-6 sm:mb-8">
+        <div className="border-t border-[var(--color-border)] pt-8 mt-12 sm:mt-14">
           <ShareButtons />
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 pt-6 sm:pt-8 text-center">
-          <p className="text-gray-400 text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
-            Built with <FaHeart className="text-cyber-pink text-xs sm:text-sm" /> using Next.js, TypeScript & Tailwind CSS
+        <div className="border-t border-[var(--color-border)] pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <p className="font-mono text-gray-warm text-[10px] sm:text-xs tracking-wide">
+            © {year} {personalInfo.name}. All rights reserved.
           </p>
-          <p className="text-gray-500 text-[10px] sm:text-xs mt-1.5 sm:mt-2">
-            © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+          <p className="font-mono text-ink-soft text-[10px] sm:text-xs tracking-wide">
+            Built with Next.js, TypeScript &amp; Tailwind CSS
           </p>
         </div>
       </div>

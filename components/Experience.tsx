@@ -28,7 +28,7 @@ export default function Experience() {
       x: 0,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1],
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
   }
@@ -42,158 +42,150 @@ export default function Experience() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-10 md:mb-12">
-          <span className="text-cyber-blue text-xs sm:text-sm font-mono tracking-wider mb-2 sm:mb-3 block">
-            TRACK RECORD
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-3 sm:mb-4">
+        <motion.div variants={itemVariants} className="mb-10 sm:mb-12 md:mb-14">
+          <div className="section-label mb-4 sm:mb-5">
+            <span className="num">02</span>
+            <span className="name">Track Record</span>
+          </div>
+          <h2 className="editorial-h2 text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
             Experience
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-xs sm:text-sm md:text-base">
-            Proven outcomes across cloud, security, and infrastructure
+          <p className="editorial-lead max-w-xl text-sm sm:text-base md:text-lg">
+            Proven outcomes across cloud, security, and infrastructure.
           </p>
         </motion.div>
 
         {/* Timeline - centered with max width for readability */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line - tighter on mobile */}
-          <div className="absolute left-[7px] sm:left-4 md:left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyber-blue via-cyber-purple to-cyber-pink" />
+        <div className="relative max-w-4xl">
+          {/* Vertical line — single thin accent rule */}
+          <div className="absolute left-[7px] sm:left-4 md:left-8 top-0 bottom-0 w-px bg-[var(--color-border-strong)]" />
 
           {/* Experience items */}
           <div className="space-y-3 sm:space-y-5 md:space-y-6">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="relative pl-6 sm:pl-12 md:pl-20"
-              >
-                {/* Timeline dot - smaller on mobile */}
-                <div className={`absolute left-[7px] sm:left-4 md:left-8 top-4 sm:top-5 md:top-6 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 -translate-x-[4px] sm:-translate-x-[6px] md:-translate-x-[7px] rounded-full border-2 sm:border-[3px] md:border-4 border-cyber-black shadow-lg ring-2 ${
-                  exp.period === 'Current'
-                    ? 'bg-cyber-green shadow-cyber-green/50 ring-cyber-green/20'
-                    : 'bg-cyber-blue shadow-cyber-blue/50 ring-cyber-blue/10'
-                }`} />
+            {experiences.map((exp, index) => {
+              const isCurrent = exp.period === 'Current'
+              const isFounded = exp.period === 'Founded'
+              const isExpanded = expandedIndex === index
 
-                {/* Content card - optimized padding */}
+              return (
                 <motion.div
-                  className={`group glass rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 cursor-pointer transition-all duration-300 border ${
-                    expandedIndex === index
-                      ? 'border-cyber-blue/50'
-                      : 'border-white/5 hover:border-cyber-blue/30'
-                  } active:scale-[0.99]`}
-                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  whileTap={{ scale: 0.995 }}
+                  key={index}
+                  variants={itemVariants}
+                  className="relative pl-6 sm:pl-12 md:pl-20"
                 >
-                  {/* Header - stacked on mobile */}
-                  <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
-                    <div className="flex-1 min-w-0">
-                      {/* Position with badge */}
-                      <div className="flex items-start sm:items-center gap-1.5 sm:gap-2 flex-wrap mb-1">
-                        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white flex items-center gap-1.5 sm:gap-2">
-                          <FaBriefcase className="tech-icon text-cyber-blue text-xs sm:text-sm md:text-base flex-shrink-0" />
-                          <span className="leading-snug">{exp.position}</span>
-                        </h3>
-                        {exp.period === 'Current' && (
-                          <span className="px-1.5 py-0.5 sm:px-2 border border-cyber-green/40 rounded-full text-cyber-green text-[9px] sm:text-[10px] md:text-xs font-medium whitespace-nowrap">
-                            Current
-                          </span>
-                        )}
-                        {exp.period === 'Founded' && (
-                          <span className="px-1.5 py-0.5 sm:px-2 border border-cyber-purple/40 rounded-full text-cyber-purple text-[9px] sm:text-[10px] md:text-xs font-medium whitespace-nowrap">
-                            Founder
-                          </span>
-                        )}
-                      </div>
-                      {/* Company name */}
-                      <h4 className="text-sm sm:text-base md:text-lg lg:text-xl text-cyber-blue font-semibold mb-1 sm:mb-2">
-                        {exp.company}
-                      </h4>
-                      {(exp as { via?: string }).via && (
-                        <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 italic -mt-1 mb-1 sm:mb-2">
-                          via {(exp as { via?: string }).via}
-                        </p>
-                      )}
-                      {/* Location */}
-                      <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 text-[10px] sm:text-xs md:text-sm text-gray-400">
-                        <span className="flex items-center gap-1">
-                          <FaMapMarkerAlt className="text-cyber-green text-[10px] sm:text-xs" />
-                          {exp.location}
-                        </span>
-                      </div>
-                    </div>
-                    {/* Expand icon */}
-                    <motion.div
-                      animate={{ rotate: expandedIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                      className="flex-shrink-0 p-0.5 sm:p-1"
-                    >
-                      <FaChevronDown className="text-cyber-blue text-sm sm:text-base md:text-lg" />
-                    </motion.div>
-                  </div>
+                  {/* Timeline dot — filled accent for current, ink outline otherwise */}
+                  <div
+                    className={`absolute left-[7px] sm:left-4 md:left-8 top-4 sm:top-5 md:top-6 w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 -translate-x-[5px] sm:-translate-x-[6px] md:-translate-x-[7px] rounded-full border-2 border-cream ${
+                      isCurrent ? 'bg-accent' : 'bg-paper ring-1 ring-[var(--color-border-strong)]'
+                    }`}
+                  />
 
-                  {/* Description - smaller on mobile */}
-                  <p className="text-gray-300 mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base leading-relaxed">{exp.description}</p>
-
-                  {/* Key Outcomes - grid on very small screens */}
-                  {exp.outcomes && exp.outcomes.length > 0 && (
-                    <div className="grid grid-cols-1 xs:flex xs:flex-wrap gap-1.5 sm:gap-2 md:gap-3 mb-2 sm:mb-3">
-                      {exp.outcomes.slice(0, 3).map((outcome, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-cyber-dark/60 border border-cyber-blue/20 rounded-md sm:rounded-lg transition-colors duration-300 group-hover:border-cyber-blue/30"
-                        >
-                          <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-cyber-blue whitespace-nowrap">
-                            {outcome.metric}
-                          </span>
-                          <span className="text-[9px] sm:text-[10px] md:text-xs text-gray-400 leading-tight line-clamp-2">
-                            {outcome.description}
+                  {/* Content card — bordered paper */}
+                  <motion.div
+                    className={`group rounded-sm p-3 sm:p-4 md:p-6 cursor-pointer bg-paper border transition-colors duration-300 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] ${
+                      isExpanded
+                        ? 'border-accent'
+                        : 'border-[var(--color-border)] hover:border-[var(--color-border-strong)]'
+                    } active:scale-[0.99]`}
+                    onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                    whileTap={{ scale: 0.995 }}
+                  >
+                    {/* Header - stacked on mobile */}
+                    <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                      <div className="flex-1 min-w-0">
+                        {/* Position with badge */}
+                        <div className="flex items-start sm:items-center gap-1.5 sm:gap-2.5 flex-wrap mb-1.5">
+                          <h3 className="font-display font-bold text-ink text-lg sm:text-xl md:text-2xl flex items-center gap-2 leading-snug">
+                            <FaBriefcase className="text-ink-soft text-sm sm:text-base flex-shrink-0" />
+                            <span>{exp.position}</span>
+                          </h3>
+                          {isCurrent && <span className="status-live">Current</span>}
+                          {isFounded && <span className="status-beta">Founder</span>}
+                        </div>
+                        {/* Company name */}
+                        <h4 className="font-display text-base sm:text-lg md:text-xl text-accent-text font-bold mb-1">
+                          {exp.company}
+                        </h4>
+                        {(exp as { via?: string }).via && (
+                          <p className="font-mono text-[10px] sm:text-xs text-gray-warm mb-1 sm:mb-1.5">
+                            via {(exp as { via?: string }).via}
+                          </p>
+                        )}
+                        {/* Location */}
+                        <div className="flex flex-wrap gap-1.5 sm:gap-3 font-mono text-[10px] sm:text-xs text-ink-soft">
+                          <span className="flex items-center gap-1.5">
+                            <FaMapMarkerAlt className="text-ink-soft text-[10px] sm:text-xs" />
+                            {exp.location}
                           </span>
                         </div>
-                      ))}
+                      </div>
+                      {/* Expand icon */}
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        className="flex-shrink-0 p-0.5 sm:p-1 text-ink-soft group-hover:text-accent-text transition-colors"
+                        aria-hidden="true"
+                      >
+                        <FaChevronDown className="text-sm sm:text-base md:text-lg" />
+                      </motion.div>
                     </div>
-                  )}
 
-                  {/* Expanded content */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: expandedIndex === index ? 'auto' : 0,
-                      opacity: expandedIndex === index ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pt-2 sm:pt-3 md:pt-4 border-t border-white/10">
-                      <h5 className="text-xs sm:text-sm md:text-base font-semibold mb-1.5 sm:mb-2 md:mb-3 text-cyber-blue flex items-center gap-1.5 sm:gap-2">
-                        <FaTrophy className="text-cyber-green text-xs sm:text-sm" />
-                        Key Achievements:
-                      </h5>
-                      <ul className="space-y-1 sm:space-y-1.5 md:space-y-2 mb-2 sm:mb-3 md:mb-4">
-                        {exp.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start gap-1.5 sm:gap-2 text-gray-300 text-[11px] sm:text-xs md:text-sm lg:text-base">
-                            <span className="text-cyber-blue mt-0.5 font-bold flex-shrink-0">▹</span>
-                            <span className="leading-relaxed">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    {/* Description */}
+                    <p className="text-ink-soft mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
+                      {exp.description}
+                    </p>
 
-                      {/* Tags - smaller on mobile */}
-                      <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
-                        {exp.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 bg-cyber-dark/60 border border-cyber-blue/20 rounded-full text-[9px] sm:text-[10px] md:text-xs text-cyber-blue hover:border-cyber-blue/40 transition-colors"
-                          >
-                            {tag}
-                          </span>
+                    {/* Key Outcomes — editorial stat blocks */}
+                    {exp.outcomes && exp.outcomes.length > 0 && (
+                      <div className="grid grid-cols-1 xs:flex xs:flex-wrap gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        {exp.outcomes.slice(0, 3).map((outcome, idx) => (
+                          <div key={idx} className="stat-block rounded-sm flex-1 xs:flex-initial min-w-[8rem]">
+                            <div className="v text-lg sm:text-xl md:text-2xl whitespace-nowrap">
+                              {outcome.metric}
+                            </div>
+                            <div className="l">{outcome.description}</div>
+                          </div>
                         ))}
                       </div>
+                    )}
 
-                    </div>
+                    {/* Expanded content */}
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: isExpanded ? 'auto' : 0,
+                        opacity: isExpanded ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-3 sm:pt-4 mt-1 border-t border-[var(--color-border)]">
+                        <h5 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.08em] font-semibold mb-2 sm:mb-3 text-ink-soft flex items-center gap-2">
+                          <FaTrophy className="text-accent text-xs sm:text-sm" />
+                          Key Achievements
+                        </h5>
+                        <ul className="clean-list mb-3 sm:mb-4">
+                          {exp.achievements.map((achievement, idx) => (
+                            <li key={idx} className="text-sm sm:text-base">
+                              {achievement}
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {exp.tags.map((tag, idx) => (
+                            <span key={idx} className="tech-tag">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
                   </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </motion.div>

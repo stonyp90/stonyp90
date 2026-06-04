@@ -1,11 +1,24 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap', preload: true })
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['400', '700', '900'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  preload: true,
+})
+const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains', weight: ['400', '500', '600'], display: 'swap', preload: false })
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#0a0a0f',
+  themeColor: '#F7F0E3',
+  colorScheme: 'light',
 }
 
 export const metadata: Metadata = {
@@ -156,7 +169,6 @@ const personSchema = {
   sameAs: [
     'https://linkedin.com/in/anthony-paquet-94a31085',
     'https://github.com/stonyp90',
-    'https://x.com/anthonypaquet',
     'https://tablix.ca',
   ],
   knowsAbout: [
@@ -466,7 +478,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://www.anthonypaquet.com" />
         
@@ -497,7 +509,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
         
       </body>

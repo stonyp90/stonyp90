@@ -3,19 +3,17 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { 
-  FaChartLine, 
-  FaBrain, 
-  FaShieldAlt, 
-  FaLock, 
-  FaRobot, 
+import {
+  FaChartLine,
+  FaBrain,
+  FaShieldAlt,
+  FaLock,
+  FaRobot,
   FaServer,
   FaCloud,
   FaLayerGroup,
-  FaCheckCircle,
-  FaTimesCircle,
   FaArrowRight,
-  FaCalendarAlt
+  FaCalendarAlt,
 } from 'react-icons/fa'
 import { services, personalInfo } from '@/lib/data'
 
@@ -42,10 +40,10 @@ const categoryInfo = {
     subtitle: 'SOC2 • HIPAA • ISO 27001 • AI Security',
     description: 'Audit-ready in weeks, not months. Enterprise-grade security that satisfies customers and insurers.',
   },
-  dr: {
-    title: 'Disaster Recovery',
-    subtitle: 'Business Continuity & Resilience',
-    description: 'Proven recovery that meets regulatory requirements and board expectations.',
+  ai: {
+    title: 'AI',
+    subtitle: 'AI Infrastructure • LLM Security • Agents & Evals',
+    description: 'Take AI from demo to dependable. Infrastructure, security, evals, and agent engineering for teams shipping real AI products.',
   },
   architecture: {
     title: 'Architecture',
@@ -59,8 +57,7 @@ type CategoryKey = keyof typeof services
 export default function Services() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [activeCategory, setActiveCategory] = useState<CategoryKey>('architecture')
-  const [expandedService, setExpandedService] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('ai')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,174 +81,101 @@ export default function Services() {
     },
   }
 
-  const categories: CategoryKey[] = ['architecture', 'finops', 'security', 'dr']
+  const categories: CategoryKey[] = ['ai', 'architecture', 'finops', 'security']
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 relative overflow-hidden" id="services">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 -left-32 w-96 h-96 bg-cyber-green/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-cyber-blue/5 rounded-full blur-[100px]" />
-      </div>
-
+    <section ref={ref} className="py-20 lg:py-28" id="services">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        className="mx-auto max-w-6xl px-6 lg:px-12"
       >
         {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
-          <span className="text-cyber-green text-sm font-mono tracking-wider mb-3 block">
-            ENGINEERING LEADERSHIP & EXECUTION
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-white">Consulting </span>
-            <span className="gradient-text">Services</span>
+        <motion.div variants={itemVariants}>
+          <div className="section-label mb-8">
+            <span className="num">02</span>
+            <span className="name">Services</span>
+          </div>
+          <h2 className="editorial-h2 text-3xl lg:text-4xl mb-4">
+            Consulting <span className="accent-text">·</span> engineering leadership.
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
-            Flexible engagement models with clear outcomes. From 0→1 to enterprise scale. Results in weeks, not quarters.
+          <p className="editorial-lead max-w-2xl mb-12">
+            Flexible engagement models with clear outcomes. From 0→1 to enterprise scale.
+            Results in weeks, not quarters.
           </p>
-          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-cyber-green to-cyber-blue mx-auto rounded-full mt-6" />
         </motion.div>
 
         {/* Category Tabs */}
-        <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => {
-                setActiveCategory(category)
-                setExpandedService(null)
-              }}
-              className={`px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-medium text-sm sm:text-base border transition-all duration-300 ${
-                activeCategory === category
-                  ? 'border-cyber-blue/60 text-cyber-blue bg-cyber-blue/5 shadow-glow-sm'
-                  : 'border-white/10 text-gray-400 hover:text-white hover:border-white/25'
-              }`}
-            >
-              {categoryInfo[category].title}
-            </button>
-          ))}
+        <motion.div variants={itemVariants} className="flex flex-wrap gap-2 sm:gap-3 mb-10">
+          {categories.map((category) => {
+            const active = activeCategory === category
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={active}
+                className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-sm font-mono text-xs sm:text-sm tracking-wide uppercase border transition-colors duration-200 ${
+                  active
+                    ? 'border-accent text-accent-text bg-accent-bg'
+                    : 'border-border-warm text-ink-soft hover:text-ink hover:border-border-strong'
+                }`}
+              >
+                {categoryInfo[category].title}
+              </button>
+            )
+          })}
         </motion.div>
 
         {/* Category Description */}
-        <motion.div 
+        <motion.div
           key={activeCategory}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-center mb-8 sm:mb-10"
+          className="mb-10 max-w-2xl"
         >
-          <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+          <h3 className="editorial-h3 text-xl lg:text-2xl mb-2">
             {categoryInfo[activeCategory].subtitle}
           </h3>
-          <p className="text-gray-400 text-sm sm:text-base">
+          <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
             {categoryInfo[activeCategory].description}
           </p>
         </motion.div>
 
         {/* Service Cards */}
-        <motion.div 
+        <motion.div
           key={`services-${activeCategory}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16"
         >
           {services[activeCategory].map((service, index) => {
             const IconComponent = iconMap[service.icon] || FaCloud
-            const isExpanded = expandedService === service.id
-            
+
             return (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className={`group relative glass rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${
-                  isExpanded
-                    ? 'border-cyber-blue/50 shadow-lg shadow-cyber-blue/10'
-                    : 'border-transparent hover:border-white/10'
-                }`}
-                onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="flex flex-col overflow-hidden rounded-sm bg-paper border border-border-warm hover:border-border-strong transition-colors duration-200 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]"
               >
-                {/* Card Header */}
-                <div className="p-5 sm:p-6">
-                  <IconComponent className={`tech-icon text-2xl sm:text-3xl mb-5 text-${service.color}`} />
+                {/* Accent top rule */}
+                <div className="h-[2px] w-full bg-accent" aria-hidden="true" />
 
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-3">
+                {/* Card Body */}
+                <div className="p-5 sm:p-6">
+                  <IconComponent className="tech-icon text-2xl sm:text-3xl mb-5 text-accent-text" />
+
+                  <h4 className="font-display font-bold text-lg sm:text-xl text-ink mb-3 leading-snug">
                     {service.name}
                   </h4>
 
-                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
                     {service.outcome}
                   </p>
-                </div>
-
-                {/* Expanded Content */}
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: isExpanded ? 'auto' : 0,
-                    opacity: isExpanded ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-5 pb-5 sm:px-6 sm:pb-6 border-t border-white/10 pt-4">
-                    {/* Deliverables */}
-                    <div className="mb-4">
-                      <h5 className="text-sm font-semibold text-cyber-green mb-3 flex items-center gap-2">
-                        <FaCheckCircle />
-                        You receive:
-                      </h5>
-                      <ul className="space-y-2">
-                        {service.deliverables.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
-                            <span className="text-cyber-green mt-1">✓</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Not Included */}
-                    <div className="mb-4">
-                      <h5 className="text-sm font-semibold text-gray-500 mb-3 flex items-center gap-2">
-                        <FaTimesCircle />
-                        Not included:
-                      </h5>
-                      <ul className="space-y-1">
-                        {service.notIncluded.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-xs text-gray-500">
-                            <span>–</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* CTA */}
-                    <a
-                      href={personalInfo.calendlyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="btn-outline accent-blue w-full group/cta"
-                    >
-                      <span>Book a 15-min Scope Call</span>
-                      <FaArrowRight className="transition-transform group-hover/cta:translate-x-1" />
-                    </a>
-                  </div>
-                </motion.div>
-
-                {/* Expand indicator */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
-                  <motion.div
-                    animate={{ rotate: isExpanded ? 180 : 0 }}
-                    className="w-6 h-1 rounded-full bg-white/20"
-                  />
                 </div>
               </motion.div>
             )
@@ -259,49 +183,45 @@ export default function Services() {
         </motion.div>
 
         {/* Engagement Approach */}
-        <motion.div variants={itemVariants} className="text-center">
-          <div className="glass rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto border border-white/5">
-            <h4 className="text-lg sm:text-xl font-bold text-white mb-3">
-              How We Work Together
-            </h4>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-              All engagements include <span className="text-cyber-green font-semibold">clearly defined scope and deliverables</span>. 
-              Flexible pricing models—fixed-price or hourly—to fit your needs. We&apos;ll discuss your specific requirements and provide a tailored proposal.
+        <motion.div variants={itemVariants}>
+          <div className="rounded-sm bg-paper border border-border-warm p-6 sm:p-8 max-w-3xl shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]">
+            <h3 className="editorial-h3 text-xl lg:text-2xl mb-3">
+              How we work together
+            </h3>
+            <p className="text-ink-soft text-sm sm:text-base leading-relaxed mb-5">
+              All engagements include{' '}
+              <strong className="text-ink font-semibold">clearly defined scope and deliverables</strong>.
+              Flexible pricing models—fixed-price or hourly—to fit your needs. We&apos;ll discuss your
+              specific requirements and provide a tailored proposal.
             </p>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-400 mb-6">
-              <span className="px-3 py-1.5 rounded-full border border-white/10">
-                Scoped for your environment
-              </span>
-              <span className="px-3 py-1.5 rounded-full border border-white/10">
-                Clear deliverables
-              </span>
-              <span className="px-3 py-1.5 rounded-full border border-white/10">
-                Defined timeline
-              </span>
-              <span className="px-3 py-1.5 rounded-full border border-white/10">
-                Measurable outcomes
-              </span>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="tech-tag">Scoped for your environment</span>
+              <span className="tech-tag">Clear deliverables</span>
+              <span className="tech-tag">Defined timeline</span>
+              <span className="tech-tag">Measurable outcomes</span>
             </div>
 
-            <div className="bg-cyber-dark/50 rounded-xl p-4 mb-6 border border-white/5">
-              <p className="text-sm text-gray-400">
-                <span className="text-white font-medium">Proven Results:</span> FinOps clients typically see 5–10x ROI within 12 months. 
-                Compliance fast-tracks save 3–6 months vs DIY approaches.
+            <div className="stat-block mb-6">
+              <p className="text-sm text-ink-soft leading-relaxed">
+                <strong className="text-ink font-semibold">Proven results:</strong> FinOps clients
+                typically see 5–10x ROI within 12 months. Compliance fast-tracks save 3–6 months vs
+                DIY approaches.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-5 border-t border-border-warm">
               <a
                 href={personalInfo.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline accent-green btn-lg group/cta"
+                className="btn-primary"
               >
-                <FaCalendarAlt />
-                <span>Schedule a Consultation</span>
-                <FaArrowRight className="transition-transform group-hover/cta:translate-x-1" />
+                <FaCalendarAlt aria-hidden="true" />
+                <span>Schedule a consultation</span>
+                <FaArrowRight aria-hidden="true" />
               </a>
-              <p className="text-xs text-gray-500 mt-3">
+              <p className="text-xs text-gray-warm mt-3">
                 15 minutes to discuss your challenges and explore how we can help.
               </p>
             </div>

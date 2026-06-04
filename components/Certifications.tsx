@@ -34,49 +34,53 @@ export default function Certifications() {
   }
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24" id="certifications">
+    <section ref={ref} className="py-20 lg:py-28" id="certifications">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="mx-auto max-w-6xl px-6 lg:px-12"
       >
-        {/* Section Title */}
-        <motion.h2 variants={itemVariants} className="section-title gradient-text mb-10 sm:mb-12">
-          Certifications & Education
+        {/* Section label */}
+        <motion.div variants={itemVariants} className="section-label mb-8">
+          <span className="num">05</span>
+          <span className="name">Credentials</span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h2 variants={itemVariants} className="editorial-h2 text-3xl lg:text-4xl mb-12">
+          Certifications <span className="accent-text">·</span> education.
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Certifications */}
           <motion.div variants={itemVariants}>
-            <div className="group glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 md:mb-6 flex items-center gap-2 sm:gap-3 text-cyber-blue">
-                <FaAward className="tech-icon text-xl sm:text-2xl md:text-3xl" />
+            <div className="h-full bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8">
+              <h3 className="editorial-h3 text-xl lg:text-2xl mb-6 flex items-center gap-3">
+                <FaAward className="text-accent-text text-xl" aria-hidden="true" />
                 AWS Certifications
               </h3>
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3">
                 {certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className="block p-3 sm:p-4 bg-cyber-dark/50 rounded-lg sm:rounded-xl border border-white/5 hover:border-cyber-blue/30 hover:-translate-y-0.5 transition-all duration-300"
+                    className="flex items-center gap-4 rounded-sm border border-[var(--color-border)] bg-paper-soft p-3 sm:p-4 transition-colors duration-300 hover:border-[var(--color-accent)]"
                   >
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex-shrink-0">
-                        <Image
-                          src={cert.badgeImage}
-                          alt={cert.name}
-                          width={64}
-                          height={64}
-                          className="rounded-lg"
-                          unoptimized
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-white mb-0.5 sm:mb-1 text-xs sm:text-sm md:text-base leading-tight">
-                          {cert.name}
-                        </h4>
-                        <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">{cert.issuer}</p>
-                      </div>
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
+                      <Image
+                        src={cert.badgeImage}
+                        alt={cert.name}
+                        width={64}
+                        height={64}
+                        className="rounded-sm"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-display font-bold text-ink text-sm sm:text-base leading-tight mb-0.5">
+                        {cert.name}
+                      </h4>
+                      <p className="font-mono text-[11px] sm:text-xs text-ink-soft">{cert.issuer}</p>
                     </div>
                   </div>
                 ))}
@@ -85,32 +89,32 @@ export default function Certifications() {
           </motion.div>
 
           {/* Education & Languages */}
-          <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6">
+          <motion.div variants={itemVariants} className="space-y-6">
             {/* Education */}
-            <div className="group glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-5 flex items-center gap-2 sm:gap-3 text-cyber-purple">
-                <FaGraduationCap className="tech-icon text-xl sm:text-2xl md:text-3xl" />
+            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8">
+              <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
+                <FaGraduationCap className="text-accent-text text-xl" aria-hidden="true" />
                 Education
               </h3>
-              <div className="space-y-1.5 sm:space-y-2">
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-white">{education.degree}</h4>
-                <p className="text-cyber-blue font-semibold text-sm sm:text-base">{education.institution}</p>
-                <p className="text-gray-400 text-xs sm:text-sm md:text-base">{education.period}</p>
-                <p className="text-gray-400 text-xs sm:text-sm md:text-base">{education.location}</p>
+              <div className="space-y-1.5">
+                <h4 className="font-display font-bold text-ink text-lg sm:text-xl">{education.degree}</h4>
+                <p className="text-accent-text font-medium text-sm sm:text-base">{education.institution}</p>
+                <p className="font-mono text-xs text-ink-soft">{education.period}</p>
+                <p className="font-mono text-xs text-ink-soft">{education.location}</p>
               </div>
             </div>
 
             {/* Languages */}
-            <div className="group glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/5 hover:border-white/10 hover:-translate-y-1 transition-all duration-300">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-5 flex items-center gap-2 sm:gap-3 text-cyber-green">
-                <FaLanguage className="tech-icon text-xl sm:text-2xl md:text-3xl" />
+            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8">
+              <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
+                <FaLanguage className="text-accent-text text-xl" aria-hidden="true" />
                 Languages
               </h3>
-              <div className="space-y-1 sm:space-y-1.5">
+              <div className="divide-y divide-[var(--color-border)]">
                 {languages.map((lang, index) => (
-                  <div key={index} className="flex items-center justify-between gap-3 p-2 sm:p-2.5 rounded-lg border border-transparent hover:border-cyber-green/20 hover:bg-white/5 transition-all duration-300">
-                    <span className="text-sm sm:text-base md:text-lg font-medium text-white">{lang.name}</span>
-                    <span className="text-cyber-green font-semibold text-xs sm:text-sm md:text-base">{lang.level}</span>
+                  <div key={index} className="flex items-center justify-between gap-3 py-2.5">
+                    <span className="font-display font-bold text-ink text-base sm:text-lg">{lang.name}</span>
+                    <span className="font-mono text-xs sm:text-sm uppercase tracking-wide text-accent-text">{lang.level}</span>
                   </div>
                 ))}
               </div>

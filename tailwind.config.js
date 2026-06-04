@@ -8,28 +8,43 @@ module.exports = {
   // Icon colours are data-driven (e.g. text-${service.color}); keep them
   // generated even though the full class names never appear as literals.
   safelist: [
-    'text-cyber-blue',
-    'text-cyber-green',
-    'text-cyber-purple',
-    'text-cyber-pink',
+    'text-accent',
+    'text-accent-text',
+    'text-ink',
+    'text-ink-soft',
+    'bg-accent',
+    'bg-accent-bg',
+    'border-accent',
   ],
   theme: {
     extend: {
       colors: {
-        'cyber-black': '#050505',
-        'cyber-dark': '#0a0a0a',
-        'cyber-gray': '#151515',
-        'cyber-blue': '#00d4ff',
-        'cyber-blue-dark': '#0099cc',
-        'cyber-purple': '#9d4edd',
-        'cyber-pink': '#ff006e',
-        'cyber-green': '#06ffa5',
+        // Editorial "maison" palette (ported from ScaleForged)
+        cream: '#F7F0E3',
+        paper: '#FFFBF2',
+        'paper-soft': '#FBF5EA',
+        ink: '#1A1A1A',
+        'ink-soft': '#4A4540',
+        'gray-warm': '#6B6260',
+        accent: '#D9892A',
+        'accent-soft': '#F0B86A',
+        'accent-bg': '#FDF4E3',
+        'accent-text': '#9A5A12',
+        'border-warm': '#E5DCC8',
+        'border-strong': '#C7B89D',
+        live: '#266A29',
+        'live-bg': '#E8F3E9',
+        beta: '#9A4A14',
+        'beta-bg': '#FFF5F0',
+        // Brand (kept)
         'tablix-green': '#22c55e',
         'tablix-green-light': '#4ade80',
       },
       fontFamily: {
-        sans: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-playfair)', 'Georgia', 'serif'],
+        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+        mono: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

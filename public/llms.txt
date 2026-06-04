@@ -68,10 +68,10 @@ Last updated: 2026-06-01.
 - Bespoke Labs (current): FinOps, SOC 2 program, infrastructure security, Horizon product engineering at a Series A RL lab
 - Tablix (founded): Quebec legal-tech SaaS covering all 112 RDPRM natures de droit with hypothèque deduplication
 - CREE8: 60% cloud cost reduction (significant annual savings), SOC 2 Type II + TPN Gold in 6 months
-- Fairstone Bank: Multi-region DR architecture, RTO reduced from 24hrs to under 4hrs
-- Videotron: 99.9% uptime for streaming platforms serving millions of subscribers
-- Vanderlande: Built PAX Divest Assistant (airport security) from 0→1 in 6 months, deployed globally
-- PetalMD: HIPAA-compliant architecture protecting PHI for 100+ healthcare organizations
+- Banque Fairstone: Multi-region, multi-account disaster recovery on AWS with integrated monitoring for resilience
+- Videotron: DevOps for web and streaming platforms, scalable infrastructure and hardened security
+- Vanderlande: Built the PAX Divesting Assistant for airport checkpoints and decentralized luggage-throughput software deployed globally
+- PetalMD: Secure cloud platform for healthcare to orchestrate real-time patient care
 
 ## Certifications
 
@@ -106,7 +106,7 @@ Anthony operates three specialized consulting practices, each with deep domain e
 ## Contact
 
 - Website: https://www.anthonypaquet.com
-- Email: Anthonypaquet1508@gmail.com
+- Email: me@anthonypaquet.com
 - LinkedIn: https://linkedin.com/in/anthony-paquet-94a31085
 - Book a Call: https://calendly.com/anthonypaquet1508/15min
 

@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero'
 import About from '@/components/About'
+import DevelopmentCycle from '@/components/DevelopmentCycle'
 import Services from '@/components/Services'
 import AgentMarketplace from '@/components/AgentMarketplace'
 import Experience from '@/components/Experience'
@@ -16,6 +17,7 @@ export default function Home() {
         <Services />
         <AgentMarketplace />
         <About />
+        <DevelopmentCycle />
         <Experience />
         <Certifications />
         <Footer />
