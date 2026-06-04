@@ -60,7 +60,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="editorial-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-7 text-balance"
+          className="editorial-display !leading-[1.2] text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-7 text-balance"
         >
           I help engineering leaders
           <br />
@@ -83,7 +83,10 @@ export default function Hero() {
           className="mb-10 flex flex-wrap justify-center gap-x-7 gap-y-2.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ink-soft"
         >
           {trustPoints.map((point) => (
-            <span key={point} className="inline-flex items-center gap-2">
+            <span
+              key={point}
+              className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-ink"
+            >
               <FaCheck className="text-[0.6rem] text-accent-text shrink-0" aria-hidden="true" />
               {point}
             </span>

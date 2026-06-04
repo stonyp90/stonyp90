@@ -22,7 +22,7 @@ export default function DevelopmentCycle() {
   return (
     <IterationLoopSection
       id="how-i-work"
-      sectionNum="01"
+      sectionNum="02"
       sectionName="How I Work"
       heading={
         <>

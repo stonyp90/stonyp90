@@ -34,7 +34,7 @@ export default function Certifications() {
   }
 
   return (
-    <section ref={ref} className="py-20 lg:py-28" id="certifications">
+    <section ref={ref} className="section-grid py-20 lg:py-28" id="certifications">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -55,7 +55,7 @@ export default function Certifications() {
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Certifications */}
           <motion.div variants={itemVariants}>
-            <div className="h-full bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8">
+            <div className="h-full bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-6 flex items-center gap-3">
                 <FaAward className="text-accent-text text-xl" aria-hidden="true" />
                 AWS Certifications
@@ -64,7 +64,7 @@ export default function Certifications() {
                 {certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-4 rounded-sm border border-[var(--color-border)] bg-paper-soft p-3 sm:p-4 transition-colors duration-300 hover:border-[var(--color-accent)]"
+                    className="flex items-center gap-4 rounded-sm border border-[var(--color-border)] bg-paper-soft p-3 sm:p-4 transition-[border-color,transform] duration-200 ease-smooth hover:border-accent hover:-translate-y-0.5"
                   >
                     <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
                       <Image
@@ -91,7 +91,7 @@ export default function Certifications() {
           {/* Education & Languages */}
           <motion.div variants={itemVariants} className="space-y-6">
             {/* Education */}
-            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8">
+            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
                 <FaGraduationCap className="text-accent-text text-xl" aria-hidden="true" />
                 Education
@@ -105,7 +105,7 @@ export default function Certifications() {
             </div>
 
             {/* Languages */}
-            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8">
+            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
                 <FaLanguage className="text-accent-text text-xl" aria-hidden="true" />
                 Languages

@@ -11,18 +11,18 @@
 
 :root {
   /* Editorial palette ------------------------------------------------------ */
-  --color-cream: #f7f0e3;        /* page bg */
-  --color-paper: #fffbf2;        /* surface bg */
-  --color-paper-soft: #fbf5ea;   /* zebra / subtle alt */
-  --color-ink: #1a1a1a;          /* primary text */
-  --color-ink-soft: #4a4540;     /* secondary text */
-  --color-gray: #6b6260;         /* muted text */
-  --color-accent: #d9892a;       /* warm brass/orange — decorative fills */
-  --color-accent-soft: #f0b86a;
-  --color-accent-bg: #fdf4e3;
-  --color-accent-text: #9a5a12;  /* darker brass for text/links/icons — WCAG AA */
-  --color-border: #e5dcc8;
-  --color-border-strong: #c7b89d;
+  --color-cream: #f6efe0;        /* page bg — warm cream */
+  --color-paper: #fffcf5;        /* surface bg — soft warm white */
+  --color-paper-soft: #faf3e6;   /* zebra / subtle alt */
+  --color-ink: #1b1714;          /* primary text — warm near-black, AAA on cream */
+  --color-ink-soft: #463f38;     /* secondary text — warm, AA+ on cream + panels */
+  --color-gray: #6a615b;         /* muted text */
+  --color-accent: #d4831f;       /* warm brass/orange — decorative fills */
+  --color-accent-soft: #edb265;
+  --color-accent-bg: #fcf3e0;
+  --color-accent-text: #8f5310;  /* deep brass for text/links/icons — WCAG AA+ */
+  --color-border: #e7dcc6;       /* hairlines / dividers */
+  --color-border-strong: #c4b394;
 
   /* Typography ------------------------------------------------------------- */
   --font-display: var(--font-playfair), Georgia, serif;
@@ -30,10 +30,10 @@
   --font-mono: var(--font-jetbrains), "JetBrains Mono", "Fira Code", monospace;
 
   /* Status badges ---------------------------------------------------------- */
-  --color-live: #266a29;
-  --color-live-bg: #e8f3e9;
-  --color-beta: #9a4a14;
-  --color-beta-bg: #fff5f0;
+  --color-live: #246626;
+  --color-live-bg: #e7f1e6;
+  --color-beta: #92440f;
+  --color-beta-bg: #fdf2ea;
 
   /* Motion + spacing (kept) ------------------------------------------------ */
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -69,7 +69,7 @@ body {
   overflow-x: hidden;
 }
 
-::selection { background-color: var(--color-accent); color: var(--color-paper); }
+::selection { background-color: var(--color-accent-text); color: var(--color-paper); text-shadow: none; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 section { position: relative; z-index: 1; }
@@ -162,20 +162,32 @@ section { position: relative; z-index: 1; }
 .paper-hero {
   background-color: var(--color-paper);
   background-image:
-    linear-gradient(to right, transparent 49.5%, rgba(217, 137, 42, 0.025) 50%, transparent 50.5%),
-    linear-gradient(to bottom, transparent 49.5%, rgba(217, 137, 42, 0.025) 50%, transparent 50.5%);
+    linear-gradient(to right, transparent 49.5%, rgba(212, 131, 31, 0.03) 50%, transparent 50.5%),
+    linear-gradient(to bottom, transparent 49.5%, rgba(212, 131, 31, 0.03) 50%, transparent 50.5%);
 }
 .bg-grid {
   background-color: var(--color-cream);
   background-image:
-    linear-gradient(to right, rgba(199, 184, 157, 0.28) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(199, 184, 157, 0.28) 1px, transparent 1px);
+    linear-gradient(to right, rgba(196, 179, 148, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 179, 148, 0.3) 1px, transparent 1px);
   background-size: 42px 42px;
 }
 
+/* Alternating section background — warm tan + faint graph-paper grid.
+   Slightly deeper than the page cream to break up the vertical rhythm while
+   staying light; lines use the warm border-strong hue (196,179,148) at low
+   opacity. Dark ink text stays highly legible. */
+.section-grid {
+  background-color: #f1e8d4;
+  background-image:
+    linear-gradient(to right, rgba(196, 179, 148, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 179, 148, 0.16) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
 /* Floating card on the grid ------------------------------------------------ */
-.contact-card { background: var(--color-paper); border: 1px solid var(--color-border); box-shadow: 0 16px 36px -28px rgba(26, 26, 26, 0.16); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-.contact-card:hover { border-color: var(--color-accent); }
+.contact-card { background: var(--color-paper); border: 1px solid var(--color-border); box-shadow: 0 1px 2px rgba(58, 42, 20, 0.04), 0 18px 40px -30px rgba(58, 42, 20, 0.2); transition: border-color 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth); }
+.contact-card:hover { border-color: var(--color-border-strong); box-shadow: 0 1px 2px rgba(58, 42, 20, 0.05), 0 24px 48px -30px rgba(58, 42, 20, 0.26); }
 
 /* Editorial form field ----------------------------------------------------- */
 .contact-field { width: 100%; padding: 0.75rem 0.95rem; background: var(--color-cream); border: 1px solid var(--color-border); border-radius: 2px; color: var(--color-ink); font-family: var(--font-body); font-size: 0.95rem; line-height: 1.5; transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
@@ -189,23 +201,25 @@ section { position: relative; z-index: 1; }
   background: var(--color-paper); color: var(--color-ink);
   padding: 0.75rem 1.4rem; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem;
   letter-spacing: 0.005em; border-radius: 2px; border: 1.5px solid var(--color-ink);
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  transition: background 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), transform 0.2s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
   box-shadow: 2px 2px 0 0 var(--color-accent-soft);
 }
-.btn-primary:hover { background: var(--color-accent); color: var(--color-paper); border-color: var(--color-accent); transform: translate(-1px, -1px); box-shadow: 3px 3px 0 0 var(--color-ink); }
-.btn-primary:active { transform: translate(0, 0); box-shadow: 1px 1px 0 0 var(--color-ink); }
+.btn-primary:hover { background: var(--color-accent); color: var(--color-paper); border-color: var(--color-accent); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--color-ink); }
+.btn-primary:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 0 var(--color-ink); }
 
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 0.6rem;
   background: transparent; color: var(--color-ink-soft);
   padding: 0.75rem 1.4rem; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem;
   letter-spacing: 0.005em; border-radius: 2px; border: 1.5px solid var(--color-border-strong);
-  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition: color 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), background 0.25s var(--ease-smooth);
 }
 .btn-ghost:hover { color: var(--color-ink); border-color: var(--color-ink); background: var(--color-paper); }
+.btn-ghost:active { background: var(--color-paper-soft); }
 
-.link-arrow { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--color-accent-text); font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; border-bottom: 1.5px solid var(--color-accent-text); padding-bottom: 0.15rem; transition: gap 0.2s ease, color 0.2s ease; }
+.link-arrow { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--color-accent-text); font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; border-bottom: 1.5px solid var(--color-accent-text); padding-bottom: 0.15rem; transition: gap 0.2s var(--ease-smooth), color 0.2s var(--ease-smooth), border-color 0.2s var(--ease-smooth); }
 .link-arrow:hover { gap: 0.7rem; color: var(--color-ink); border-bottom-color: var(--color-ink); }
+.link-arrow:active { color: var(--color-accent); }
 
 .btn-lg { padding: 0.9rem 1.75rem; font-size: 1rem; }
 @media (min-width: 640px) { .btn-lg { padding: 1rem 2rem; font-size: 1.0625rem; } }
@@ -221,18 +235,19 @@ section { position: relative; z-index: 1; }
    LEGACY COMPAT — old cyber class names remapped to editorial styling so any
    not-yet-migrated reference degrades to the cream palette, never neon.
    ========================================================================== */
-.glass { background: var(--color-paper); border: 1px solid var(--color-border); box-shadow: 0 16px 36px -28px rgba(26, 26, 26, 0.16); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-.glass-hover:hover { border-color: var(--color-accent); box-shadow: 0 20px 44px -28px rgba(26, 26, 26, 0.22); }
-.neon-glow, .pulse-subtle, .pulse-glow { box-shadow: 0 16px 36px -28px rgba(26, 26, 26, 0.16); }
+.glass { background: var(--color-paper); border: 1px solid var(--color-border); box-shadow: 0 1px 2px rgba(58, 42, 20, 0.04), 0 18px 40px -30px rgba(58, 42, 20, 0.2); transition: border-color 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth); }
+.glass-hover:hover { border-color: var(--color-border-strong); box-shadow: 0 1px 2px rgba(58, 42, 20, 0.05), 0 24px 50px -30px rgba(58, 42, 20, 0.26); }
+.neon-glow, .pulse-subtle, .pulse-glow { box-shadow: 0 1px 2px rgba(58, 42, 20, 0.04), 0 18px 40px -30px rgba(58, 42, 20, 0.2); }
 .gradient-text { color: var(--color-accent); }
-.tech-icon { display: inline-flex; color: var(--color-accent-text); transition: transform 0.3s var(--ease-smooth); }
-.group:hover .tech-icon { transform: translateY(-2px) scale(1.06); }
-.card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.card-hover:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -28px rgba(26, 26, 26, 0.18); }
+.tech-icon { display: inline-flex; color: var(--color-accent-text); transition: transform 0.3s var(--ease-smooth), color 0.3s var(--ease-smooth); }
+.group:hover .tech-icon { transform: translateY(-2px) scale(1.06); color: var(--color-accent); }
+.card-hover { transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth); }
+.card-hover:hover { transform: translateY(-3px); box-shadow: 0 1px 2px rgba(58, 42, 20, 0.05), 0 22px 46px -30px rgba(58, 42, 20, 0.24); }
 .section-title { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 3.25rem); font-weight: 700; letter-spacing: -0.02em; color: var(--color-ink); text-align: center; }
 .accent-blue, .accent-green, .accent-purple, .accent-pink { --accent: var(--color-accent); }
-.btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border-radius: 2px; font-weight: 500; font-size: 0.9rem; color: var(--color-ink); border: 1.5px solid var(--color-ink); background: var(--color-paper); transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease; box-shadow: 2px 2px 0 0 var(--color-accent-soft); cursor: pointer; }
-.btn-outline:hover { background: var(--color-accent); color: var(--color-paper); border-color: var(--color-accent); transform: translate(-1px, -1px); box-shadow: 3px 3px 0 0 var(--color-ink); }
+.btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border-radius: 2px; font-weight: 500; font-size: 0.9rem; color: var(--color-ink); border: 1.5px solid var(--color-ink); background: var(--color-paper); transition: background 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth), transform 0.2s var(--ease-smooth); box-shadow: 2px 2px 0 0 var(--color-accent-soft); cursor: pointer; }
+.btn-outline:hover { background: var(--color-accent); color: var(--color-paper); border-color: var(--color-accent); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--color-ink); }
+.btn-outline:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 0 var(--color-ink); }
 .btn-base { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 2px; font-weight: 500; font-size: 0.9rem; cursor: pointer; white-space: nowrap; }
 
 /* ==========================================================================
@@ -251,13 +266,15 @@ section { position: relative; z-index: 1; }
 .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
 .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
 
-::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: var(--color-cream); }
-::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 4px; border: 2px solid var(--color-cream); }
-::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 999px; border: 3px solid var(--color-cream); transition: background 0.2s var(--ease-smooth); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent-text); }
+::-webkit-scrollbar-thumb:active { background: var(--color-accent); }
 @media (max-width: 768px) { ::-webkit-scrollbar { width: 6px; } }
+* { scrollbar-color: var(--color-border-strong) var(--color-cream); }
 
-:where(a, button, [role="button"]):focus-visible { outline: 2px solid var(--color-accent-text); outline-offset: 2px; border-radius: 2px; }
+:where(a, button, [role="button"], input, textarea, select):focus-visible { outline: 2px solid var(--color-accent-text); outline-offset: 2px; border-radius: 2px; }
 
 /* Utilities (kept) --------------------------------------------------------- */
 .text-balance { text-wrap: balance; }

@@ -9,7 +9,7 @@ import { experiences } from '@/lib/data'
 export default function Experience() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0)
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(experiences.length - 1)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,23 +34,23 @@ export default function Experience() {
   }
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24" id="experience">
+    <section ref={ref} className="py-20 lg:py-28" id="experience">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="mx-auto max-w-6xl px-6 lg:px-12"
       >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="mb-10 sm:mb-12 md:mb-14">
-          <div className="section-label mb-4 sm:mb-5">
-            <span className="num">02</span>
+        <motion.div variants={itemVariants} className="mb-12">
+          <div className="section-label mb-8">
+            <span className="num">04</span>
             <span className="name">Track Record</span>
           </div>
-          <h2 className="editorial-h2 text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+          <h2 className="editorial-h2 text-3xl lg:text-4xl mb-4">
             Experience
           </h2>
-          <p className="editorial-lead max-w-xl text-sm sm:text-base md:text-lg">
+          <p className="editorial-lead max-w-xl">
             Proven outcomes across cloud, security, and infrastructure.
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ export default function Experience() {
           <div className="absolute left-[7px] sm:left-4 md:left-8 top-0 bottom-0 w-px bg-[var(--color-border-strong)]" />
 
           {/* Experience items */}
-          <div className="space-y-3 sm:space-y-5 md:space-y-6">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6">
             {experiences.map((exp, index) => {
               const isCurrent = exp.period === 'Current'
               const isFounded = exp.period === 'Founded'
@@ -82,7 +82,7 @@ export default function Experience() {
 
                   {/* Content card — bordered paper */}
                   <motion.div
-                    className={`group rounded-sm p-3 sm:p-4 md:p-6 cursor-pointer bg-paper border transition-colors duration-300 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] ${
+                    className={`group rounded-sm p-4 sm:p-5 md:p-6 cursor-pointer bg-paper border transition-[border-color,transform,box-shadow] duration-300 ease-smooth shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)] ${
                       isExpanded
                         ? 'border-accent'
                         : 'border-[var(--color-border)] hover:border-[var(--color-border-strong)]'

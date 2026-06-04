@@ -84,7 +84,7 @@ export default function Services() {
   const categories: CategoryKey[] = ['ai', 'architecture', 'finops', 'security']
 
   return (
-    <section ref={ref} className="py-20 lg:py-28" id="services">
+    <section ref={ref} className="section-grid py-20 lg:py-28" id="services">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -94,10 +94,10 @@ export default function Services() {
         {/* Section Header */}
         <motion.div variants={itemVariants}>
           <div className="section-label mb-8">
-            <span className="num">02</span>
+            <span className="num">03</span>
             <span className="name">Services</span>
           </div>
-          <h2 className="editorial-h2 text-3xl lg:text-4xl mb-4">
+          <h2 className="editorial-h2 text-3xl lg:text-4xl mb-5">
             Consulting <span className="accent-text">·</span> engineering leadership.
           </h2>
           <p className="editorial-lead max-w-2xl mb-12">
@@ -115,10 +115,10 @@ export default function Services() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 aria-pressed={active}
-                className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-sm font-mono text-xs sm:text-sm tracking-wide uppercase border transition-colors duration-200 ${
+                className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-sm font-mono text-xs sm:text-sm tracking-wide uppercase border transition-[color,border-color,background-color,transform] duration-200 ease-smooth ${
                   active
                     ? 'border-accent text-accent-text bg-accent-bg'
-                    : 'border-border-warm text-ink-soft hover:text-ink hover:border-border-strong'
+                    : 'border-[var(--color-border)] text-ink-soft hover:text-ink hover:border-border-strong hover:-translate-y-0.5'
                 }`}
               >
                 {categoryInfo[category].title}
@@ -160,13 +160,13 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="flex flex-col overflow-hidden rounded-sm bg-paper border border-border-warm hover:border-border-strong transition-colors duration-200 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]"
+                className="group flex flex-col overflow-hidden rounded-sm bg-paper border border-[var(--color-border)] hover:border-accent transition-[border-color,transform,box-shadow] duration-200 ease-smooth hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)] shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]"
               >
                 {/* Accent top rule */}
                 <div className="h-[2px] w-full bg-accent" aria-hidden="true" />
 
                 {/* Card Body */}
-                <div className="p-5 sm:p-6">
+                <div className="p-6">
                   <IconComponent className="tech-icon text-2xl sm:text-3xl mb-5 text-accent-text" />
 
                   <h4 className="font-display font-bold text-lg sm:text-xl text-ink mb-3 leading-snug">
@@ -184,7 +184,7 @@ export default function Services() {
 
         {/* Engagement Approach */}
         <motion.div variants={itemVariants}>
-          <div className="rounded-sm bg-paper border border-border-warm p-6 sm:p-8 max-w-3xl shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]">
+          <div className="rounded-sm bg-paper border border-[var(--color-border)] p-6 sm:p-8 max-w-3xl shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
             <h3 className="editorial-h3 text-xl lg:text-2xl mb-3">
               How we work together
             </h3>
@@ -210,7 +210,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="pt-5 border-t border-border-warm">
+            <div className="pt-5 border-t border-[var(--color-border)]">
               <a
                 href={personalInfo.calendlyUrl}
                 target="_blank"

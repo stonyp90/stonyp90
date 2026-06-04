@@ -13,9 +13,9 @@ export default function Home() {
       <LoadingIndicator />
       <div className="animate-fade-in">
         <Hero />
+        <About />
         <DevelopmentCycle />
         <Services />
-        <About />
         <Experience />
         <Certifications />
         <Footer />

@@ -44,7 +44,7 @@ export default function About() {
   ]
 
   return (
-    <section ref={ref} className="py-20 lg:py-28" id="about">
+    <section ref={ref} className="section-grid py-20 lg:py-28" id="about">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -65,16 +65,16 @@ export default function About() {
           Fortune 500 rigor <span className="accent-text">·</span> startup speed.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-[14rem_1fr] gap-10 lg:gap-14 items-start">
+        <div className="grid lg:grid-cols-[14rem_1fr] gap-10 lg:gap-14 items-center">
           {/* Portrait — clean framed image */}
-          <motion.div variants={itemVariants} className="mx-auto lg:mx-0">
-            <div className="overflow-hidden rounded-sm border border-[var(--color-border)] bg-paper shadow-[0_16px_36px_-28px_rgba(26,26,26,0.18)]">
+          <motion.div variants={itemVariants} className="group mx-auto lg:mx-0">
+            <div className="overflow-hidden rounded-sm border border-[var(--color-border)] bg-paper shadow-[0_16px_36px_-28px_rgba(26,26,26,0.18)] transition-[border-color,box-shadow,transform] duration-300 ease-smooth group-hover:-translate-y-0.5 group-hover:border-border-strong group-hover:shadow-[0_24px_48px_-28px_rgba(26,26,26,0.24)]">
               <Image
                 src={personalInfo.photo}
                 alt="Anthony Paquet"
                 width={256}
                 height={288}
-                className="w-44 h-auto lg:w-56 object-cover"
+                className="w-44 h-auto lg:w-56 object-cover transition-transform duration-500 ease-smooth group-hover:scale-[1.03]"
                 priority
               />
             </div>
@@ -109,9 +109,9 @@ export default function About() {
               {facts.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-2 text-sm text-ink-soft"
+                  className="group flex items-center gap-2 text-sm text-ink-soft transition-colors duration-200 hover:text-ink"
                 >
-                  <Icon className="text-accent-text text-base" aria-hidden="true" />
+                  <Icon className="text-accent-text text-base transition-transform duration-200 ease-smooth group-hover:-translate-y-0.5" aria-hidden="true" />
                   <span>{label}</span>
                 </div>
               ))}

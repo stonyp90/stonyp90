@@ -4,8 +4,8 @@
   "description": "Cloud Security & FinOps Consulting. Cut cloud costs 30-60%, achieve SOC2/HIPAA compliance, build from 0→1 to scale.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#050505",
-  "theme_color": "#00d4ff",
+  "background_color": "#f6efe0",
+  "theme_color": "#f6efe0",
   "orientation": "portrait-primary",
   "categories": ["business", "productivity"],
   "icons": [

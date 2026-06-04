@@ -23,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-paper border-t border-[var(--color-border)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid gap-10 sm:gap-12 md:grid-cols-12">
           {/* Brand + positioning */}
           <div className="md:col-span-5 text-center sm:text-left">
@@ -61,7 +61,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-ink-soft hover:text-accent-text transition-colors duration-300 text-sm sm:text-base inline-block"
+                    className="text-ink-soft hover:text-accent-text transition-[color,transform] duration-200 ease-smooth text-sm sm:text-base inline-block hover:translate-x-1"
                   >
                     {link.label}
                   </a>
@@ -84,7 +84,7 @@ export default function Footer() {
                   href={social.href}
                   target={social.label !== 'Email' ? '_blank' : undefined}
                   rel={social.label !== 'Email' ? 'noopener noreferrer' : undefined}
-                  className="p-1.5 text-ink-soft hover:text-accent-text transition-colors duration-300"
+                  className="p-1.5 text-ink-soft hover:text-accent-text transition-colors duration-200 ease-smooth"
                   aria-label={social.label}
                 >
                   <social.icon className="text-2xl sm:text-[1.6rem]" />
@@ -93,7 +93,7 @@ export default function Footer() {
             </div>
             <a
               href={socialLinks.email}
-              className="text-ink-soft hover:text-accent-text transition-colors duration-300 text-sm sm:text-base block"
+              className="text-ink-soft hover:text-accent-text transition-colors duration-200 ease-smooth text-sm sm:text-base inline-block"
             >
               {personalInfo.email}
             </a>
