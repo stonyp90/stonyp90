@@ -44,7 +44,7 @@ export default function About() {
   ]
 
   return (
-    <section ref={ref} className="section-grid py-20 lg:py-28" id="about">
+    <section ref={ref} className="py-20 lg:py-28" id="about">
       <motion.div
         variants={containerVariants}
         initial="hidden"

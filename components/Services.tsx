@@ -84,7 +84,7 @@ export default function Services() {
   const categories: CategoryKey[] = ['ai', 'architecture', 'finops', 'security']
 
   return (
-    <section ref={ref} className="section-grid py-20 lg:py-28" id="services">
+    <section ref={ref} className="py-20 lg:py-28" id="services">
       <motion.div
         variants={containerVariants}
         initial="hidden"
