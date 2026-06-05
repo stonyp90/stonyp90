@@ -15,7 +15,7 @@ import {
   FaArrowRight,
   FaCalendarAlt,
 } from 'react-icons/fa'
-import { services, personalInfo } from '@/lib/data'
+import { useContent } from '@/components/LocaleProvider'
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   chart: FaChartLine,
@@ -29,32 +29,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   governance: FaChartLine,
 }
 
-const categoryInfo = {
-  finops: {
-    title: 'FinOps',
-    subtitle: 'Cloud Cost Intelligence',
-    description: 'Cut cloud spend 30–50% with governance that scales. Typical ROI: 5–10x within 12 months.',
-  },
-  security: {
-    title: 'Security & Compliance',
-    subtitle: 'SOC2 • HIPAA • ISO 27001 • AI Security',
-    description: 'Audit-ready in weeks, not months. Enterprise-grade security that satisfies customers and insurers.',
-  },
-  ai: {
-    title: 'AI',
-    subtitle: 'AI Infrastructure • LLM Security • Agents & Evals',
-    description: 'Take AI from demo to dependable. Infrastructure, security, evals, and agent engineering for teams shipping real AI products.',
-  },
-  architecture: {
-    title: 'Architecture',
-    subtitle: 'Modernization • Platform • DevSecOps',
-    description: 'From legacy to modern—build scalable foundations, eliminate tech debt, and accelerate your roadmap.',
-  },
-}
-
-type CategoryKey = keyof typeof services
+type CategoryKey = 'ai' | 'architecture' | 'finops' | 'security'
 
 export default function Services() {
+  const c = useContent()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const [activeCategory, setActiveCategory] = useState<CategoryKey>('ai')
@@ -95,14 +73,13 @@ export default function Services() {
         <motion.div variants={itemVariants}>
           <div className="section-label mb-8">
             <span className="num">03</span>
-            <span className="name">Services</span>
+            <span className="name">{c.ui.services.label}</span>
           </div>
           <h2 className="editorial-h2 text-3xl lg:text-4xl mb-5">
-            Consulting <span className="accent-text">·</span> engineering leadership.
+            {c.ui.services.headingLead} <span className="accent-text">{c.ui.services.headingAccent}</span> {c.ui.services.headingTail}
           </h2>
           <p className="editorial-lead max-w-2xl mb-12">
-            Flexible engagement models with clear outcomes. From 0→1 to enterprise scale.
-            Results in weeks, not quarters.
+            {c.ui.services.lead}
           </p>
         </motion.div>
 
@@ -121,7 +98,7 @@ export default function Services() {
                     : 'border-[var(--color-border)] text-ink-soft hover:text-ink hover:border-border-strong hover:-translate-y-0.5'
                 }`}
               >
-                {categoryInfo[category].title}
+                {c.ui.services.categories[category].title}
               </button>
             )
           })}
@@ -136,10 +113,10 @@ export default function Services() {
           className="mb-10 max-w-2xl"
         >
           <h3 className="editorial-h3 text-xl lg:text-2xl mb-2">
-            {categoryInfo[activeCategory].subtitle}
+            {c.ui.services.categories[activeCategory].subtitle}
           </h3>
           <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
-            {categoryInfo[activeCategory].description}
+            {c.ui.services.categories[activeCategory].description}
           </p>
         </motion.div>
 
@@ -151,7 +128,7 @@ export default function Services() {
           transition={{ duration: 0.3 }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16"
         >
-          {services[activeCategory].map((service, index) => {
+          {c.services[activeCategory].map((service, index) => {
             const IconComponent = iconMap[service.icon] || FaCloud
 
             return (
@@ -186,43 +163,38 @@ export default function Services() {
         <motion.div variants={itemVariants}>
           <div className="rounded-sm bg-paper border border-[var(--color-border)] p-6 sm:p-8 max-w-3xl shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
             <h3 className="editorial-h3 text-xl lg:text-2xl mb-3">
-              How we work together
+              {c.ui.services.engagementTitle}
             </h3>
             <p className="text-ink-soft text-sm sm:text-base leading-relaxed mb-5">
-              All engagements include{' '}
-              <strong className="text-ink font-semibold">clearly defined scope and deliverables</strong>.
-              Flexible pricing models—fixed-price or hourly—to fit your needs. We&apos;ll discuss your
-              specific requirements and provide a tailored proposal.
+              {c.ui.services.engagementBodyLead}{' '}
+              <strong className="text-ink font-semibold">{c.ui.services.engagementBodyStrong}</strong>{c.ui.services.engagementBodyTail}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-6">
-              <span className="tech-tag">Scoped for your environment</span>
-              <span className="tech-tag">Clear deliverables</span>
-              <span className="tech-tag">Defined timeline</span>
-              <span className="tech-tag">Measurable outcomes</span>
+              {c.ui.services.engagementTags.map((tag) => (
+                <span key={tag} className="tech-tag">{tag}</span>
+              ))}
             </div>
 
             <div className="stat-block mb-6">
               <p className="text-sm text-ink-soft leading-relaxed">
-                <strong className="text-ink font-semibold">Proven results:</strong> FinOps clients
-                typically see 5–10x ROI within 12 months. Compliance fast-tracks save 3–6 months vs
-                DIY approaches.
+                <strong className="text-ink font-semibold">{c.ui.services.provenResultsStrong}</strong>{c.ui.services.provenResultsTail}
               </p>
             </div>
 
             <div className="pt-5 border-t border-[var(--color-border)]">
               <a
-                href={personalInfo.calendlyUrl}
+                href={c.personalInfo.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
                 <FaCalendarAlt aria-hidden="true" />
-                <span>Schedule a consultation</span>
+                <span>{c.ui.services.scheduleCta}</span>
                 <FaArrowRight aria-hidden="true" />
               </a>
               <p className="text-xs text-gray-warm mt-3">
-                15 minutes to discuss your challenges and explore how we can help.
+                {c.ui.services.scheduleHint}
               </p>
             </div>
           </div>

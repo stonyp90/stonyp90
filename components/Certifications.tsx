@@ -5,9 +5,10 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { FaAward, FaGraduationCap, FaLanguage } from 'react-icons/fa'
-import { certifications, education, languages } from '@/lib/data'
+import { useContent } from '@/components/LocaleProvider'
 
 export default function Certifications() {
+  const c = useContent()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
@@ -44,12 +45,12 @@ export default function Certifications() {
         {/* Section label */}
         <motion.div variants={itemVariants} className="section-label mb-8">
           <span className="num">05</span>
-          <span className="name">Credentials</span>
+          <span className="name">{c.ui.certifications.label}</span>
         </motion.div>
 
         {/* Heading */}
         <motion.h2 variants={itemVariants} className="editorial-h2 text-3xl lg:text-4xl mb-12">
-          Certifications <span className="accent-text">·</span> education.
+          {c.ui.certifications.headingLead} <span className="accent-text">{c.ui.certifications.headingAccent}</span> {c.ui.certifications.headingTail}
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
@@ -58,10 +59,10 @@ export default function Certifications() {
             <div className="h-full bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-6 flex items-center gap-3">
                 <FaAward className="text-accent-text text-xl" aria-hidden="true" />
-                AWS Certifications
+                {c.ui.certifications.awsTitle}
               </h3>
               <div className="space-y-3">
-                {certifications.map((cert, index) => (
+                {c.certifications.map((cert, index) => (
                   <div
                     key={index}
                     className="flex items-center gap-4 rounded-sm border border-[var(--color-border)] bg-paper-soft p-3 sm:p-4 transition-[border-color,transform] duration-200 ease-smooth hover:border-accent hover:-translate-y-0.5"
@@ -94,13 +95,13 @@ export default function Certifications() {
             <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
                 <FaGraduationCap className="text-accent-text text-xl" aria-hidden="true" />
-                Education
+                {c.ui.certifications.educationTitle}
               </h3>
               <div className="space-y-1.5">
-                <h4 className="font-display font-bold text-ink text-lg sm:text-xl">{education.degree}</h4>
-                <p className="text-accent-text font-medium text-sm sm:text-base">{education.institution}</p>
-                <p className="font-mono text-xs text-ink-soft">{education.period}</p>
-                <p className="font-mono text-xs text-ink-soft">{education.location}</p>
+                <h4 className="font-display font-bold text-ink text-lg sm:text-xl">{c.education.degree}</h4>
+                <p className="text-accent-text font-medium text-sm sm:text-base">{c.education.institution}</p>
+                <p className="font-mono text-xs text-ink-soft">{c.education.period}</p>
+                <p className="font-mono text-xs text-ink-soft">{c.education.location}</p>
               </div>
             </div>
 
@@ -108,10 +109,10 @@ export default function Certifications() {
             <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
                 <FaLanguage className="text-accent-text text-xl" aria-hidden="true" />
-                Languages
+                {c.ui.certifications.languagesTitle}
               </h3>
               <div className="divide-y divide-[var(--color-border)]">
-                {languages.map((lang, index) => (
+                {c.languages.map((lang, index) => (
                   <div key={index} className="flex items-center justify-between gap-3 py-2.5">
                     <span className="font-display font-bold text-ink text-base sm:text-lg">{lang.name}</span>
                     <span className="font-mono text-xs sm:text-sm uppercase tracking-wide text-accent-text">{lang.level}</span>

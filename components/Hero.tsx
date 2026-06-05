@@ -8,16 +8,11 @@ import {
   FaLinkedin,
   FaFileDownload,
 } from 'react-icons/fa'
-import { personalInfo, socialLinks } from '@/lib/data'
-
-const trustPoints = [
-  'AI & Cloud Expert',
-  'Security and compliance',
-  'FinOps',
-  'Fortune 500 & Startup Experience',
-]
+import { useContent } from '@/components/LocaleProvider'
 
 export default function Hero() {
+  const c = useContent()
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -53,7 +48,7 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="mb-8 flex justify-center">
           <span className="status-live">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-live)]" aria-hidden="true" />
-            Currently accepting new engagements
+            {c.ui.hero.badge}
           </span>
         </motion.div>
 
@@ -62,9 +57,9 @@ export default function Hero() {
           variants={itemVariants}
           className="editorial-display !leading-[1.2] text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-7 text-balance"
         >
-          I help engineering leaders
+          {c.ui.hero.headlineLead}
           <br />
-          <span className="underline-accent">ship faster, cut costs, become secure and compliant</span>
+          <span className="underline-accent">{c.ui.hero.headlineAccent}</span>
           <span className="accent-text">.</span>
         </motion.h1>
 
@@ -73,8 +68,8 @@ export default function Hero() {
           variants={itemVariants}
           className="editorial-lead mx-auto max-w-2xl mb-9 text-base sm:text-lg text-balance"
         >
-          Builder &amp; Engineering Leader,{' '}
-          <strong className="text-accent-text">results in weeks, not quarters</strong>. No long-term contracts required.
+          {c.ui.hero.subtitleLead}{' '}
+          <strong className="text-accent-text">{c.ui.hero.subtitleStrong}</strong>{c.ui.hero.subtitleTail}
         </motion.p>
 
         {/* Trust indicators */}
@@ -82,7 +77,7 @@ export default function Hero() {
           variants={itemVariants}
           className="mb-10 flex flex-wrap justify-center gap-x-7 gap-y-2.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-ink-soft"
         >
-          {trustPoints.map((point) => (
+          {c.ui.hero.trustPoints.map((point) => (
             <span
               key={point}
               className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-ink"
@@ -99,24 +94,24 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center"
         >
           <a
-            href={personalInfo.calendlyUrl}
+            href={c.personalInfo.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary justify-center"
           >
             <FaCalendarAlt className="text-base" />
-            <span>Book Free Strategy Call</span>
+            <span>{c.ui.hero.ctaPrimary}</span>
             <FaArrowRight className="text-sm" />
           </a>
           <div className="flex gap-3 sm:gap-4 justify-center">
             <a
-              href={socialLinks.linkedin}
+              href={c.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost flex-1 sm:flex-none justify-center"
             >
               <FaLinkedin className="text-base" />
-              <span className="hidden xs:inline">LinkedIn</span>
+              <span className="hidden xs:inline">{c.ui.hero.ctaLinkedIn}</span>
             </a>
             <a
               href="/AnthonyPaquet.pdf"
@@ -124,7 +119,7 @@ export default function Hero() {
               className="btn-ghost flex-1 sm:flex-none justify-center"
             >
               <FaFileDownload className="text-base" />
-              <span>Resume</span>
+              <span>{c.ui.hero.ctaResume}</span>
             </a>
           </div>
         </motion.div>

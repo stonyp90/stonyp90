@@ -4,12 +4,13 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { FaBriefcase, FaMapMarkerAlt, FaChevronDown, FaTrophy } from 'react-icons/fa'
-import { experiences } from '@/lib/data'
+import { useContent } from '@/components/LocaleProvider'
 
 export default function Experience() {
+  const c = useContent()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(experiences.length - 1)
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(c.experiences.length - 1)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -45,13 +46,13 @@ export default function Experience() {
         <motion.div variants={itemVariants} className="mb-12">
           <div className="section-label mb-8">
             <span className="num">04</span>
-            <span className="name">Track Record</span>
+            <span className="name">{c.ui.experience.label}</span>
           </div>
           <h2 className="editorial-h2 text-3xl lg:text-4xl mb-4">
-            Experience
+            {c.ui.experience.heading}
           </h2>
           <p className="editorial-lead max-w-xl">
-            Proven outcomes across cloud, security, and infrastructure.
+            {c.ui.experience.lead}
           </p>
         </motion.div>
 
@@ -62,7 +63,7 @@ export default function Experience() {
 
           {/* Experience items */}
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            {experiences.map((exp, index) => {
+            {c.experiences.map((exp, index) => {
               const isCurrent = exp.period === 'Current'
               const isFounded = exp.period === 'Founded'
               const isExpanded = expandedIndex === index
@@ -99,8 +100,8 @@ export default function Experience() {
                             <FaBriefcase className="text-ink-soft text-sm sm:text-base flex-shrink-0" />
                             <span>{exp.position}</span>
                           </h3>
-                          {isCurrent && <span className="status-live">Current</span>}
-                          {isFounded && <span className="status-beta">Founder</span>}
+                          {isCurrent && <span className="status-live">{c.ui.experience.current}</span>}
+                          {isFounded && <span className="status-beta">{c.ui.experience.founder}</span>}
                         </div>
                         {/* Company name */}
                         <h4 className="font-display text-base sm:text-lg md:text-xl text-accent-text font-bold mb-1">
@@ -108,7 +109,7 @@ export default function Experience() {
                         </h4>
                         {(exp as { via?: string }).via && (
                           <p className="font-mono text-[10px] sm:text-xs text-gray-warm mb-1 sm:mb-1.5">
-                            via {(exp as { via?: string }).via}
+                            {c.ui.experience.via} {(exp as { via?: string }).via}
                           </p>
                         )}
                         {/* Location */}
@@ -162,7 +163,7 @@ export default function Experience() {
                       <div className="pt-3 sm:pt-4 mt-1 border-t border-[var(--color-border)]">
                         <h5 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.08em] font-semibold mb-2 sm:mb-3 text-ink-soft flex items-center gap-2">
                           <FaTrophy className="text-accent text-xs sm:text-sm" />
-                          Key Achievements
+                          {c.ui.experience.keyAchievements}
                         </h5>
                         <ul className="clean-list mb-3 sm:mb-4">
                           {exp.achievements.map((achievement, idx) => (

@@ -4,28 +4,30 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaLinkedinIn, FaEnvelope, FaLink, FaCheck } from 'react-icons/fa'
 import { siteUrl, shareText } from '@/lib/data'
+import { useContent } from '@/components/LocaleProvider'
 
 const encodedUrl = encodeURIComponent(siteUrl)
-
-const shareLinks = [
-  {
-    label: 'Share on LinkedIn',
-    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-    icon: FaLinkedinIn,
-  },
-  {
-    label: 'Share by email',
-    href: `mailto:?subject=${encodeURIComponent('Anthony Paquet, AI & Cloud Architect')}&body=${encodeURIComponent(`${shareText} ${siteUrl}`)}`,
-    icon: FaEnvelope,
-    isMail: true,
-  },
-]
 
 const buttonClass =
   'inline-flex items-center justify-center w-9 h-9 rounded-sm border border-[var(--color-border-strong)] bg-paper text-ink-soft hover:text-accent-text hover:border-accent transition-colors duration-300'
 
 export default function ShareButtons() {
+  const c = useContent()
   const [copied, setCopied] = useState(false)
+
+  const shareLinks = [
+    {
+      label: c.ui.share.shareOnLinkedIn,
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      icon: FaLinkedinIn,
+    },
+    {
+      label: c.ui.share.shareByEmail,
+      href: `mailto:?subject=${encodeURIComponent('Anthony Paquet, AI & Cloud Architect')}&body=${encodeURIComponent(`${shareText} ${siteUrl}`)}`,
+      icon: FaEnvelope,
+      isMail: true,
+    },
+  ]
 
   const handleCopy = async () => {
     try {
@@ -68,8 +70,8 @@ export default function ShareButtons() {
               ? 'inline-flex items-center justify-center w-9 h-9 rounded-sm border border-[var(--color-live)] bg-[var(--color-live-bg)] text-[var(--color-live)] transition-colors duration-300'
               : buttonClass
           }
-          aria-label={copied ? 'Link copied' : 'Copy link'}
-          title={copied ? 'Link copied' : 'Copy link'}
+          aria-label={copied ? 'Link copied' : c.ui.share.copyLink}
+          title={copied ? 'Link copied' : c.ui.share.copyLink}
         >
           {copied ? <FaCheck className="text-base" /> : <FaLink className="text-base" />}
         </motion.button>

@@ -1,27 +1,10 @@
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import DevelopmentCycle from '@/components/DevelopmentCycle'
-import Services from '@/components/Services'
-import Experience from '@/components/Experience'
-import Certifications from '@/components/Certifications'
-import Footer from '@/components/Footer'
-import LoadingIndicator from '@/components/LoadingIndicator'
+import Sections from '@/components/Sections'
+import { LocaleProvider } from '@/components/LocaleProvider'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <LoadingIndicator />
-      <div className="animate-fade-in">
-        <Hero />
-        <About />
-        <div className="section-grid">
-          <DevelopmentCycle />
-        </div>
-        <Services />
-        <Experience />
-        <Certifications />
-        <Footer />
-      </div>
-    </main>
+    <LocaleProvider locale="en">
+      <Sections />
+    </LocaleProvider>
   )
 }

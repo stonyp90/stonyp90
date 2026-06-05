@@ -1,25 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
-import { personalInfo, socialLinks } from '@/lib/data'
+import { useContent } from '@/components/LocaleProvider'
 import ShareButtons from './ShareButtons'
 
-const quickLinks = [
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#certifications', label: 'Certifications' },
-]
-
-const socials = [
-  { href: socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
-  { href: socialLinks.github, icon: FaGithub, label: 'GitHub' },
-  { href: socialLinks.email, icon: FaEnvelope, label: 'Email' },
-]
-
 export default function Footer() {
+  const c = useContent()
   const year = new Date().getFullYear()
+
+  const quickLinks = c.ui.footer.quickLinks
+
+  const socials = [
+    { href: c.socialLinks.linkedin, icon: FaLinkedin, label: 'LinkedIn' },
+    { href: c.socialLinks.github, icon: FaGithub, label: 'GitHub' },
+    { href: c.socialLinks.email, icon: FaEnvelope, label: 'Email' },
+  ]
 
   return (
     <footer className="bg-paper border-t border-[var(--color-border)]">
@@ -33,28 +30,28 @@ export default function Footer() {
                 <span></span>
                 <span></span>
               </span>
-              <span className="brand-name text-lg sm:text-xl">{personalInfo.name}</span>
+              <span className="brand-name text-lg sm:text-xl">{c.personalInfo.name}</span>
             </div>
             <p className="font-display text-ink text-lg sm:text-xl leading-snug max-w-sm mx-auto sm:mx-0">
-              Builder and engineering leader.
+              {c.ui.footer.tagline}
             </p>
             <p className="text-ink-soft text-sm sm:text-base leading-relaxed mt-2 max-w-sm mx-auto sm:mx-0">
-              I help teams ship faster, cut costs, and become compliant.
+              {c.ui.footer.blurb}
             </p>
             <a
-              href={personalInfo.calendlyUrl}
+              href={c.personalInfo.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary mt-6 inline-flex"
             >
-              Book a call
+              {c.ui.footer.bookCall}
             </a>
           </div>
 
           {/* Quick Links */}
           <nav className="md:col-span-3 text-center sm:text-left" aria-label="Footer">
             <h3 className="font-mono text-gray-warm text-xs uppercase tracking-[0.18em] mb-4">
-              Explore
+              {c.ui.footer.exploreTitle}
             </h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
@@ -73,7 +70,7 @@ export default function Footer() {
           {/* Connect */}
           <div className="md:col-span-4 text-center sm:text-left">
             <h3 className="font-mono text-gray-warm text-xs uppercase tracking-[0.18em] mb-4">
-              Connect
+              {c.ui.footer.connectTitle}
             </h3>
             <div className="flex gap-5 justify-center sm:justify-start mb-5">
               {socials.map((social) => (
@@ -92,12 +89,12 @@ export default function Footer() {
               ))}
             </div>
             <a
-              href={socialLinks.email}
+              href={c.socialLinks.email}
               className="text-ink-soft hover:text-accent-text transition-colors duration-200 ease-smooth text-sm sm:text-base inline-block"
             >
-              {personalInfo.email}
+              {c.personalInfo.email}
             </a>
-            <p className="text-gray-warm text-sm sm:text-base mt-1">{personalInfo.location}</p>
+            <p className="text-gray-warm text-sm sm:text-base mt-1">{c.personalInfo.location}</p>
           </div>
         </div>
 
@@ -109,11 +106,18 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[var(--color-border)] pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="font-mono text-gray-warm text-[10px] sm:text-xs tracking-wide">
-            © {year} {personalInfo.name}. All rights reserved.
+            © {year} {c.personalInfo.name}. {c.ui.footer.rights}
           </p>
           <p className="font-mono text-ink-soft text-[10px] sm:text-xs tracking-wide">
-            Built with Next.js, TypeScript &amp; Tailwind CSS
+            {c.ui.footer.builtWith}
           </p>
+          <Link
+            href={c.ui.locale.otherPath}
+            aria-label={c.ui.locale.switchTo}
+            className="font-mono text-ink-soft hover:text-accent-text transition-colors duration-200 text-[10px] sm:text-xs tracking-wide uppercase"
+          >
+            {c.ui.locale.switchTo}
+          </Link>
         </div>
       </div>
     </footer>

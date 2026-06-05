@@ -148,7 +148,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.anthonypaquet.com',
     languages: {
       'en-CA': 'https://www.anthonypaquet.com',
-      'fr-CA': 'https://www.anthonypaquet.com',
+      'fr-CA': 'https://www.anthonypaquet.com/fr',
       'x-default': 'https://www.anthonypaquet.com',
     },
   },
@@ -480,8 +480,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://www.anthonypaquet.com" />
-        
+        {/* Canonical + hreflang are emitted per-route via Next metadata.alternates */}
         {/* Favicons */}
         <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
