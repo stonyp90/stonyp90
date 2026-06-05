@@ -14,8 +14,6 @@ export const metadata: Metadata = {
       'x-default': 'https://www.anthonypaquet.com',
     },
   },
-  // Keep /fr out of the index until the French copy is in place.
-  robots: { index: false, follow: true },
 }
 
 export default function HomeFr() {
