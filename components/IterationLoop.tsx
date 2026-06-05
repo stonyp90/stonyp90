@@ -199,7 +199,9 @@ export function IterationLoopSection({
 
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           {/* ------------------------------ Copy ------------------------------ */}
-          <div>
+          {/* lg:mb-32 offsets the caption+hint below the loop so the copy's
+              vertical center lines up with the orbit circle, not the column. */}
+          <div className="lg:mb-32">
             <h2 className="editorial-h2 text-2xl lg:text-4xl mb-6">{heading}</h2>
             <p className="editorial-lead max-w-xl mb-8">{lead}</p>
             <div className="pull-quote text-lg lg:text-xl max-w-xl">{pull}</div>
