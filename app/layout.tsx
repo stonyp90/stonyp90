@@ -148,7 +148,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.anthonypaquet.com',
     languages: {
       'en-CA': 'https://www.anthonypaquet.com',
-      'fr-CA': 'https://www.anthonypaquet.com/fr',
+      'fr-CA': 'https://www.anthonypaquet.com/fr/',
       'x-default': 'https://www.anthonypaquet.com',
     },
   },

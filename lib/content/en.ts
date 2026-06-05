@@ -30,7 +30,7 @@ export const en = {
       label: 'EN',
       otherLabel: 'FR',
       switchTo: 'Voir en français',
-      otherPath: '/fr',
+      otherPath: '/fr/',
     },
 
     hero: {
