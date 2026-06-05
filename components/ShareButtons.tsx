@@ -42,7 +42,7 @@ export default function ShareButtons() {
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
       <span className="font-mono text-xs uppercase tracking-[0.1em] text-ink-soft">
-        Share this page
+        {c.ui.share.title}
       </span>
       <div className="flex items-center gap-2">
         {shareLinks.map((link) => (
@@ -70,8 +70,8 @@ export default function ShareButtons() {
               ? 'inline-flex items-center justify-center w-9 h-9 rounded-sm border border-[var(--color-live)] bg-[var(--color-live-bg)] text-[var(--color-live)] transition-colors duration-300'
               : buttonClass
           }
-          aria-label={copied ? 'Link copied' : c.ui.share.copyLink}
-          title={copied ? 'Link copied' : c.ui.share.copyLink}
+          aria-label={copied ? c.ui.share.linkCopied : c.ui.share.copyLink}
+          title={copied ? c.ui.share.linkCopied : c.ui.share.copyLink}
         >
           {copied ? <FaCheck className="text-base" /> : <FaLink className="text-base" />}
         </motion.button>

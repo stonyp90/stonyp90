@@ -418,9 +418,9 @@ export const fr: SiteContent = {
     },
 
     share: {
-      label: 'Partager',
+      title: 'Partager cette page',
       copyLink: 'Copier le lien',
-      copied: 'Copié',
+      linkCopied: 'Lien copié',
       shareOnLinkedIn: 'Partager sur LinkedIn',
       shareByEmail: 'Partager par courriel',
     },

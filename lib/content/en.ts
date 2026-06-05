@@ -162,9 +162,9 @@ export const en = {
     },
 
     share: {
-      label: 'Share',
+      title: 'Share this page',
       copyLink: 'Copy link',
-      copied: 'Copied',
+      linkCopied: 'Link copied',
       shareOnLinkedIn: 'Share on LinkedIn',
       shareByEmail: 'Share by email',
     },
