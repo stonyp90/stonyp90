@@ -106,7 +106,7 @@ const expFr: ExpFr[] = [
   },
   {
     position: 'Chef de l’ingénierie et ingénieur fondateur',
-    location: 'Californie, États-Unis',
+    location: 'West Hollywood, Californie',
     description:
       'CREE8 simplifie l’adoption du cloud et fluidifie les flux de travail des créateurs par la centralisation, l’efficacité et l’automatisation. La plateforme permet aux équipes créatives de tirer pleinement parti du cloud en simplifiant des processus complexes.',
     outcomes: [

@@ -129,7 +129,7 @@ const achievements = {
 ## 💼 Professional Experience
 
 ### 🚀 **Head of Engineering** @ CREE8
-*Dec 2023 - Present | California, United States*
+*Dec 2023 - Present | West Hollywood, California*
 
 Leading engineering for enterprise-grade cloud solutions in the creative industry:
 - Built team of 10 senior SREs, DevOps & Full-Stack engineers

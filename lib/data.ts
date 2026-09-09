@@ -344,7 +344,7 @@ export const experiences = [
   {
     company: 'CREE8',
     position: 'Head of Engineering & Founding Engineer',
-    location: 'California, United States',
+    location: 'West Hollywood, California',
     period: 'Previous',
     description: 'CREE8 streamlines cloud adoption, easing creator workflows through centralization, efficiency, and automation. It empowers creative teams to fully leverage cloud-native capabilities by simplifying complex processes.',
     outcomes: [
