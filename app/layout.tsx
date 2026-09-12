@@ -216,23 +216,32 @@ const personSchema = {
       addressCountry: 'United States',
     },
   },
-  owns: {
-    '@type': 'Organization',
-    '@id': 'https://tablix.ca/#org',
-    name: 'Tablix Inc.',
-    url: 'https://tablix.ca',
-    logo: 'https://www.anthonypaquet.com/images/logos/tablix-icon.svg',
-    description: 'Quebec-based SaaS that turns legal PDFs (RDPRM, REQ, hypothèques, contracts) into structured Excel, Word, or branded-PDF tables. Built in partnership with Stein Monast for avocats, notaires, and assistantes juridiques. Full coverage of all 112 RDPRM natures de droit, automated hypothèque deduplication, output formatted to industry best practices.',
-    areaServed: {
-      '@type': 'Place',
-      name: 'Quebec, Canada',
-    },
-    memberOf: {
+  owns: [
+    {
       '@type': 'Organization',
-      name: 'Stein Monast',
-      description: 'Quebec law firm. Tablix partner.',
+      '@id': 'https://tablix.ca/#org',
+      name: 'Tablix Inc.',
+      url: 'https://tablix.ca',
+      logo: 'https://www.anthonypaquet.com/images/logos/tablix-icon.svg',
+      description: 'Quebec-based SaaS that turns legal PDFs (RDPRM, REQ, hypothèques, contracts) into structured Excel, Word, or branded-PDF tables. Built in partnership with Stein Monast for avocats, notaires, and assistantes juridiques. Full coverage of all 112 RDPRM natures de droit, automated hypothèque deduplication, output formatted to industry best practices.',
+      areaServed: {
+        '@type': 'Place',
+        name: 'Quebec, Canada',
+      },
+      memberOf: {
+        '@type': 'Organization',
+        name: 'Stein Monast',
+        description: 'Quebec law firm. Tablix partner.',
+      },
     },
-  },
+    {
+      '@type': 'Organization',
+      '@id': 'https://eusli.io/#org',
+      name: 'Eusli.io',
+      url: 'https://eusli.io',
+      description: 'Created by Anthony Paquet. A long-term build toward the next version of the web, Web 3.0.',
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     addressRegion: 'Quebec',

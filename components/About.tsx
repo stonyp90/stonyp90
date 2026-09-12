@@ -6,7 +6,8 @@ import { useRef } from 'react'
 import {
   FaSnowflake,
   FaChild,
-  FaHeart
+  FaHeart,
+  FaArrowRight,
 } from 'react-icons/fa'
 import Image from 'next/image'
 import { useContent } from '@/components/LocaleProvider'
@@ -94,6 +95,27 @@ export default function About() {
             >
               {c.personalInfo.philosophy}
             </motion.blockquote>
+
+            {/* Side venture — measured note on what I build off-hours */}
+            <motion.div variants={itemVariants} className="editorial-highlight mb-8">
+              <span className="pin">{c.ui.about.building.pin}</span>
+              <p className="text-[0.95rem] leading-relaxed text-ink-soft">
+                {c.ui.about.building.body}
+              </p>
+              <a
+                href={c.venture.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-3 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-accent-text transition-colors duration-200 hover:text-ink"
+              >
+                <span className="underline-accent">{c.venture.label}</span>
+                <FaArrowRight
+                  className="text-[0.65rem] transition-transform duration-200 ease-smooth group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">{c.ui.about.building.linkLabel}</span>
+              </a>
+            </motion.div>
 
             {/* Personal-life facts — bare brass icons */}
             <motion.div

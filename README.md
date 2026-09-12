@@ -14,6 +14,7 @@
 I'm a **Visionary Engineering Leader** operating where **data meets context**, accelerating innovation and business impact through **AI-powered transformation**. I design and scale secure, cost-optimized, and highly available systems that drive real outcomes.
 
 - 🏢 **Head of Engineering** at CREE8 - Streamlining cloud adoption for creative teams
+- 🌱 **Creator of [Eusli.io](https://eusli.io)** - building toward the next version of the web, Web 3.0
 - 🚀 Taking products from **0→1 to enterprise scale**
 - 💰 **FinOps Expert** - Achieved 60% cost reduction across AWS, GCP, and Azure
 - 🔒 **DevSecOps** mindset - SOC 2 Type II & TPN Gold certified in 6 months

@@ -300,6 +300,7 @@ export const fr: SiteContent = {
         'Expert IA et Cloud',
         'Sécurité et conformité',
         'FinOps',
+        'Créateur d’Eusli.io',
         'Expérience Fortune 500 et startups',
       ],
       ctaPrimary: 'Réserver un appel stratégique gratuit',
@@ -311,6 +312,12 @@ export const fr: SiteContent = {
       label: 'À propos',
       facts: ['Fier papa de deux garçons', 'Planchiste passionné', 'Passionné de techno'],
       tags: ['Québec, Canada', 'Français et anglais'],
+      building: {
+        pin: 'Aussi en construction',
+        body:
+          'Je suis le créateur d’Eusli.io. Je pense que la prochaine version du web, le web 3.0, reste à bâtir, et j’ai l’intention de la bâtir. Une version livrée à la fois, comme je travaille avec mes clients.',
+        linkLabel: 'Visiter',
+      },
     },
 
     work: {

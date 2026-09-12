@@ -16,6 +16,13 @@ export const personalInfo = {
   calendlyUrl: 'https://calendly.com/anthonypaquet1508/15min',
 }
 
+// Product I build on my own time. Copy lives per-locale in lib/content/*.
+export const venture = {
+  name: 'Eusli.io',
+  url: 'https://eusli.io',
+  label: 'eusli.io',
+}
+
 export const socialLinks = {
   linkedin: 'https://linkedin.com/in/anthony-paquet-94a31085',
   github: 'https://github.com/stonyp90',

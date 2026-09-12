@@ -1,6 +1,6 @@
 # Anthony Paquet - AI & Cloud Security Architect
 
-> Engineering Leader & Cloud Architect helping Series A AI labs and growth-stage companies cut cloud costs 30-60%, achieve compliance, and scale from 0→1 to enterprise. Currently engaged with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS).
+> Engineering Leader & Cloud Architect helping Series A AI labs and growth-stage companies cut cloud costs 30-60%, achieve compliance, and scale from 0→1 to enterprise. Currently engaged with Bespoke Labs (Series A RL lab), founder of Tablix (Quebec legal-tech SaaS), and creator of Eusli.io.
 
 ## About
 
@@ -29,6 +29,12 @@ Last updated: 2026-06-01.
 - Coverage: All 112 RDPRM natures de droit, REQ extraction, automatic hypothèque deduplication across entity names
 - Output formats: Excel, Word, branded PDF with firm letterhead
 - Languages: French (fr-CA) and English (en-CA)
+
+### Eusli.io - Creator
+- Website: https://eusli.io
+- Created by Anthony Paquet, built on his own time alongside client work
+- Long-term intent: build the next version of the web, Web 3.0
+- Approach: ship a small useful version, measure real usage, iterate, the same loop used on client engagements
 
 ## Services & Pricing
 
@@ -67,6 +73,7 @@ Last updated: 2026-06-01.
 
 - Bespoke Labs (current): FinOps, SOC 2 program, infrastructure security, Horizon product engineering at a Series A RL lab
 - Tablix (founded): Quebec legal-tech SaaS covering all 112 RDPRM natures de droit with hypothèque deduplication
+- Eusli.io (created): personal product, a long-term build toward Web 3.0
 - CREE8: 60% cloud cost reduction (significant annual savings), SOC 2 Type II + TPN Gold in 6 months
 - Banque Fairstone: Multi-region, multi-account disaster recovery on AWS with integrated monitoring for resilience
 - Videotron: DevOps for web and streaming platforms, scalable infrastructure and hardened security
@@ -113,6 +120,7 @@ Anthony operates three specialized consulting practices, each with deep domain e
 ## Related Websites
 
 - Tablix (owned SaaS): https://tablix.ca
+- Eusli.io (created): https://eusli.io
 - ScaleForged: https://scaleforged.io
 - DisasterProof: https://disasterproof.io
 - ControlCraft: https://controlcraft.io

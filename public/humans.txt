@@ -5,6 +5,9 @@ Location: Quebec, Canada
 LinkedIn: linkedin.com/in/anthony-paquet-94a31085
 GitHub: github.com/stonyp90
 
+/* BUILDING */
+Eusli.io: https://eusli.io (creator) - working toward Web 3.0
+
 /* SITE */
 Last update: 2026-06-01
 Language: English

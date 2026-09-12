@@ -12,11 +12,13 @@ import {
   certifications,
   education,
   languages,
+  venture,
 } from '@/lib/data'
 
 export const en = {
   personalInfo,
   socialLinks,
+  venture,
   services,
   experiences,
   certifications,
@@ -44,6 +46,7 @@ export const en = {
         'AI & Cloud Expert',
         'Security and compliance',
         'FinOps',
+        'Creator of Eusli.io',
         'Fortune 500 & Startup Experience',
       ],
       ctaPrimary: 'Book Free Strategy Call',
@@ -55,6 +58,12 @@ export const en = {
       label: 'About',
       facts: ['Proud dad of two', 'Avid snowboarder', 'Tech passionate'],
       tags: ['Quebec, Canada', 'French & English'],
+      building: {
+        pin: 'Also building',
+        body:
+          'I am the creator of Eusli.io. I think the next version of the web, Web 3.0, is still there to be built, and I plan to build it. One shipped version at a time, the same way I work with clients.',
+        linkLabel: 'Visit',
+      },
     },
 
     work: {
