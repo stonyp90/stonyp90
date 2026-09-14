@@ -7,6 +7,7 @@
 import {
   personalInfo,
   socialLinks,
+  venture,
   services,
   experiences,
   certifications,
@@ -17,6 +18,7 @@ import {
 export const en = {
   personalInfo,
   socialLinks,
+  venture,
   services,
   experiences,
   certifications,
@@ -55,6 +57,12 @@ export const en = {
       label: 'About',
       facts: ['Proud dad of two', 'Avid snowboarder', 'Tech passionate'],
       tags: ['Quebec, Canada', 'French & English'],
+      building: {
+        pin: 'Also building',
+        body:
+          'I am building Gonota, the modern notary experience for Quebec. It is a slow, paper-heavy industry overdue for software designed around how notaries and their clients actually work. One shipped version at a time, the same way I work with clients.',
+        linkLabel: 'Visit',
+      },
     },
 
     work: {

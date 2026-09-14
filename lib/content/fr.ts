@@ -325,6 +325,12 @@ export const fr: SiteContent = {
       label: 'À propos',
       facts: ['Fier papa de deux garçons', 'Planchiste passionné', 'Passionné de techno'],
       tags: ['Québec, Canada', 'Français et anglais'],
+      building: {
+        pin: 'En ce moment, je bâtis',
+        body:
+          'Je bâtis Gonota, l’expérience notariale moderne au Québec. C’est une industrie lente et centrée sur le papier, en attente d’un logiciel conçu autour de la façon dont les notaires et leurs clients travaillent réellement. Une version livrée à la fois, de la même façon que je travaille avec mes clients.',
+        linkLabel: 'Visiter',
+      },
     },
 
     work: {
