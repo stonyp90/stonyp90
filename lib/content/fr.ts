@@ -89,6 +89,20 @@ type ExpFr = {
 
 const expFr: ExpFr[] = [
   {
+    position: 'Fondateur et président',
+    location: 'Québec, Canada',
+    description:
+      'Gonota bâtit l’expérience notariale moderne au Québec, en corrigeant une industrie lente et centrée sur le papier avec un logiciel conçu autour de la façon dont les notaires et leurs clients travaillent réellement.',
+    outcomes: [
+      { metric: 'Technologie notariale', description: 'Moderniser une industrie traditionnelle' },
+      { metric: 'Québec', description: 'Flux de travail notariaux de droit civil' },
+    ],
+    achievements: [
+      'Fondé Gonota pour moderniser l’industrie notariale québécoise, un secteur mal desservi et centré sur le papier, en attente d’un logiciel conçu autour de la façon dont les notaires travaillent réellement.',
+      'Dirige le produit et l’orientation technique de 0→1, en appliquant la même boucle livrer-mesurer-écouter-itérer utilisée avec les clients en consultation.',
+    ],
+  },
+  {
     position: 'Architecte principal cloud et sécurité',
     location: 'Mountain View, Californie',
     description: 'Labo d’apprentissage par renforcement financé en série A qui propulse les meilleurs modèles.',
@@ -300,7 +314,6 @@ export const fr: SiteContent = {
         'Expert IA et Cloud',
         'Sécurité et conformité',
         'FinOps',
-        'Créateur d’Eusli.io',
         'Expérience Fortune 500 et startups',
       ],
       ctaPrimary: 'Réserver un appel stratégique gratuit',
@@ -312,12 +325,6 @@ export const fr: SiteContent = {
       label: 'À propos',
       facts: ['Fier papa de deux garçons', 'Planchiste passionné', 'Passionné de techno'],
       tags: ['Québec, Canada', 'Français et anglais'],
-      building: {
-        pin: 'Aussi en construction',
-        body:
-          'Je suis le créateur d’Eusli.io. Je pense que la prochaine version du web, le web 3.0, reste à bâtir, et j’ai l’intention de la bâtir. Une version livrée à la fois, comme je travaille avec mes clients.',
-        linkLabel: 'Visiter',
-      },
     },
 
     work: {

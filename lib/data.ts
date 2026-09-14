@@ -16,13 +16,6 @@ export const personalInfo = {
   calendlyUrl: 'https://calendly.com/anthonypaquet1508/15min',
 }
 
-// Product I build on my own time. Copy lives per-locale in lib/content/*.
-export const venture = {
-  name: 'Eusli.io',
-  url: 'https://eusli.io',
-  label: 'eusli.io',
-}
-
 export const socialLinks = {
   linkedin: 'https://linkedin.com/in/anthony-paquet-94a31085',
   github: 'https://github.com/stonyp90',
@@ -328,6 +321,22 @@ export const industries = [
 ]
 
 export const experiences = [
+  {
+    company: 'Gonota',
+    position: 'Founder & President',
+    location: 'Quebec, Canada',
+    period: 'Current',
+    description: 'Gonota is building the modern notary experience for Quebec, fixing a slow, paper-heavy industry with software designed around how notaries and their clients actually work.',
+    outcomes: [
+      { metric: 'Notary Tech', description: 'Modernizing a legacy industry' },
+      { metric: 'Quebec', description: 'Civil-law notary workflows' },
+    ],
+    achievements: [
+      'Founded Gonota to modernize the Quebec notary industry, an underserved, paper-heavy space overdue for software built around how notaries actually work.',
+      'Leading product and technical direction from 0→1, applying the same ship-measure-listen-iterate loop used with consulting clients.',
+    ],
+    tags: ['Legal Tech', 'Notary Tech', 'Quebec', 'Founder', '0→1'],
+  },
   {
     company: 'Bespoke Labs',
     via: 'a.team (contract)',
