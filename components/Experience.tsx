@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { FaBriefcase, FaMapMarkerAlt, FaChevronDown, FaTrophy } from 'react-icons/fa'
+import { FaBriefcase, FaMapMarkerAlt, FaChevronDown, FaTrophy, FaExternalLinkAlt } from 'react-icons/fa'
 import { useContent } from '@/components/LocaleProvider'
 
 export default function Experience() {
@@ -105,7 +105,20 @@ export default function Experience() {
                         </div>
                         {/* Company name */}
                         <h4 className="font-display text-base sm:text-lg md:text-xl text-accent-text font-bold mb-1">
-                          {exp.company}
+                          {(exp as { url?: string }).url ? (
+                            <a
+                              href={(exp as { url?: string }).url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="group/link inline-flex items-center gap-1.5 hover:text-ink transition-colors duration-200"
+                            >
+                              {exp.company}
+                              <FaExternalLinkAlt className="text-[0.6rem] sm:text-xs opacity-70 transition-transform duration-200 ease-smooth group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
+                            </a>
+                          ) : (
+                            exp.company
+                          )}
                         </h4>
                         {(exp as { via?: string }).via && (
                           <p className="font-mono text-[10px] sm:text-xs text-gray-warm mb-1 sm:mb-1.5">

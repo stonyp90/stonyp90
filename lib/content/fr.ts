@@ -92,13 +92,13 @@ const expFr: ExpFr[] = [
     position: 'Fondateur et président',
     location: 'Québec, Canada',
     description:
-      'Gonota bâtit l’expérience notariale moderne au Québec, en corrigeant une industrie lente et centrée sur le papier avec un logiciel conçu autour de la façon dont les notaires et leurs clients travaillent réellement.',
+      'Nota bâtit l’expérience notariale moderne au Québec, en corrigeant une industrie lente et centrée sur le papier avec un logiciel conçu autour de la façon dont les notaires et leurs clients travaillent réellement.',
     outcomes: [
       { metric: 'Technologie notariale', description: 'Moderniser une industrie traditionnelle' },
       { metric: 'Québec', description: 'Flux de travail notariaux de droit civil' },
     ],
     achievements: [
-      'Fondé Gonota pour moderniser l’industrie notariale québécoise, un secteur mal desservi et centré sur le papier, en attente d’un logiciel conçu autour de la façon dont les notaires travaillent réellement.',
+      'Fondé Nota pour moderniser l’industrie notariale québécoise, un secteur mal desservi et centré sur le papier, en attente d’un logiciel conçu autour de la façon dont les notaires travaillent réellement.',
       'Dirige le produit et l’orientation technique de 0→1, en appliquant la même boucle livrer-mesurer-écouter-itérer utilisée avec les clients en consultation.',
     ],
   },
@@ -325,12 +325,6 @@ export const fr: SiteContent = {
       label: 'À propos',
       facts: ['Fier papa de deux garçons', 'Planchiste passionné', 'Passionné de techno'],
       tags: ['Québec, Canada', 'Français et anglais'],
-      building: {
-        pin: 'En ce moment, je bâtis',
-        body:
-          'Je bâtis Gonota, l’expérience notariale moderne au Québec. C’est une industrie lente et centrée sur le papier, en attente d’un logiciel conçu autour de la façon dont les notaires et leurs clients travaillent réellement. Une version livrée à la fois, de la même façon que je travaille avec mes clients.',
-        linkLabel: 'Visiter',
-      },
     },
 
     work: {

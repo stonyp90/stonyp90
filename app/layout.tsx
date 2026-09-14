@@ -237,7 +237,7 @@ const personSchema = {
     {
       '@type': 'Organization',
       '@id': 'https://gonota.ca/#org',
-      name: 'Gonota',
+      name: 'Nota',
       url: 'https://gonota.ca',
       description: 'The modern notary experience for Quebec. Software designed around how notaries and their clients actually work, replacing a slow, paper-heavy process.',
       areaServed: {
