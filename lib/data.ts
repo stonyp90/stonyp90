@@ -343,7 +343,7 @@ export const experiences = [
     via: 'a.team (contract)',
     position: 'Senior Cloud & Security Architect',
     location: 'Mountain View, California',
-    period: 'Current',
+    period: 'Previous',
     description: 'Series A-funded RL lab that powers the greatest models.',
     outcomes: [
       { metric: 'Horizon', description: 'RL tasks, rubrics, and evals' },
