@@ -7,7 +7,7 @@ Changes are committed on `main` and deployed to production; see "Production depl
 
 The entry section now carries the exact approved pitch JPG with a separate alpha mask: its photographic background and arch frame are removed, while the original RGB photograph stays unchanged. The responsive editorial composition prioritizes desktop readability. The downloaded CV contains the pitch portrait while retaining its original texts, geometry, links, tags, and two-page format; see `portrait-evidence-2026-10-02.md`.
 
-`lib/projects.ts` is the framework-independent, typed bilingual catalog. `PersonalProjects` is its presentation adapter. GoNota, Tablix, Ursly, and ScaleForged appear only in the independent personal-project section, after professional experience and credentials. Nota has been removed from the professional experience catalog; the French translation was adjusted at the same boundary. The pre-existing PDF already separates its personal projects from the summary and employment history, so its wording was preserved. Brand sources, owner naming decisions, and hashes are in `project-brand-evidence-2026-10-02.md` and its asset manifest.
+`lib/projects.ts` is the framework-independent, typed bilingual catalog. `PersonalProjects` is its presentation adapter. GoNota, Tablix, Ursly, and ScaleForged appear in the independent personal-project section, after professional experience and credentials. Nota is the current role at the head of the professional experience catalog and GoNota stays in the personal projects beside it. The French overrides are merged by `Company::Position` key rather than by array index, so a reordered catalog cannot silently shift a card. The pre-existing PDF already separates its personal projects from the summary and employment history, so its wording was preserved. Brand sources, owner naming decisions, and hashes are in `project-brand-evidence-2026-10-02.md` and its asset manifest.
 
 The server routes select one locale and pass serializable content to `LocaleProvider`. Both language catalogs are therefore absent from the client module graph. Separate Next route groups share `SiteDocument` while exporting correct `html lang` values for `/` and `/fr/` even without JavaScript. The existing public URLs, static export, metadata, canonical URLs and hreflang links remain in place. Crossing the language root layouts performs a full document navigation, as documented by Next 15. Redundant manual metadata tags and unused font-origin preconnects were removed; Next font assets remain self-hosted.
 
@@ -98,3 +98,42 @@ BROWSER_ARTIFACT_DIR=tmp/browser/live node tests/browser/portfolio.mjs
 The brand image assertion failed in production while passing locally, and the measurement was at fault rather than the assets. Each card image is `loading="lazy"`, so `complete && naturalWidth > 0` was read before the browser had started the fetch. The check now scrolls every card into view and awaits `img.decode()` before measuring, so an offscreen lazy image can no longer be judged broken while a genuinely missing file still fails. Positive control: the same evaluation returns `true` for a loadable lazy image and `false` for a missing one.
 
 Cloudflare still has no `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` or `SITE_URL` repository variable or secret, so `.github/workflows/deploy.yml` reports `ready=false` and skips its deploy job; the deployment above was performed with local `wrangler` credentials. The obsolete `CLOUDFRONT_DIST_ID`, `S3_BUCKET` and `AWS_ROLE_ARN` entries remain from the previous host.
+
+## CV rebuilt against the site catalogue and redeployed (2026-10-06, later the same day)
+
+The CV is generated outside this repository, from `/Users/tony/Documents/Resume`, which is not under version control. `generate.mjs` writes `cv-<variant>.html` and `build.sh` prints the PDFs with headless Chrome. Only the English PDF ships here, as `public/AnthonyPaquet.pdf`, linked from `components/Hero.tsx`.
+
+Content parity with `lib/data.ts`:
+
+- Nota heads the employment history as the current role. Bespoke Labs is dated 2025 to 2026 and no longer carries a present badge.
+- `assertMatchesSite()` in the generator compares every printed role with the site catalogue on the `Company::Position` key and fails the build on drift. `SITE_DATA_TS` overrides the catalogue path for a worktree.
+- `check-pdf.mjs` now runs at the end of `build.sh`, so the pagination gate is a build hook rather than a reminder. It checks the page budget, the ink fill of each page, and that every role the HTML claims appears in the printed text. Both reds were demonstrated before the green was trusted: a deliberately overlong build failed on page count, and a stale PDF failed on the missing Nota role.
+- All six variants print inside the two page budget: `en`, `fr`, `handshake`, `handshakeFr`, `nrcan`, `stackadapt`.
+
+Pagination findings, because Chrome print layout is not obvious:
+
+- The columns are `display: table` cells. A `display: flex` column fragments once and silently dumps the remainder of the long column onto a later page.
+- Every inter-block bottom margin uses the `:not(:last-child)` idiom. A trailing margin inside a table cell is invisible but still counts toward the row height, and Chrome opens a completely empty page for it.
+- `.ctx` is deliberately absent from the `break-after: avoid` group. That property is transitive across siblings, so including it chains the rest of the column into one unbreakable run.
+- French runs on `body.lang-fr { line-height: 1.18 }`, the loosest leading that still fits, measured by bisect: 1.17 and 1.18 fit, 1.19 and looser overflow. Spacing overrides cannot substitute: those margins collapse, so three successive attempts changed the page height by exactly nothing.
+
+Deployment: `npx wrangler deploy` reported version `85ed7b9b-5910-4b6c-9cf0-aa496ff8f4d0`. Rollback captured from `npx wrangler deployments list` beforehand: `npx wrangler rollback bdd41c60-f89d-4949-b115-e6c1c57d0d3f`.
+
+Live evidence, read from both hostnames:
+
+- `public/AnthonyPaquet.pdf`, `out/AnthonyPaquet.pdf`, `https://www.anthonypaquet.com/AnthonyPaquet.pdf` and the `workers.dev` hostname all return the same digest, `45472a49…111007` at the time of writing. Re-measure it below rather than trusting this line.
+- `#experience` leads with Nota in both locales: `Founder & President` and `Fondateur et président`.
+- The French page prints `2008 à 2011` in the education block. The string was fixed in `lib/content/fr.ts`, the source of both the page and the CV row, rather than patched in the CV alone.
+- `tests/browser/portfolio.mjs` against production: 9 checks, 0 failures.
+- The rasterized pages of the PDF downloaded from production show the pitch portrait, the full 12 role history, and no blank page.
+
+```sh
+shasum -a 256 public/AnthonyPaquet.pdf out/AnthonyPaquet.pdf
+curl -s https://www.anthonypaquet.com/AnthonyPaquet.pdf | shasum -a 256
+PORTFOLIO_URL=https://www.anthonypaquet.com \
+PLAYWRIGHT_MODULE=/Users/tony/Github/nota/node_modules/playwright/index.mjs \
+BROWSER_ARTIFACT_DIR=tmp/browser/live node tests/browser/portfolio.mjs
+cd /Users/tony/Documents/Resume && ./build.sh en fr   # ends with node check-pdf.mjs
+```
+
+Open item: the dates `Bespoke Labs 2025 to 2026` and `Nota 2026 to present` were inferred from the existing catalogue and the venture launch, not supplied by the owner. Correcting either one means editing `lib/data.ts` and rerunning the CV build, where `assertMatchesSite()` will catch a half done change.

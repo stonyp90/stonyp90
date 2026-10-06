@@ -55,6 +55,17 @@ Le PDF est réduit de 51,4 % et le WebP représente 46,0 % du poids de la source
 JPG. Ces valeurs décrivent les fichiers locaux, sans mesure de chargement en
 production.
 
+Le CV a été régénéré le 6 octobre 2026 pour suivre le catalogue d'expériences du
+site, donc la ligne « après » ci dessus est un instantané du 2 octobre et le
+fichier servi n'a plus cette empreinte. Le portrait incorporé reste le JPG du
+pitch 880 × 1040. À remesurer plutôt que de lire ce tableau :
+
+```sh
+shasum -a 256 public/images/anthony-paquet-pitch.jpg public/AnthonyPaquet.pdf
+pdfinfo public/AnthonyPaquet.pdf | grep Pages
+pdfimages -list public/AnthonyPaquet.pdf | head -3
+```
+
 ## Vérification du CV
 
 La photo ronde de la page 1 utilisait auparavant le portrait en bateau, t-shirt
