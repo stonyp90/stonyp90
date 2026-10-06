@@ -34,3 +34,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .wrangler/
+
+# Local visual verification
+/tmp/
+
+# Local generated assets and Python caches
+/output/
+__pycache__/

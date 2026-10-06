@@ -47,11 +47,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version-file: .node-version
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify source before deployment
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
 
       - name: Build static export
         run: npm run build
