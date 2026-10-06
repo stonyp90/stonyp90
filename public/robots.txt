@@ -1,5 +1,5 @@
 # robots.txt for anthonypaquet.com
-# AI & Cloud Security Architect — FinOps, Compliance, DR
+# AI & Cloud Security Architect, FinOps, Compliance, DR
 
 User-agent: *
 Allow: /

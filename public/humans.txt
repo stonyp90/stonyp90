@@ -6,12 +6,12 @@ LinkedIn: linkedin.com/in/anthony-paquet-94a31085
 GitHub: github.com/stonyp90
 
 /* SITE */
-Last update: 2026-06-01
-Language: English
+Last update: 2026-10-06
+Language: English and French
 Standards: HTML5, CSS3, ES6+
 Framework: Next.js 15, React 19, TypeScript
 Styling: Tailwind CSS
-Hosting: AWS CloudFront + S3
+Hosting: Cloudflare Workers Static Assets
 Domain: anthonypaquet.com
 
 /* SERVICES */
@@ -22,6 +22,6 @@ Disaster Recovery Architecture
 DevSecOps Transformation
 
 /* CERTIFICATIONS */
-AWS Certified Solutions Architect - Associate
-AWS Certified Developer - Associate
+AWS Certified Solutions Architect, Associate
+AWS Certified Developer, Associate
 AWS Certified Cloud Practitioner
