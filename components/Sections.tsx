@@ -4,27 +4,26 @@ import DevelopmentCycle from '@/components/DevelopmentCycle'
 import Services from '@/components/Services'
 import Experience from '@/components/Experience'
 import Certifications from '@/components/Certifications'
+import PersonalProjects from '@/components/PersonalProjects'
 import Footer from '@/components/Footer'
-import LoadingIndicator from '@/components/LoadingIndicator'
-import LanguageToggle from '@/components/LanguageToggle'
+import MotionProvider from '@/components/MotionProvider'
+import SiteNavigation from '@/components/SiteNavigation'
 
-/** Ordered page composition, shared by the EN (/) and FR (/fr) routes. */
+/** Ordered composition keeps ventures independent from the professional record. */
 export default function Sections() {
   return (
-    <main className="min-h-screen">
-      <LoadingIndicator />
-      <LanguageToggle />
-      <div className="animate-fade-in">
+    <MotionProvider>
+      <SiteNavigation />
+      <main id="main-content" className="min-h-screen" tabIndex={-1}>
         <Hero />
-        <About />
-        <div className="section-grid">
-          <DevelopmentCycle />
-        </div>
-        <Services />
-        <Experience />
-        <Certifications />
-        <Footer />
-      </div>
-    </main>
+        <div data-reveal><About /></div>
+        <div data-reveal className="section-grid"><DevelopmentCycle /></div>
+        <div data-reveal><Services /></div>
+        <div data-reveal><Experience /></div>
+        <div data-reveal><Certifications /></div>
+        <div data-reveal><PersonalProjects /></div>
+      </main>
+      <Footer />
+    </MotionProvider>
   )
 }

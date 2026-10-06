@@ -1,7 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { FaAward, FaGraduationCap, FaLanguage } from 'react-icons/fa'
@@ -10,7 +9,6 @@ import { useContent } from '@/components/LocaleProvider'
 export default function Certifications() {
   const c = useContent()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,27 +34,27 @@ export default function Certifications() {
 
   return (
     <section ref={ref} className="py-20 lg:py-28" id="certifications">
-      <motion.div
+      <m.div
         variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
+        initial={false}
+        animate="visible"
         className="mx-auto max-w-6xl px-6 lg:px-12"
       >
         {/* Section label */}
-        <motion.div variants={itemVariants} className="section-label mb-8">
+        <m.div variants={itemVariants} className="section-label mb-8">
           <span className="num">05</span>
           <span className="name">{c.ui.certifications.label}</span>
-        </motion.div>
+        </m.div>
 
         {/* Heading */}
-        <motion.h2 variants={itemVariants} className="editorial-h2 text-3xl lg:text-4xl mb-12">
+        <m.h2 variants={itemVariants} className="editorial-h2 text-3xl lg:text-4xl mb-12">
           {c.ui.certifications.headingLead} <span className="accent-text">{c.ui.certifications.headingAccent}</span> {c.ui.certifications.headingTail}
-        </motion.h2>
+        </m.h2>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Certifications */}
-          <motion.div variants={itemVariants}>
-            <div className="h-full bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]">
+          <m.div variants={itemVariants}>
+            <div className="h-full bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[var(--shadow-card)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-6 flex items-center gap-3">
                 <FaAward className="text-accent-text text-xl" aria-hidden="true" />
                 {c.ui.certifications.awsTitle}
@@ -87,12 +85,12 @@ export default function Certifications() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Education & Languages */}
-          <motion.div variants={itemVariants} className="space-y-6">
+          <m.div variants={itemVariants} className="space-y-6">
             {/* Education */}
-            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
+            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[var(--shadow-card)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[var(--shadow-card-hover)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
                 <FaGraduationCap className="text-accent-text text-xl" aria-hidden="true" />
                 {c.ui.certifications.educationTitle}
@@ -106,7 +104,7 @@ export default function Certifications() {
             </div>
 
             {/* Languages */}
-            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
+            <div className="bg-paper border border-[var(--color-border)] rounded-sm p-6 sm:p-8 shadow-[var(--shadow-card)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[var(--shadow-card-hover)]">
               <h3 className="editorial-h3 text-xl lg:text-2xl mb-4 flex items-center gap-3">
                 <FaLanguage className="text-accent-text text-xl" aria-hidden="true" />
                 {c.ui.certifications.languagesTitle}
@@ -120,9 +118,9 @@ export default function Certifications() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   )
 }

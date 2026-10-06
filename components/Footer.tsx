@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Link from 'next/link'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 import { useContent } from '@/components/LocaleProvider'
@@ -74,7 +74,7 @@ export default function Footer() {
             </h3>
             <div className="flex gap-5 justify-center sm:justify-start mb-5">
               {socials.map((social) => (
-                <motion.a
+                <m.a
                   key={social.label}
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -85,7 +85,7 @@ export default function Footer() {
                   aria-label={social.label}
                 >
                   <social.icon className="text-2xl sm:text-[1.6rem]" />
-                </motion.a>
+                </m.a>
               ))}
             </div>
             <a

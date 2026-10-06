@@ -9,10 +9,10 @@ const expertiseAreas = [
   {
     title: 'Cloud Cost Optimization',
     subtitle: 'FinOps & Cost Engineering',
-    description: 'Delivered significant savings across 20+ enterprise clients. Specialized in AWS, Azure, and GCP cost optimization with typical 30-50% reduction.',
+    description: 'Delivered significant savings across 20+ enterprise clients. Specialized in AWS, Azure, and GCP cost optimization with typical 30 to 50% reduction.',
     metrics: [
       { value: 'Millions', label: 'Client Savings' },
-      { value: '30-50%', label: 'Cost Reduction' },
+      { value: '30 to 50%', label: 'Cost Reduction' },
       { value: '20+', label: 'Enterprises' },
     ],
     capabilities: ['FinOps Implementation', 'Reserved Instance Optimization', 'Kubernetes Cost Management', 'Multi-cloud Consolidation'],
@@ -29,7 +29,7 @@ const expertiseAreas = [
     metrics: [
       { value: '20+', label: 'Certifications' },
       { value: '95%+', label: 'Pass Rate' },
-      { value: '6-8wks', label: 'Avg Timeline' },
+      { value: '6 to 8 wks', label: 'Avg Timeline' },
     ],
     capabilities: ['SOC 2 Type I & II', 'ISO 27001 Certification', 'HIPAA Compliance', 'GDPR Implementation'],
     regions: 'USA, Canada, UK, EU',
@@ -61,7 +61,7 @@ const expertiseAreas = [
     metrics: [
       { value: '1M+', label: 'Users Scaled' },
       { value: '50+', label: 'Architectures' },
-      { value: '2-3x', label: 'Avg Performance' },
+      { value: '2 to 3x', label: 'Avg Performance' },
     ],
     capabilities: ['Cloud-Native Architecture', 'Kubernetes & Containers', 'Migration & Modernization', 'Platform Engineering'],
     regions: 'Worldwide',

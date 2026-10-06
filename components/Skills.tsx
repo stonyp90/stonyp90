@@ -168,7 +168,7 @@ export default function Skills() {
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">And Much More...</h3>
           </div>
           <p className="text-gray-400 mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base md:text-lg leading-relaxed">
-            Knowledge is the ultimate wealth — the more you share, the more it grows. 
+            Knowledge is the ultimate wealth. The more you share, the more it grows. 
             Here&apos;s a glimpse of additional expertise I bring to every project:
           </p>
           <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3">

@@ -1,7 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useRef, useState } from 'react'
 import {
   FaChartLine,
@@ -34,7 +33,6 @@ type CategoryKey = 'ai' | 'architecture' | 'finops' | 'security'
 export default function Services() {
   const c = useContent()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
   const [activeCategory, setActiveCategory] = useState<CategoryKey>('ai')
 
   const containerVariants = {
@@ -63,14 +61,14 @@ export default function Services() {
 
   return (
     <section ref={ref} className="py-20 lg:py-28" id="services">
-      <motion.div
+      <m.div
         variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
+        initial={false}
+        animate="visible"
         className="mx-auto max-w-6xl px-6 lg:px-12"
       >
         {/* Section Header */}
-        <motion.div variants={itemVariants}>
+        <m.div variants={itemVariants}>
           <div className="section-label mb-8">
             <span className="num">03</span>
             <span className="name">{c.ui.services.label}</span>
@@ -81,10 +79,10 @@ export default function Services() {
           <p className="editorial-lead max-w-2xl mb-12">
             {c.ui.services.lead}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Category Tabs */}
-        <motion.div variants={itemVariants} className="flex flex-wrap gap-2 sm:gap-3 mb-10">
+        <m.div variants={itemVariants} className="flex flex-wrap gap-2 sm:gap-3 mb-10">
           {categories.map((category) => {
             const active = activeCategory === category
             return (
@@ -102,12 +100,12 @@ export default function Services() {
               </button>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* Category Description */}
-        <motion.div
+        <m.div
           key={activeCategory}
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="mb-10 max-w-2xl"
@@ -118,12 +116,12 @@ export default function Services() {
           <p className="text-ink-soft text-sm sm:text-base leading-relaxed">
             {c.ui.services.categories[activeCategory].description}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Service Cards */}
-        <motion.div
+        <m.div
           key={`services-${activeCategory}`}
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16"
@@ -132,12 +130,12 @@ export default function Services() {
             const IconComponent = iconMap[service.icon] || FaCloud
 
             return (
-              <motion.div
+              <m.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group flex flex-col overflow-hidden rounded-sm bg-paper border border-[var(--color-border)] hover:border-accent transition-[border-color,transform,box-shadow] duration-200 ease-smooth hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)] shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)]"
+                className="group flex flex-col overflow-hidden rounded-sm bg-paper border border-[var(--color-border)] hover:border-accent transition-[border-color,transform,box-shadow] duration-200 ease-smooth hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)] shadow-[var(--shadow-card)]"
               >
                 {/* Accent top rule */}
                 <div className="h-[2px] w-full bg-accent" aria-hidden="true" />
@@ -154,14 +152,14 @@ export default function Services() {
                     {service.outcome}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* Engagement Approach */}
-        <motion.div variants={itemVariants}>
-          <div className="rounded-sm bg-paper border border-[var(--color-border)] p-6 sm:p-8 max-w-3xl shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)]">
+        <m.div variants={itemVariants}>
+          <div className="rounded-sm bg-paper border border-[var(--color-border)] p-6 sm:p-8 max-w-3xl shadow-[var(--shadow-card)] transition-[border-color,box-shadow] duration-200 ease-smooth hover:border-border-strong hover:shadow-[var(--shadow-card-hover)]">
             <h3 className="editorial-h3 text-xl lg:text-2xl mb-3">
               {c.ui.services.engagementTitle}
             </h3>
@@ -198,8 +196,8 @@ export default function Services() {
               </p>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   )
 }

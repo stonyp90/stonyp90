@@ -1,0 +1,26 @@
+'use client'
+
+import Link from 'next/link'
+import { useContent } from '@/components/LocaleProvider'
+
+export default function SiteNavigation() {
+  const c = useContent()
+  const locale = c.ui.locale
+  return (
+    <header className="site-header">
+      <a className="skip-link" href="#main-content">{c.ui.navigation.skip}</a>
+      <div className="site-header-inner">
+        <a href="#top" className="site-wordmark" aria-label={c.personalInfo.name}>AP<span aria-hidden="true">.</span></a>
+        <nav className="site-nav" aria-label={c.ui.navigation.label}>
+          <a href="#services">{c.ui.navigation.services}</a>
+          <a href="#experience" className="nav-experience">{c.ui.navigation.experience}</a>
+          <a href="#personal-projects">{c.ui.navigation.projects}</a>
+        </nav>
+        <div className="locale-switch">
+          <span aria-current="true">{locale.label}</span>
+          <Link href={locale.otherPath} aria-label={locale.switchTo}>{locale.otherLabel}</Link>
+        </div>
+      </div>
+    </header>
+  )
+}

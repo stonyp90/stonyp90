@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { fr } from '@/lib/content/fr'
 import Sections from '@/components/Sections'
 import { LocaleProvider } from '@/components/LocaleProvider'
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function HomeFr() {
   return (
-    <LocaleProvider locale="fr">
+    <LocaleProvider locale="fr" c={fr}>
       <Sections />
     </LocaleProvider>
   )

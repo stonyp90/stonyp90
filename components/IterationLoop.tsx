@@ -11,15 +11,16 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  motion,
+  m,
   animate,
   useMotionValue,
   useTransform,
   useMotionValueEvent,
-  useReducedMotion,
+  useInView,
   type MotionValue,
   type Easing,
 } from "framer-motion";
+import { useMotionPreference } from "./useMotionPreference";
 import { RotateCw, type LucideIcon } from "lucide-react";
 
 export type LoopPhase = {
@@ -98,7 +99,7 @@ function CometDot({
 }) {
   const x = useTransform(angle, (a) => C + R * Math.sin((a - offset) * DEG));
   const y = useTransform(angle, (a) => C - R * Math.cos((a - offset) * DEG));
-  return <motion.circle cx={x} cy={y} r={r} fill="var(--color-accent)" style={{ opacity }} />;
+  return <m.circle cx={x} cy={y} r={r} fill="var(--color-accent)" style={{ opacity }} />;
 }
 
 /* Comet: soft halo + bright head, then a tapering fading tail behind it. */
@@ -137,7 +138,16 @@ export function IterationLoopSection({
   loopHint,
   interactHint,
 }: IterationLoopSectionProps) {
-  const reduce = useReducedMotion();
+  const reduce = useMotionPreference();
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef);
+  const [pageVisible, setPageVisible] = useState(true);
+  useEffect(() => {
+    const update = () => setPageVisible(!document.hidden);
+    update();
+    document.addEventListener("visibilitychange", update);
+    return () => document.removeEventListener("visibilitychange", update);
+  }, []);
   const angle = useMotionValue(0);
   const controlRef = useRef<ReturnType<typeof animate> | null>(null);
 
@@ -160,7 +170,7 @@ export function IterationLoopSection({
 
   // Drive the orbit: free-running dwell loop, or a snap to the focused node.
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || !inView || !pageVisible) return;
     controlRef.current?.stop();
     if (focusIdx === null) {
       const base = Math.round(angle.get() / 90) * 90;
@@ -177,7 +187,7 @@ export function IterationLoopSection({
       });
     }
     return () => controlRef.current?.stop();
-  }, [focusIdx, reduce, angle]);
+  }, [focusIdx, reduce, angle, inView, pageVisible]);
 
   const enter = (i: number) => {
     setHovered(i);
@@ -190,7 +200,7 @@ export function IterationLoopSection({
   };
 
   return (
-    <section id={id} className="py-24 lg:py-32 border-b border-[var(--color-border)]">
+    <section ref={sectionRef} id={id} className="py-24 lg:py-32 border-b border-[var(--color-border)]">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="section-label mb-8">
           <span className="num">{sectionNum}</span>
@@ -244,7 +254,7 @@ export function IterationLoopSection({
                 <circle cx={C} cy={C} r={76} fill="none" stroke="var(--color-border)" strokeWidth={1} opacity={0.55} />
 
                 {/* comet (motion only) */}
-                {!reduce &&
+                {!reduce && inView && pageVisible &&
                   COMET.map((c, i) => (
                     <CometDot key={i} angle={angle} offset={c.off} r={c.r} opacity={c.o} />
                   ))}
@@ -276,13 +286,13 @@ export function IterationLoopSection({
                   <span className="accent-text">.</span>
                 </span>
                 <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[var(--color-accent)]">
-                  <motion.span
-                    animate={reduce ? undefined : { rotate: 360 }}
+                  <m.span
+                    animate={reduce || !inView || !pageVisible ? undefined : { rotate: 360 }}
                     transition={{ duration: ORBIT_SECONDS, ease: "linear", repeat: Infinity }}
                     className="inline-flex"
                   >
                     <RotateCw className="h-3 w-3" />
-                  </motion.span>
+                  </m.span>
                   {loopHint}
                 </span>
               </div>
@@ -306,8 +316,8 @@ export function IterationLoopSection({
                     className={`group absolute z-10 flex max-w-[6.5rem] cursor-pointer gap-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-cream)] ${i === 0 ? "flex-col-reverse" : "flex-col"} ${STATION_POS[i]}`}
                   >
                     <span className="relative inline-flex">
-                      {on && !reduce && (
-                        <motion.span
+                      {on && !reduce && inView && pageVisible && (
+                        <m.span
                           aria-hidden="true"
                           className="absolute inset-0 rounded-full border border-[var(--color-accent)]"
                           initial={{ scale: 1, opacity: 0.5 }}
@@ -315,7 +325,7 @@ export function IterationLoopSection({
                           transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
                         />
                       )}
-                      <motion.span
+                      <m.span
                         animate={{ scale: on ? 1.12 : 1 }}
                         transition={{ type: "spring", stiffness: 420, damping: 17 }}
                         className={`relative flex h-8 w-8 items-center justify-center rounded-full border transition-colors duration-300 ${
@@ -325,7 +335,7 @@ export function IterationLoopSection({
                         } ${isPinned ? "ring-2 ring-[var(--color-accent)] ring-offset-2 ring-offset-[var(--color-cream)]" : ""}`}
                       >
                         <Icon className="h-3.5 w-3.5" />
-                      </motion.span>
+                      </m.span>
                     </span>
                     <span
                       className={`whitespace-nowrap font-display text-sm font-bold leading-none transition-colors duration-300 ${
@@ -351,7 +361,7 @@ export function IterationLoopSection({
             ) : (
               <>
                 <div className="mt-10 min-h-[3.75rem] text-center">
-                  <motion.p
+                  <m.p
                     key={active}
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -363,7 +373,7 @@ export function IterationLoopSection({
                     </span>
                     <span className="font-bold text-ink">{phases[active].title}</span>
                     <span className="italic">. {phases[active].blurb}</span>
-                  </motion.p>
+                  </m.p>
                 </div>
                 <p
                   aria-hidden="true"

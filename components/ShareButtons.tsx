@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { FaLinkedinIn, FaEnvelope, FaLink, FaCheck } from 'react-icons/fa'
 import { siteUrl, shareText } from '@/lib/data'
 import { useContent } from '@/components/LocaleProvider'
@@ -46,7 +46,7 @@ export default function ShareButtons() {
       </span>
       <div className="flex items-center gap-2">
         {shareLinks.map((link) => (
-          <motion.a
+          <m.a
             key={link.label}
             href={link.href}
             target={link.isMail ? undefined : '_blank'}
@@ -58,9 +58,9 @@ export default function ShareButtons() {
             title={link.label}
           >
             <link.icon className="text-base" />
-          </motion.a>
+          </m.a>
         ))}
-        <motion.button
+        <m.button
           type="button"
           onClick={handleCopy}
           whileHover={{ y: -2 }}
@@ -74,7 +74,7 @@ export default function ShareButtons() {
           title={copied ? c.ui.share.linkCopied : c.ui.share.copyLink}
         >
           {copied ? <FaCheck className="text-base" /> : <FaLink className="text-base" />}
-        </motion.button>
+        </m.button>
       </div>
     </div>
   )

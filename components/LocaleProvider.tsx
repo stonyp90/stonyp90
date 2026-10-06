@@ -1,26 +1,23 @@
 'use client'
 
-import { createContext, useContext, useEffect, type ReactNode } from 'react'
-import { content, type Locale, type SiteContent } from '@/lib/content'
+import { createContext, useContext, type ReactNode } from 'react'
+import type { Locale, SiteContent } from '@/lib/content'
 
 type LocaleValue = { locale: Locale; c: SiteContent }
 
-const LocaleContext = createContext<LocaleValue>({ locale: 'en', c: content.en })
+const LocaleContext = createContext<LocaleValue | null>(null)
 
 export function LocaleProvider({
   locale,
+  c,
   children,
 }: {
   locale: Locale
+  c: SiteContent
   children: ReactNode
 }) {
-  // Keep <html lang> accurate per route (root layout renders lang="en" statically).
-  useEffect(() => {
-    document.documentElement.lang = locale
-  }, [locale])
-
   return (
-    <LocaleContext.Provider value={{ locale, c: content[locale] }}>
+    <LocaleContext.Provider value={{ locale, c }}>
       {children}
     </LocaleContext.Provider>
   )
@@ -28,10 +25,14 @@ export function LocaleProvider({
 
 /** Active locale's full content object. */
 export function useContent(): SiteContent {
-  return useContext(LocaleContext).c
+  const value = useContext(LocaleContext)
+  if (!value) throw new Error('Site content requires LocaleProvider')
+  return value.c
 }
 
 /** Active locale code ('en' | 'fr'). */
 export function useLocale(): Locale {
-  return useContext(LocaleContext).locale
+  const value = useContext(LocaleContext)
+  if (!value) throw new Error('Site locale requires LocaleProvider')
+  return value.locale
 }

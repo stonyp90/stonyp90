@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
-import './globals.css'
+import '@/app/globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap', preload: true })
 const playfair = Playfair_Display({
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: 'Anthony Paquet | AI & Cloud Architect | Engineering Leader',
     template: '%s | Anthony Paquet',
   },
-  description: 'AI & Cloud Architect for Series A AI labs and growth-stage companies. Cut cloud costs 30-60%, achieve SOC 2 / HIPAA in weeks, scale 0→1 to enterprise. Currently with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS for RDPRM, REQ, and hypothèque extraction). AWS, Azure, GCP.',
+  description: 'AI & Cloud Architect for Series A AI labs and growth-stage companies. Cut cloud costs 30 to 60%, achieve SOC 2 / HIPAA in weeks, scale 0→1 to enterprise. Currently with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS for RDPRM, REQ, and hypothèque extraction). AWS, Azure, GCP.',
   icons: {
     icon: [
       { url: '/favicon.ico?v=2', sizes: 'any' },
@@ -121,14 +121,14 @@ export const metadata: Metadata = {
     alternateLocale: 'fr_CA',
     url: 'https://www.anthonypaquet.com',
     title: 'Anthony Paquet | AI & Cloud Security Architect | Bespoke Labs · Tablix',
-    description: 'AI & Cloud Architect for Series A AI labs and growth-stage companies. Cloud cost reduction 30-60%, SOC 2 / HIPAA in weeks, infrastructure security. Currently with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS).',
-    siteName: 'Anthony Paquet - AI & Cloud Architect | Bespoke Labs · Tablix Founder',
+    description: 'AI & Cloud Architect for Series A AI labs and growth-stage companies. Cloud cost reduction 30 to 60%, SOC 2 / HIPAA in weeks, infrastructure security. Currently with Bespoke Labs (Series A RL lab) and founder of Tablix (Quebec legal-tech SaaS).',
+    siteName: 'Anthony Paquet, AI & Cloud Architect | Bespoke Labs · Tablix Founder',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Anthony Paquet - AI & Cloud Security Architect',
+        alt: 'Anthony Paquet, AI & Cloud Security Architect',
         type: 'image/png',
       },
     ],
@@ -136,10 +136,10 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Anthony Paquet | AI & Cloud Architect | Bespoke Labs · Tablix',
-    description: 'AI & Cloud Architect for Series A AI labs. Cloud cost 30-60%, SOC 2 / HIPAA in weeks. Currently with Bespoke Labs · founder of Tablix (Quebec legal-tech).',
+    description: 'AI & Cloud Architect for Series A AI labs. Cloud cost 30 to 60%, SOC 2 / HIPAA in weeks. Currently with Bespoke Labs · founder of Tablix (Quebec legal-tech).',
     images: {
       url: '/og-image.png',
-      alt: 'Anthony Paquet - AI & Cloud Architect | Bespoke Labs and Tablix',
+      alt: 'Anthony Paquet, AI & Cloud Architect | Bespoke Labs and Tablix',
     },
     site: '@anthonypaquet',
     creator: '@anthonypaquet',
@@ -163,9 +163,9 @@ const personSchema = {
   '@id': 'https://www.anthonypaquet.com/#person',
   name: 'Anthony Paquet',
   url: 'https://www.anthonypaquet.com',
-  image: 'https://www.anthonypaquet.com/images/anthony-paquet.jpg',
+  image: 'https://www.anthonypaquet.com/images/anthony-paquet-pitch.webp',
   jobTitle: 'AI & Cloud Security Architect',
-  description: 'Independent AI & Cloud Architect specializing in FinOps (30-60% cost reduction), compliance (SOC 2, HIPAA, PCI-DSS), infrastructure security, and disaster recovery for Series A AI labs and growth-stage companies. Currently engaged with Bespoke Labs (Series A RL lab) and founder of Tablix Inc., a Quebec SaaS for legal-document extraction.',
+  description: 'Independent AI & Cloud Architect specializing in FinOps (30 to 60% cost reduction), compliance (SOC 2, HIPAA, PCI-DSS), infrastructure security, and disaster recovery for Series A AI labs and growth-stage companies. Currently engaged with Bespoke Labs (Series A RL lab) and founder of Tablix Inc., a Quebec SaaS for legal-document extraction.',
   sameAs: [
     'https://linkedin.com/in/anthony-paquet-94a31085',
     'https://github.com/stonyp90',
@@ -196,12 +196,12 @@ const personSchema = {
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
-      name: 'AWS Certified Solutions Architect - Associate',
+      name: 'AWS Certified Solutions Architect, Associate',
       credentialCategory: 'certification',
     },
     {
       '@type': 'EducationalOccupationalCredential',
-      name: 'AWS Certified Developer - Associate',
+      name: 'AWS Certified Developer, Associate',
       credentialCategory: 'certification',
     },
   ],
@@ -261,7 +261,7 @@ const serviceSchema = {
   name: 'Anthony Paquet Cloud Consulting',
   description: 'Cloud security, FinOps, and compliance consulting for growth-stage companies. From 0→1 to enterprise scale.',
   url: 'https://www.anthonypaquet.com',
-  image: 'https://www.anthonypaquet.com/images/anthony-paquet.jpg',
+  image: 'https://www.anthonypaquet.com/images/anthony-paquet-pitch.webp',
   areaServed: {
     '@type': 'Place',
     name: 'Worldwide (Remote)',
@@ -352,7 +352,7 @@ const faqSchema = {
       name: 'What services does Anthony Paquet offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Anthony Paquet offers cloud consulting including: FinOps/Cloud Cost Optimization (30-60% savings), Security & Compliance (SOC2, HIPAA, PCI-DSS, ISO 27001), Data Security & Governance, Disaster Recovery Architecture, and DevSecOps Transformation. Flexible engagement models to fit your needs.',
+        text: 'Anthony Paquet offers cloud consulting including: FinOps/Cloud Cost Optimization (30 to 60% savings), Security & Compliance (SOC2, HIPAA, PCI-DSS, ISO 27001), Data Security & Governance, Disaster Recovery Architecture, and DevSecOps Transformation. Flexible engagement models to fit your needs.',
       },
     },
     {
@@ -368,7 +368,7 @@ const faqSchema = {
       name: 'How much does cloud consulting cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Anthony Paquet offers flexible engagement models for: Cloud Cost Optimization, Security & Compliance, Data Security & Governance, Disaster Recovery Architecture, and DevSecOps Transformation. Clear deliverables, typically 2-8 weeks.',
+        text: 'Anthony Paquet offers flexible engagement models for: Cloud Cost Optimization, Security & Compliance, Data Security & Governance, Disaster Recovery Architecture, and DevSecOps Transformation. Clear deliverables, typically 2 to 8 weeks.',
       },
     },
     {
@@ -485,45 +485,18 @@ const websiteSchema = {
 // Combined schema array
 const jsonLd = [websiteSchema, personSchema, serviceSchema, faqSchema, tablixSchema]
 
-export default function RootLayout({
+export default function SiteDocument({
   children,
+  lang,
 }: {
   children: React.ReactNode
+  lang: 'en' | 'fr'
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`} suppressHydrationWarning>
-      <head>
-        {/* Canonical + hreflang are emitted per-route via Next metadata.alternates */}
-        {/* Favicons */}
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
-        
-        {/* PWA Manifest */}
-        <link rel="manifest" href="/manifest.json" />
-        
-        {/* Fonts */}
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+    <html lang={lang} className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
+      <body className="font-sans antialiased">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}
-        
       </body>
     </html>
   )

@@ -1,7 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { FaBriefcase, FaMapMarkerAlt, FaChevronDown, FaTrophy, FaExternalLinkAlt } from 'react-icons/fa'
 import { useContent } from '@/components/LocaleProvider'
@@ -9,8 +8,7 @@ import { useContent } from '@/components/LocaleProvider'
 export default function Experience() {
   const c = useContent()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(c.experiences.length - 1)
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,14 +34,14 @@ export default function Experience() {
 
   return (
     <section ref={ref} className="section-grid py-20 lg:py-28" id="experience">
-      <motion.div
+      <m.div
         variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
+        initial={false}
+        animate="visible"
         className="mx-auto max-w-6xl px-6 lg:px-12"
       >
         {/* Section Title */}
-        <motion.div variants={itemVariants} className="mb-12">
+        <m.div variants={itemVariants} className="mb-12">
           <div className="section-label mb-8">
             <span className="num">04</span>
             <span className="name">{c.ui.experience.label}</span>
@@ -54,7 +52,7 @@ export default function Experience() {
           <p className="editorial-lead max-w-xl">
             {c.ui.experience.lead}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Timeline - centered with max width for readability */}
         <div className="relative max-w-4xl">
@@ -69,7 +67,7 @@ export default function Experience() {
               const isExpanded = expandedIndex === index
 
               return (
-                <motion.div
+                <m.div
                   key={index}
                   variants={itemVariants}
                   className="relative pl-6 sm:pl-12 md:pl-20"
@@ -82,14 +80,12 @@ export default function Experience() {
                   />
 
                   {/* Content card — bordered paper */}
-                  <motion.div
-                    className={`group rounded-sm p-4 sm:p-5 md:p-6 cursor-pointer bg-paper border transition-[border-color,transform,box-shadow] duration-300 ease-smooth shadow-[0_16px_36px_-28px_rgba(26,26,26,0.16)] hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-28px_rgba(26,26,26,0.22)] ${
+                  <m.div
+                    className={`group rounded-sm p-4 sm:p-5 md:p-6 bg-paper border transition-[border-color,transform,box-shadow] duration-300 ease-smooth shadow-[var(--shadow-card)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)] ${
                       isExpanded
                         ? 'border-accent'
                         : 'border-[var(--color-border)] hover:border-[var(--color-border-strong)]'
                     } active:scale-[0.99]`}
-                    onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                    whileTap={{ scale: 0.995 }}
                   >
                     {/* Header - stacked on mobile */}
                     <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
@@ -134,14 +130,18 @@ export default function Experience() {
                         </div>
                       </div>
                       {/* Expand icon */}
-                      <motion.div
+                      <m.button
+                        type="button"
+                        aria-expanded={isExpanded}
+                        aria-controls={`experience-details-${index}`}
+                        aria-label={`${exp.position}, ${exp.company}`}
+                        onClick={() => setExpandedIndex(isExpanded ? null : index)}
                         animate={{ rotate: isExpanded ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="flex-shrink-0 p-0.5 sm:p-1 text-ink-soft group-hover:text-accent-text transition-colors"
-                        aria-hidden="true"
+                        className="flex-shrink-0 p-3 text-ink-soft group-hover:text-accent-text transition-colors"
                       >
-                        <FaChevronDown className="text-sm sm:text-base md:text-lg" />
-                      </motion.div>
+                        <FaChevronDown className="text-sm sm:text-base md:text-lg" aria-hidden="true" />
+                      </m.button>
                     </div>
 
                     {/* Description */}
@@ -164,7 +164,10 @@ export default function Experience() {
                     )}
 
                     {/* Expanded content */}
-                    <motion.div
+                    <m.div
+                      id={`experience-details-${index}`}
+                      aria-hidden={!isExpanded}
+                      inert={!isExpanded}
                       initial={false}
                       animate={{
                         height: isExpanded ? 'auto' : 0,
@@ -195,14 +198,14 @@ export default function Experience() {
                           ))}
                         </div>
                       </div>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
+                    </m.div>
+                  </m.div>
+                </m.div>
               )
             })}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   )
 }
