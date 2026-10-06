@@ -1,7 +1,7 @@
 # Portfolio optimization — October 2, 2026
 
 Checked in America/Toronto. Base commit: `d6c6ed85f705031728661458a082618ed82ee5b8`.
-Changes are in the local working tree. No commit, push, deployment, or production measurement is implied.
+Changes are committed on `main` and deployed to production; see "Production deployment and verification".
 
 ## Delivered behavior and architecture
 
@@ -67,3 +67,34 @@ BROWSER_CHANNEL=chrome node tests/browser/portfolio.mjs
 ```
 
 The test dependency is deliberately external to the shipped site. `PLAYWRIGHT_MODULE` can be omitted where `playwright` is locally installed. `BROWSER_ARTIFACT_DIR` controls the screenshot destination. `npm run check` runs the ordinary source/build checks; `docker compose up --build` serves the export.
+
+## Production deployment and verification (2026-10-06)
+
+Target: Cloudflare Workers Static Assets, worker `anthonypaquet-com`, custom-domain routes `www.anthonypaquet.com` and `anthonypaquet.com`.
+
+- `npx wrangler deploy` uploaded the export and reported version `bdd41c60-f89d-4949-b115-e6c1c57d0d3f`.
+- The rollback command was captured from `npx wrangler deployments list` before deploying: `npx wrangler rollback 94f98025-e7e0-49ca-866d-85761c0c1396`.
+
+Evidence was read from the live hostnames, not from the local export:
+
+- Both `https://www.anthonypaquet.com/` and the `workers.dev` hostname reference `anthony-paquet-pitch.jpg`, `anthony-paquet-pitch.webp` and `anthony-paquet-cutout-mask.webp`, with no reference to the superseded `anthony-paquet.jpg`. The `workers.dev` check matters because the edge cache key excludes the query string, so a cache hit can mask a fresh deploy.
+- `https://www.anthonypaquet.com/AnthonyPaquet.pdf` is byte-identical to `public/AnthonyPaquet.pdf`.
+- `/fr/` returns 200, and `/sitemap.xml` returns 200 with one `<url>` per exported page per locale and no `/fr/index/` entry.
+- The rendered text of both locales contains no dash and no semicolon.
+- `tests/browser/portfolio.mjs` exits 0 against production.
+
+Re-measure rather than trusting the tallies above, since a commit can change them:
+
+```sh
+npm test
+npx wrangler deployments list
+shasum -a 256 public/AnthonyPaquet.pdf
+curl -s https://www.anthonypaquet.com/AnthonyPaquet.pdf | shasum -a 256
+PORTFOLIO_URL=https://www.anthonypaquet.com \
+PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs \
+BROWSER_ARTIFACT_DIR=tmp/browser/live node tests/browser/portfolio.mjs
+```
+
+The brand image assertion failed in production while passing locally, and the measurement was at fault rather than the assets. Each card image is `loading="lazy"`, so `complete && naturalWidth > 0` was read before the browser had started the fetch. The check now scrolls every card into view and awaits `img.decode()` before measuring, so an offscreen lazy image can no longer be judged broken while a genuinely missing file still fails. Positive control: the same evaluation returns `true` for a loadable lazy image and `false` for a missing one.
+
+Cloudflare still has no `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` or `SITE_URL` repository variable or secret, so `.github/workflows/deploy.yml` reports `ready=false` and skips its deploy job; the deployment above was performed with local `wrangler` credentials. The obsolete `CLOUDFRONT_DIST_ID`, `S3_BUCKET` and `AWS_ROLE_ARN` entries remain from the previous host.
