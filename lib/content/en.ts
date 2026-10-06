@@ -33,6 +33,14 @@ export const en = {
       otherPath: '/fr/',
     },
 
+    navigation: {
+      label: 'Main navigation',
+      skip: 'Skip to content',
+      services: 'Services',
+      experience: 'Experience',
+      projects: 'Personal projects',
+    },
+
     hero: {
       badge: 'Currently accepting new engagements',
       headlineLead: 'I help engineering leaders',
@@ -49,6 +57,7 @@ export const en = {
       ctaPrimary: 'Book Free Strategy Call',
       ctaLinkedIn: 'LinkedIn',
       ctaResume: 'Resume',
+      ctaProjects: 'Explore my personal projects',
     },
 
     about: {
@@ -92,13 +101,13 @@ export const en = {
           title: 'Architecture',
           subtitle: 'Modernization • Platform • DevSecOps',
           description:
-            'From legacy to modern—build scalable foundations, eliminate tech debt, and accelerate your roadmap.',
+            'From legacy to modern. Build scalable foundations, eliminate tech debt, and accelerate your roadmap.',
         },
         finops: {
           title: 'FinOps',
           subtitle: 'Cloud Cost Intelligence',
           description:
-            'Cut cloud spend 30–50% with governance that scales. Typical ROI: 5–10x within 12 months.',
+            'Cut cloud spend 30 to 50% with governance that scales. Typical ROI: 5 to 10x within 12 months.',
         },
         security: {
           title: 'Security & Compliance',
@@ -111,7 +120,7 @@ export const en = {
       engagementBodyLead: 'All engagements include',
       engagementBodyStrong: 'clearly defined scope and deliverables',
       engagementBodyTail:
-        '. Flexible pricing models—fixed-price or hourly—to fit your needs. We’ll discuss your specific requirements and provide a tailored proposal.',
+        '. Flexible pricing models, fixed-price or hourly, to fit your needs. We’ll discuss your specific requirements and provide a tailored proposal.',
       engagementTags: [
         'Scoped for your environment',
         'Clear deliverables',
@@ -120,7 +129,7 @@ export const en = {
       ],
       provenResultsStrong: 'Proven results:',
       provenResultsTail:
-        ' FinOps clients typically see 5–10x ROI within 12 months. Compliance fast-tracks save 3–6 months vs DIY approaches.',
+        ' FinOps clients typically see 5 to 10x ROI within 12 months. Compliance fast-tracks save 3 to 6 months vs DIY approaches.',
       scheduleCta: 'Schedule a consultation',
       scheduleHint: '15 minutes to discuss your challenges and explore how we can help.',
     },
@@ -156,6 +165,7 @@ export const en = {
         { href: '#about', label: 'About' },
         { href: '#experience', label: 'Experience' },
         { href: '#certifications', label: 'Certifications' },
+        { href: '#personal-projects', label: 'Personal projects' },
       ],
       rights: 'All rights reserved.',
       builtWith: 'Built with Next.js, TypeScript & Tailwind CSS',

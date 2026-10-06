@@ -2,12 +2,15 @@ export const personalInfo = {
   name: 'Anthony Paquet',
   title: 'AI & Cloud Architect | Engineering Leader',
   subtitle: 'FinOps • Security & Compliance • 0→1 to Scale',
-  location: 'Canada, Quebec',
+  location: 'Quebec, Canada',
   email: 'me@anthonypaquet.com',
-  tagline: 'I help CTOs and engineering leaders cut cloud costs 30-60%, pass SOC2/HIPAA audits in weeks, and build infrastructure that scales—without slowing your roadmap.',
+  tagline: 'I help CTOs and engineering leaders cut cloud costs 30 to 60%, pass SOC2/HIPAA audits in weeks, and build infrastructure that scales without slowing your roadmap.',
   summary: `I design and scale secure, cost-efficient cloud systems and take products from 0→1 to enterprise scale. Deep FinOps work cuts cloud spend, and a DevSecOps approach helps teams ship faster without sacrificing security. The result is resilient infrastructure that holds up under real load and keeps costs down.`,
-  philosophy: 'Knowledge is the ultimate wealth — the more you share, the more it grows. I believe in continuous learning and empowering others through expertise.',
-  photo: '/images/anthony-paquet.jpg',
+  philosophy: 'Knowledge is the ultimate wealth. The more you share, the more it grows. I believe in continuous learning and empowering others through expertise.',
+  photo: '/images/anthony-paquet-pitch.jpg',
+  photoMask: '/images/anthony-paquet-cutout-mask.webp',
+  photoWidth: 880,
+  photoHeight: 1040,
   personal: {
     dad: 'Proud dad of two amazing boys',
     hobby: 'Avid snowboarder',
@@ -25,7 +28,7 @@ export const socialLinks = {
 // Canonical site URL + a no-AI-tells share blurb (no em-dashes/semicolons)
 export const siteUrl = 'https://www.anthonypaquet.com'
 export const shareText =
-  'Anthony Paquet, AI & Cloud Architect. Cut cloud costs 30-60%, pass SOC2/HIPAA in weeks, scale from 0 to 1 to enterprise.'
+  'Anthony Paquet, AI & Cloud Architect. Cut cloud costs 30 to 60%, pass SOC2/HIPAA in weeks, scale from 0 to 1 to enterprise.'
 
 // Services packages for consulting
 // Pricing aligned with market rates for senior cloud/security architects ($200-300/hr equivalent)
@@ -34,7 +37,7 @@ export const services = {
     {
       id: 'finops-program',
       name: 'FinOps Program Build',
-      outcome: 'Complete cost governance framework with automated controls—typically delivering 30–60% savings and significant annual cost avoidance.',
+      outcome: 'Complete cost governance framework with automated controls that typically deliver 30 to 60% savings and significant annual cost avoidance.',
       deliverables: [
         'Multi-cloud cost audit & waste identification (AWS/Azure/GCP)',
         'FinOps maturity assessment & transformation roadmap',
@@ -52,7 +55,7 @@ export const services = {
     {
       id: 'compute-cost-engineering',
       name: 'Compute Cost Engineering',
-      outcome: 'Cut GPU, HPC, and compute-intensive workload costs by 35–55% while maintaining performance and team velocity.',
+      outcome: 'Cut GPU, HPC, and compute-intensive workload costs by 35 to 55% while maintaining performance and team velocity.',
       deliverables: [
         'GPU/CPU utilization analysis & rightsizing',
         'Spot/preemptible instance strategy with failover',
@@ -89,7 +92,7 @@ export const services = {
     {
       id: 'data-security-governance',
       name: 'Data Security & Governance',
-      outcome: 'Enterprise-grade data protection with automated controls—audit trails, access governance, and compliance built in from day one.',
+      outcome: 'Enterprise-grade data protection with automated controls: audit trails, access governance, and compliance built in from day one.',
       deliverables: [
         'Data classification & sensitivity labeling',
         'PII/PHI detection, redaction & masking automation',
@@ -107,7 +110,7 @@ export const services = {
     {
       id: 'cloud-infrastructure-security',
       name: 'Cloud Infrastructure Security',
-      outcome: 'Harden your cloud infrastructure with Zero Trust architecture, secure network access, and defense-in-depth controls—protecting your assets from modern threats.',
+      outcome: 'Harden your cloud infrastructure with Zero Trust architecture, secure network access, and defense-in-depth controls that protect your assets from modern threats.',
       deliverables: [
         'Zero Trust architecture design & implementation',
         'VPN & secure remote access setup (WireGuard, OpenVPN, cloud-native)',
@@ -131,7 +134,7 @@ export const services = {
       deliverables: [
         'Eval-sandbox platform with isolated microVMs, snapshot and restore',
         'Agent runtime and tool-execution environments',
-        'GPU and inference cost optimization (35-55% reduction)',
+        'GPU and inference cost optimization (35 to 55% reduction)',
         'Training and inference pipeline architecture',
         'OpenAPI-first tool and MCP server design',
         'Observability for traces, evals, and reward logic',
@@ -180,7 +183,7 @@ export const services = {
     {
       id: 'platform-foundation',
       name: 'Cloud Platform Foundation',
-      outcome: 'Production-grade foundation built for scale, security, and operational excellence from day one—with FinOps and compliance built in.',
+      outcome: 'Production-grade foundation built for scale, security, and operational excellence from day one, with FinOps and compliance built in.',
       deliverables: [
         'Landing zone & multi-account/project structure',
         'Enterprise IAM & identity federation (SSO)',
@@ -198,7 +201,7 @@ export const services = {
     {
       id: 'legacy-modernization',
       name: 'Legacy Modernization & Tech Debt',
-      outcome: 'Transform legacy systems into modern, maintainable architectures—reduce technical debt, improve velocity, and unlock innovation.',
+      outcome: 'Transform legacy systems into modern, maintainable architectures that reduce technical debt, improve velocity, and unlock innovation.',
       deliverables: [
         'Technical debt assessment & prioritization',
         'Application portfolio analysis & modernization roadmap',
@@ -216,7 +219,7 @@ export const services = {
     {
       id: 'devsecops-transformation',
       name: 'DevSecOps Transformation',
-      outcome: 'Ship faster and safer—security embedded in every deployment without slowing your teams down through automated controls.',
+      outcome: 'Ship faster and safer with security embedded in every deployment, without slowing your teams down through automated controls.',
       deliverables: [
         'Secure CI/CD pipeline architecture',
         'SAST/DAST/SCA tool integration',
@@ -283,7 +286,7 @@ export const industries = [
     color: 'cyber-blue',
   },
   {
-    name: 'AI & SaaS (Series A–C)',
+    name: 'AI & SaaS (Series A to C)',
     icon: 'rocket',
     description: 'SOC2 for enterprise sales, GPU cost control, LLM security',
     color: 'cyber-purple',
@@ -493,7 +496,7 @@ export const experiences = [
     tags: ['Healthcare', 'Cloud', 'Real-time', 'Security'],
   },
   {
-    company: 'CGI - National Defense',
+    company: 'CGI, National Defense',
     position: 'Software Developer and DevOps',
     location: 'Québec, Canada',
     period: 'Previous',
@@ -605,12 +608,12 @@ export const skills = {
 
 export const certifications = [
   {
-    name: 'AWS Certified Solutions Architect – Associate',
+    name: 'AWS Certified Solutions Architect, Associate',
     issuer: 'Amazon Web Services (AWS)',
     badgeImage: 'https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
   },
   {
-    name: 'AWS Certified Developer – Associate',
+    name: 'AWS Certified Developer, Associate',
     issuer: 'Amazon Web Services (AWS)',
     badgeImage: 'https://images.credly.com/size/340x340/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png',
   },
@@ -624,7 +627,7 @@ export const certifications = [
 export const education = {
   degree: 'Computer Science',
   institution: 'Cégep Garneau',
-  period: '2008 - 2011',
+  period: '2008 to 2011',
   location: 'Québec, Canada',
 }
 

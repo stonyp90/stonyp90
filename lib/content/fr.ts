@@ -89,20 +89,6 @@ type ExpFr = {
 
 const expFr: ExpFr[] = [
   {
-    position: 'Fondateur et président',
-    location: 'Québec, Canada',
-    description:
-      'Nota bâtit l’expérience notariale moderne au Québec, en corrigeant une industrie lente et centrée sur le papier avec un logiciel conçu autour de la façon dont les notaires et leurs clients travaillent réellement.',
-    outcomes: [
-      { metric: 'Technologie notariale', description: 'Moderniser une industrie traditionnelle' },
-      { metric: 'Québec', description: 'Flux de travail notariaux de droit civil' },
-    ],
-    achievements: [
-      'Fondé Nota pour moderniser l’industrie notariale québécoise, un secteur mal desservi et centré sur le papier, en attente d’un logiciel conçu autour de la façon dont les notaires travaillent réellement.',
-      'Dirige le produit et l’orientation technique de 0→1, en appliquant la même boucle livrer-mesurer-écouter-itérer utilisée avec les clients en consultation.',
-    ],
-  },
-  {
     position: 'Architecte principal cloud et sécurité',
     location: 'Mountain View, Californie',
     description: 'Labo d’apprentissage par renforcement financé en série A qui propulse les meilleurs modèles.',
@@ -303,6 +289,14 @@ export const fr: SiteContent = {
       otherPath: '/',
     },
 
+    navigation: {
+      label: 'Navigation principale',
+      skip: 'Aller au contenu',
+      services: 'Services',
+      experience: 'Parcours',
+      projects: 'Projets perso',
+    },
+
     hero: {
       badge: 'Disponible pour de nouveaux mandats',
       headlineLead: 'J’aide les leaders techniques à',
@@ -319,6 +313,7 @@ export const fr: SiteContent = {
       ctaPrimary: 'Réserver un appel stratégique gratuit',
       ctaLinkedIn: 'LinkedIn',
       ctaResume: 'CV',
+      ctaProjects: 'Découvrir mes projets personnels',
     },
 
     about: {
@@ -426,6 +421,7 @@ export const fr: SiteContent = {
         { href: '#about', label: 'À propos' },
         { href: '#experience', label: 'Expérience' },
         { href: '#certifications', label: 'Certifications' },
+        { href: '#personal-projects', label: 'Projets personnels' },
       ],
       rights: 'Tous droits réservés.',
       builtWith: 'Conçu avec Next.js, TypeScript et Tailwind CSS',

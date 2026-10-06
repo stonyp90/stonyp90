@@ -1,6 +1,6 @@
 # Hi there, I'm Anthony Paquet 👋
 
-### 🚀 Visionary Engineering Leader | Head of Engineering at CREE8
+### 🚀 Visionary Engineering Leader | AI & Cloud Architect
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/anthony-paquet-94a31085)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/stonyp90)
@@ -13,10 +13,10 @@
 
 I'm a **Visionary Engineering Leader** operating where **data meets context**, accelerating innovation and business impact through **AI-powered transformation**. I design and scale secure, cost-optimized, and highly available systems that drive real outcomes.
 
-- 🏢 **Head of Engineering** at CREE8 - Streamlining cloud adoption for creative teams
+- 🏢 **Senior Cloud & Security Architect** at Bespoke Labs (via a.team) | FinOps, SOC 2 and eval infrastructure for a Series A RL lab
 - 🚀 Taking products from **0→1 to enterprise scale**
-- 💰 **FinOps Expert** - Achieved 60% cost reduction across AWS, GCP, and Azure
-- 🔒 **DevSecOps** mindset - SOC 2 Type II & TPN Gold certified in 6 months
+- 💰 **FinOps Expert** | Achieved 60% cost reduction across AWS, GCP, and Azure
+- 🔒 **DevSecOps** mindset | SOC 2 Type II & TPN Gold certified in 6 months
 - 🤖 Passionate about **AI/ML, LLMs**, and intelligent automation
 - 📍 Based in Quebec, Canada 🇨🇦
 - 🌐 **Portfolio**: [anthonypaquet.com](https://www.anthonypaquet.com)
@@ -24,10 +24,10 @@ I'm a **Visionary Engineering Leader** operating where **data meets context**, a
 
 ### 👨‍👧‍👦 Beyond the Code
 - 👶 **Proud dad of two amazing boys**
-- 🏂 **Avid snowboarder** - hitting the slopes whenever I can
-- 💡 **Technology passionate** - always exploring what's next
+- 🏂 **Avid snowboarder** | hitting the slopes whenever I can
+- 💡 **Technology passionate** | always exploring what's next
 
-> 💡 *"Knowledge is the ultimate wealth — the more you share, the more it grows."*
+> 💡 *"Knowledge is the ultimate wealth. The more you share, the more it grows."*
 
 ---
 
@@ -129,7 +129,7 @@ const achievements = {
 ## 💼 Professional Experience
 
 ### 🚀 **Head of Engineering** @ CREE8
-*Dec 2023 - Present | West Hollywood, California*
+*Dec 2023 to present | California, United States*
 
 Leading engineering for enterprise-grade cloud solutions in the creative industry:
 - Built team of 10 senior SREs, DevOps & Full-Stack engineers
@@ -143,7 +143,7 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 - **Senior Cloud Engineer** @ Banque Fairstone, SSENSE, Dormakaba
 - **Cloud Software Developer** @ Vanderlande (Airport Systems)
 - **Software Developer** @ PetalMD (Healthcare Platform)
-- **Software Developer & DevOps** @ CGI - National Defense
+- **Software Developer & DevOps** @ CGI, National Defense
 - **Co-Founder & CTO** @ Logical
 
 ---
@@ -152,9 +152,9 @@ Leading engineering for enterprise-grade cloud solutions in the creative industr
 
 | Certification | Verify |
 |---------------|--------|
-| ☁️ **AWS Certified Solutions Architect – Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/34b7839a-dc9d-4183-95d7-0cc6b9d596d7/linked_in_profile) |
+| ☁️ **AWS Certified Solutions Architect, Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/34b7839a-dc9d-4183-95d7-0cc6b9d596d7/linked_in_profile) |
 | ⚡ **AWS Certified Cloud Practitioner** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/2fc2506e-0e1c-4019-96c4-4f1fb09f5583/linked_in_profile) |
-| 🌐 **AWS Certified Developer – Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/ba61181f-893c-4e91-be07-790f167f6835) |
+| 🌐 **AWS Certified Developer, Associate** | [![Credly](https://img.shields.io/badge/Verify_on_Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/badges/ba61181f-893c-4e91-be07-790f167f6835) |
 
 
 ---
