@@ -43,8 +43,15 @@ try {
       await page.locator('#personal-projects').scrollIntoViewIfNeeded()
       assert.equal(await page.locator('#personal-projects').evaluate(el => getComputedStyle(el.parentElement).opacity), '1')
       assert.equal(await page.locator('.project-card a').count(), 4)
+      // Card images are lazy loaded, so each one must enter the viewport and
+      // finish its fetch before naturalWidth is meaningful.
       for (const image of await page.locator('.project-card img').all()) {
-        assert.equal(await image.evaluate(img => img.complete && img.naturalWidth > 0), true, 'Brand image loaded')
+        await image.scrollIntoViewIfNeeded()
+        const loaded = await image.evaluate(async (img) => {
+          try { await img.decode() } catch { /* measured below */ }
+          return img.complete && img.naturalWidth > 0
+        })
+        assert.equal(loaded, true, `Brand image loaded: ${await image.getAttribute('src')}`)
       }
       await page.screenshot({ path: `${artifactDir}/${locale}-${width}-projects.png` })
       await page.locator('.project-card--ursly').screenshot({ path: `${artifactDir}/${locale}-${width}-ursly.png` })
