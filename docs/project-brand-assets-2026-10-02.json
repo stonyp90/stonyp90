@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-10-02",
+  "sharpVersion": "0.34.5",
+  "assets": [
+    {
+      "source": "/Users/tony/Github/nota/apps/web/public/nota-logo-light.svg",
+      "output": "public/images/logos/gonota.svg",
+      "transformation": "Byte-identical SVG copy",
+      "sourceSha256": "4ade02a48950f9d02429e6aab436837efc610726669ed83f279f813e6f1ae94a",
+      "outputSha256": "4ade02a48950f9d02429e6aab436837efc610726669ed83f279f813e6f1ae94a",
+      "sourceBytes": 1163,
+      "outputBytes": 1163
+    },
+    {
+      "source": "/Users/tony/Github/scaleforged-website/public/icon.svg",
+      "output": "public/images/logos/scaleforged.svg",
+      "transformation": "Native SVG adaptation: remove only the 64×64 background rectangle; tighten viewBox to painted-bar bounds 20 20 24 24; all three bar geometries, colors, transform and title preserved",
+      "sourceSha256": "4d875ec4a1868265988a0d9a48e09ca0be9047c99456dbfc60a79c7a41eeb2f2",
+      "outputSha256": "787934aa4f19610884693660b20f3b0a1e22605d5fd1e5d3ea4249f1dda7d252",
+      "sourceBytes": 443,
+      "outputBytes": 389,
+      "width": 24,
+      "height": 24,
+      "alpha": true,
+      "usage": "Active personal-project symbol",
+      "alphaVerification": {
+        "renderedWidth": 24,
+        "renderedHeight": 24,
+        "transparentPixels": 228,
+        "opaquePixels": 312
+      }
+    },
+    {
+      "source": "/Users/tony/Github/tablix/frontend/public/assets/brand/horizontal/tablix-horizontal-light.png",
+      "output": "public/images/logos/tablix-personal.webp",
+      "transformation": "Proportional resize, WebP quality 84, effort 6; no crop or creative retouch",
+      "width": 600,
+      "height": 335,
+      "alpha": false,
+      "sourceSha256": "89cc9d25fb33147ff03c3cf64b934b115280f21ca1b35ee48ae480882d399a13",
+      "outputSha256": "77e76434f1e5cff2ea3c198c9c4245d6cb122cab276c3cb464a2b1064693776d",
+      "sourceBytes": 4296216,
+      "outputBytes": 3832,
+      "usage": "Historical opaque derivative; retained but unused by personal-project catalog"
+    },
+    {
+      "source": "/Users/tony/Documents/Codex/2026-10-01/applications-mentioned-by-the-user-appshot-2/outputs/Ursly-brand/ursly-connected-master.png",
+      "output": "public/images/projects/ursly-connected.webp",
+      "transformation": "Proportional resize, WebP quality 84, effort 6; no crop or creative retouch",
+      "width": 900,
+      "height": 387,
+      "alpha": true,
+      "sourceSha256": "ff9544d434ddc792a915f03ec98366cfd714cb88ba495e9afb54f181852aef1e",
+      "outputSha256": "dbcb8951f378ac266dcdf5f26492e546d83dea2ddd8313e37689873d5d2d7fe9",
+      "sourceBytes": 1112573,
+      "outputBytes": 72252
+    },
+    {
+      "source": "/Users/tony/Github/tablix/frontend/public/icon.svg",
+      "output": "public/images/logos/tablix-personal.svg",
+      "transformation": "Native SVG adaptation: remove only the 512×512 background rectangle; tighten viewBox to painted-square bounds 91 91 330 330 and intrinsic dimensions to 330×330; all three square geometries and colors preserved",
+      "width": 330,
+      "height": 330,
+      "alpha": true,
+      "usage": "Active personal-project symbol",
+      "sourceSha256": "ede0af0f163791ce275845f2f9a625811b0f293f171cedca45dd3be594258a83",
+      "outputSha256": "9a3f1b00b5f48d633b2e9200b7c63f70450611e54730ad4f00e8f351ce00cf81",
+      "sourceBytes": 386,
+      "outputBytes": 329,
+      "alphaVerification": {
+        "renderedWidth": 330,
+        "renderedHeight": 330,
+        "transparentPixels": 32206,
+        "opaquePixels": 76126
+      }
+    }
+  ]
+}
