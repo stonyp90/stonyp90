@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.git
+.wrangler
+.vercel
+coverage
+docs
+tests
+.github
+.env*
+*.log
+*.tsbuildinfo
+.DS_Store

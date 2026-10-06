@@ -1,0 +1,26 @@
+services:
+  site:
+    build:
+      context: .
+      args:
+        NODE_VERSION: ${NODE_VERSION:-22.16.0}
+        STATIC_SERVER_IMAGE: ${STATIC_SERVER_IMAGE:-nginx:1.30.5-alpine}
+    ports:
+      - "${SITE_HOST:-127.0.0.1}:${SITE_PORT:-3000}:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    develop:
+      watch:
+        - action: rebuild
+          path: .
+          ignore:
+            - node_modules/
+            - .next/
+            - out/
+            - .git/
+            - docs/
+            - tests/
