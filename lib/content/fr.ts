@@ -78,8 +78,9 @@ const services = Object.fromEntries(
   ]),
 ) as typeof en.services
 
-/* ---- Experiences: French rendered fields by index (period/tags kept) ------- */
+/* ---- Experiences: French rendered fields by company::position key ---------- */
 type ExpFr = {
+  key: string
   position: string
   location: string
   description: string
@@ -89,6 +90,22 @@ type ExpFr = {
 
 const expFr: ExpFr[] = [
   {
+    key: 'Nota::Founder & President',
+    position: 'Fondateur et président',
+    location: 'Québec, Canada',
+    description:
+      'Nota construit l’expérience notariale moderne du Québec et remet à niveau une industrie lente et papier en concevant un logiciel adapté au travail réel des notaires et de leurs clients.',
+    outcomes: [
+      { metric: 'Tech notariale', description: 'Modernisation d’une industrie legacy' },
+      { metric: 'Québec', description: 'Flux notariaux de droit civil' },
+    ],
+    achievements: [
+      'Fondé Nota pour moderniser l’industrie notariale québécoise, un marché mal servi, axé sur le papier, qui attendait un logiciel conçu autour du travail réel des notaires.',
+      'Dirigé le produit et la direction technique de 0→1 en appliquant la boucle ship-measure-listen-iterate déjà utilisée en consultation auprès des clients.',
+    ],
+  },
+  {
+    key: 'Bespoke Labs::Senior Cloud & Security Architect',
     position: 'Architecte principal cloud et sécurité',
     location: 'Mountain View, Californie',
     description: 'Labo d’apprentissage par renforcement financé en série A qui propulse les meilleurs modèles.',
@@ -105,6 +122,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'CREE8::Head of Engineering & Founding Engineer',
     position: 'Chef de l’ingénierie et ingénieur fondateur',
     location: 'West Hollywood, Californie',
     description:
@@ -123,6 +141,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'Videotron::Senior Cloud DevOps Engineer',
     position: 'Ingénieur cloud DevOps sénior',
     location: 'Québec, Canada',
     description:
@@ -138,6 +157,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'Banque Fairstone::Senior Cloud Engineer | Contractor',
     position: 'Ingénieur cloud sénior | Contractuel',
     location: 'Montréal, Canada',
     description:
@@ -152,6 +172,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'SSENSE::Senior Cloud Engineer | Contractor',
     position: 'Ingénieur cloud sénior | Contractuel',
     location: 'Montréal, Canada',
     description:
@@ -166,6 +187,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'Dormakaba Americas::Senior Cloud Engineer',
     position: 'Ingénieur cloud sénior',
     location: 'Montréal, Canada',
     description:
@@ -181,6 +203,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'Vanderlande::Cloud Software Developer',
     position: 'Développeur logiciel cloud',
     location: 'Québec, Canada',
     description:
@@ -195,6 +218,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'Vanderlande::Software Developer',
     position: 'Développeur logiciel',
     location: 'Québec, Canada',
     description:
@@ -209,6 +233,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'PetalMD::Software Developer',
     position: 'Développeur logiciel',
     location: 'Québec, Canada',
     description:
@@ -223,6 +248,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'CGI, National Defense::Software Developer and DevOps',
     position: 'Développeur logiciel et DevOps',
     location: 'Québec, Canada',
     description: 'Travaillé sur une suite de services qui aident l’armée à planifier et à prendre des décisions.',
@@ -236,6 +262,7 @@ const expFr: ExpFr[] = [
     ],
   },
   {
+    key: 'Logicale::Co-Founder and CTO',
     position: 'Cofondateur et directeur technique',
     location: 'Québec, Canada',
     description: 'Entreprise de logiciels concevant et développant des applications web sur mesure.',
@@ -247,7 +274,32 @@ const expFr: ExpFr[] = [
   },
 ]
 
-const experiences = en.experiences.map((e, i) => ({ ...e, ...expFr[i] }))
+const expFrByKey = new Map(expFr.map((e) => [e.key, e]))
+
+const experiences = en.experiences.map((e) => {
+  const key = `${e.company}::${e.position}`
+  const fr = expFrByKey.get(key)
+  if (!fr) {
+    throw new Error(`Missing French experience override: ${key}`)
+  }
+  return {
+    ...e,
+    position: fr.position,
+    location: fr.location,
+    description: fr.description,
+    outcomes: fr.outcomes,
+    achievements: fr.achievements,
+  }
+})
+
+const staleOverrides = expFr.filter(
+  (fr) => !en.experiences.some((e) => `${e.company}::${e.position}` === fr.key),
+)
+if (staleOverrides.length > 0) {
+  throw new Error(
+    `Stale French experience override: ${staleOverrides.map((fr) => fr.key).join(', ')}`,
+  )
+}
 
 /* ---- Personal info, education, languages ---------------------------------- */
 const personalInfo = {
@@ -263,7 +315,7 @@ const personalInfo = {
   location: 'Québec, Canada',
 }
 
-const education = { ...en.education, degree: 'Informatique' }
+const education = { ...en.education, degree: 'Informatique', period: '2008 à 2011' }
 
 const languages = [
   { name: 'Français', level: 'Langue maternelle' },
