@@ -21,6 +21,12 @@ try {
     assert.equal(hiddenServices, 0, 'Services must remain readable without JavaScript')
     assert.equal(await staticPage.locator('.project-card').count(), 4, 'All four projects must be in exported HTML')
     assert.equal(await staticPage.locator('#personal-projects').count(), 1, 'One independent projects section')
+    // Contact is by email. The exported document must carry the inbox and no
+    // third-party booking page.
+    const hrefs = await staticPage.locator('a[href]').evaluateAll(links => links.map(l => l.getAttribute('href')))
+    assert.equal(hrefs.filter(h => /calendly|savvycal|tidycal|\bcal\.com\b/i.test(h ?? '')).length, 0, 'No exported booking scheduler link')
+    assert.ok(hrefs.filter(h => (h ?? '').startsWith('mailto:')).length >= 3, 'The exported HTML must offer the inbox')
+    assert.match(await staticPage.locator('.hero-actions .btn-primary').getAttribute('href'), /^mailto:/, 'Hero CTA opens the mail client')
     await staticContext.close()
     checks.push(`${locale}: readable exported HTML`)
 

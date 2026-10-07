@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
-import { FaCalendarAlt, FaCheck, FaLinkedin, FaFileDownload } from 'react-icons/fa'
+import { FaCheck, FaLinkedin, FaFileDownload, FaEnvelope } from 'react-icons/fa'
 import { useContent } from '@/components/LocaleProvider'
 
 export default function Hero() {
@@ -26,8 +26,8 @@ export default function Hero() {
             ))}
           </div>
           <div className="hero-actions">
-            <a href={c.personalInfo.calendlyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              <FaCalendarAlt aria-hidden="true" />{c.ui.hero.ctaPrimary}
+            <a href={c.socialLinks.email} className="btn-primary">
+              <FaEnvelope aria-hidden="true" />{c.ui.hero.ctaPrimary}
             </a>
             <a href={c.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="btn-ghost">
               <FaLinkedin aria-hidden="true" />{c.ui.hero.ctaLinkedIn}

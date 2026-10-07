@@ -16,7 +16,6 @@ export const personalInfo = {
     hobby: 'Avid snowboarder',
     passion: 'Technology enthusiast always exploring the cutting edge',
   },
-  calendlyUrl: 'https://calendly.com/anthonypaquet1508/15min',
 }
 
 export const socialLinks = {

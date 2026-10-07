@@ -362,7 +362,7 @@ export const fr: SiteContent = {
         'FinOps',
         'Expérience Fortune 500 et startups',
       ],
-      ctaPrimary: 'Réserver un appel stratégique gratuit',
+      ctaPrimary: 'Écrivez-moi',
       ctaLinkedIn: 'LinkedIn',
       ctaResume: 'CV',
       ctaProjects: 'Découvrir mes projets personnels',
@@ -438,8 +438,8 @@ export const fr: SiteContent = {
       provenResultsStrong: 'Résultats prouvés :',
       provenResultsTail:
         ' Les clients FinOps obtiennent généralement un ROI de 5 à 10 fois en 12 mois. Les parcours de conformité accélérés font gagner de 3 à 6 mois par rapport à une approche maison.',
-      scheduleCta: 'Planifier une consultation',
-      scheduleHint: '15 minutes pour discuter de vos défis et voir comment nous pouvons aider.',
+      contactCta: 'Écrivez-moi au sujet de votre projet',
+      contactHint: 'Décrivez le résultat visé et vos contraintes. Je réponds en français ou en anglais.',
     },
 
     experience: {
@@ -465,7 +465,7 @@ export const fr: SiteContent = {
     footer: {
       tagline: 'Bâtisseur et leader en ingénierie.',
       blurb: 'J’aide les équipes à livrer plus vite, réduire les coûts et devenir conformes.',
-      bookCall: 'Réserver un appel',
+      contactCta: 'Écrivez-moi',
       exploreTitle: 'Explorer',
       connectTitle: 'Contact',
       quickLinks: [

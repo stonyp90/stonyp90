@@ -54,7 +54,7 @@ export const en = {
         'FinOps',
         'Fortune 500 & Startup Experience',
       ],
-      ctaPrimary: 'Book Free Strategy Call',
+      ctaPrimary: 'Email me',
       ctaLinkedIn: 'LinkedIn',
       ctaResume: 'Resume',
       ctaProjects: 'Explore my personal projects',
@@ -130,8 +130,8 @@ export const en = {
       provenResultsStrong: 'Proven results:',
       provenResultsTail:
         ' FinOps clients typically see 5 to 10x ROI within 12 months. Compliance fast-tracks save 3 to 6 months vs DIY approaches.',
-      scheduleCta: 'Schedule a consultation',
-      scheduleHint: '15 minutes to discuss your challenges and explore how we can help.',
+      contactCta: 'Email me about your project',
+      contactHint: 'Send the outcome you need and the constraints you have. I answer in French or English.',
     },
 
     experience: {
@@ -157,7 +157,7 @@ export const en = {
     footer: {
       tagline: 'Builder and engineering leader.',
       blurb: 'I help teams ship faster, cut costs, and become compliant.',
-      bookCall: 'Book a call',
+      contactCta: 'Email me',
       exploreTitle: 'Explore',
       connectTitle: 'Connect',
       quickLinks: [

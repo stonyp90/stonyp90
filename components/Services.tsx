@@ -12,7 +12,7 @@ import {
   FaCloud,
   FaLayerGroup,
   FaArrowRight,
-  FaCalendarAlt,
+  FaEnvelope,
 } from 'react-icons/fa'
 import { useContent } from '@/components/LocaleProvider'
 
@@ -181,18 +181,13 @@ export default function Services() {
             </div>
 
             <div className="pt-5 border-t border-[var(--color-border)]">
-              <a
-                href={c.personalInfo.calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                <FaCalendarAlt aria-hidden="true" />
-                <span>{c.ui.services.scheduleCta}</span>
+              <a href={c.socialLinks.email} className="btn-primary">
+                <FaEnvelope aria-hidden="true" />
+                <span>{c.ui.services.contactCta}</span>
                 <FaArrowRight aria-hidden="true" />
               </a>
               <p className="text-xs text-gray-warm mt-3">
-                {c.ui.services.scheduleHint}
+                {c.ui.services.contactHint}
               </p>
             </div>
           </div>

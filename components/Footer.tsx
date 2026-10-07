@@ -38,13 +38,9 @@ export default function Footer() {
             <p className="text-ink-soft text-sm sm:text-base leading-relaxed mt-2 max-w-sm mx-auto sm:mx-0">
               {c.ui.footer.blurb}
             </p>
-            <a
-              href={c.personalInfo.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary mt-6 inline-flex"
-            >
-              {c.ui.footer.bookCall}
+            <a href={c.socialLinks.email} className="btn-primary mt-6 inline-flex">
+              <FaEnvelope aria-hidden="true" />
+              {c.ui.footer.contactCta}
             </a>
           </div>
 
