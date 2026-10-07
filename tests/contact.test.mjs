@@ -171,3 +171,30 @@ test('the contact copy asks for an email and never a booking', async () => {
     }
   }
 })
+
+test('the shipped CV advertises no booking page', async () => {
+  // The CV is rebuilt outside this repository, so a booking link can return without
+  // touching a single guarded source file. Link destinations survive as uncompressed
+  // /URI annotations in the produced PDF, so the scan reads real destinations.
+  const bytes = await readFile(new URL('../public/AnthonyPaquet.pdf', import.meta.url))
+  const uris = [...bytes.toString('latin1').matchAll(/\/URI\s*\(([^)]*)\)/g)].map((match) => match[1])
+  // Positive control: should the producer ever compress object streams, the scan goes
+  // blind, and these two assertions fail instead of passing an empty set.
+  assert.ok(
+    uris.length >= 3,
+    `guard read only ${uris.length} CV link destinations, expected the annotation set to stay readable`
+  )
+  assert.ok(
+    uris.some((uri) => uri.includes('linkedin.com/in/anthony-paquet')),
+    'CV link scan must see the profile destination to prove it is reading the annotations'
+  )
+  assert.ok(
+    uris.some((uri) => uri.includes('anthonypaquet.com')),
+    'CV link scan must see the portfolio destination to prove it is reading the annotations'
+  )
+  assert.deepEqual(
+    uris.filter((uri) => SCHEDULER.test(uri)),
+    [],
+    'The CV must not send a reader to a booking scheduler'
+  )
+})

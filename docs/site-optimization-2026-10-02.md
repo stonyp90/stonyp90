@@ -183,3 +183,81 @@ PORTFOLIO_URL=https://www.anthonypaquet.com node scripts/grid-shot.mjs
 
 The stylesheet filename is a build hash, so it changes on the next deploy. Read it from the
 live `<link href>` rather than reusing the value above.
+
+## Contact moved from Calendly to the inbox (2026-10-06, later the same day)
+
+The Calendly subscription lapsed, so every booking link on the site pointed at a page that
+can no longer convert a visitor. Two routes existed: adopt a replacement scheduler, or drop
+booking and push email. No scheduler was adopted, because choosing one is a component
+technology decision that needs at least three options and an explicit owner choice. Removal
+was taken instead: `mailto:me@anthonypaquet.com` reception is already live, so this route
+adds no dependency, no cost and no data-sharing surface. Recorded as an AI judgment; it is
+reversible by the owner, who can name a scheduler and the guard will be widened to allow it.
+
+`personalInfo.calendlyUrl` is deleted from `lib/data.ts`, leaving `socialLinks.email` as the
+single contact source of truth. The primary CTA in `Hero`, `Services` and `Footer` now opens
+the inbox with an envelope icon and no longer forces a new tab. Copy: `Email me`,
+`Email me about your project`, and a hint that asks for the outcome and the constraints
+instead of a calendar slot; French mirrors it with `Écrivez-moi`. `public/llms.txt` now states
+`Booking: by email` so AI assistants are told the channel rather than being handed a link.
+`components/ConsultingBrands.tsx` was deleted: it was unreferenced legacy presentation code
+and carried the only two hardcoded booking URLs, so leaving it in place would have kept a
+dead booking surface in the shipped corpus.
+
+`tests/contact.test.mjs` turns this into a build failure rather than a review nit. Six tests
+walk `app`, `components`, `lib` and the plain-text responses as syntax: no shipped source may
+name a third-party scheduler; the catalogue must keep the inbox/`mailto` relationship and must
+not carry a booking field; each of the three primary CTAs must be a `btn-primary` anchor whose
+`href` is `c.socialLinks.email`, with no `target`; every shipped anchor href is checked; the
+CTA copy must ask for an email and never a booking, per locale; and the shipped CV is scanned
+for booking destinations. The CV is rebuilt outside this repository, so its link destinations
+are read from the produced PDF's uncompressed `/URI` annotations, and that scan carries its own
+positive controls (the profile and portfolio destinations must be visible) so a producer change
+that compresses object streams fails loudly instead of passing an empty set.
+`tests/browser/portfolio.mjs` additionally asserts the exported document offers the inbox and
+that the hero CTA opens a mail client. Each guard carries a positive
+control (the corpus must still contain the LinkedIn profile, the CTA keys must still be declared
+the recorded number of times) so a shrinking corpus cannot pass by vacuity.
+
+Open and left to the owner: the CV's own contact line links
+`mailto:anthonypaquet1508@gmail.com` while the site now pushes `me@anthonypaquet.com`. Both
+inboxes reach the same reader, so this was not changed unilaterally; one word from the owner
+resolves it, and the CV source lives outside this repository.
+
+Local evidence at commit `82ba3a5`: `npm run check` exit 0 (lint, typecheck, 25 unit tests
+passing, static export, sitemap), and the exported `out/index.html`, `out/fr/index.html` and
+`out/llms.txt` contain zero occurrences of the retired booking host.
+
+Deployment: `npx wrangler deploy` reported version `114fb804-3391-405a-b6e3-e4e6b8ee8b20`.
+Rollback captured beforehand: `npx wrangler rollback 52e7ad97-a80a-46f9-be30-ee302216e44f`.
+
+Live evidence, read from `www.anthonypaquet.com`, `anthonypaquet.com` and the `workers.dev`
+hostname: `/`, `/fr/` and `/llms.txt` return zero booking-host occurrences on all three, each
+locale page carries six `mailto:` anchors (five to the inbox plus the share link; a seventh
+`mailto:` string sits in the embedded React payload), and the served `llms.txt` line 111 reads
+`Booking: by email, me@anthonypaquet.com`. The production run of
+`tests/browser/portfolio.mjs` reported nine checks and no failures. `tmp/cta-shot.mjs` captured
+the live hero, services and footer CTA clusters for both locales into `tmp/live/`, confirming
+the envelope icon and the email wording render as designed.
+
+```sh
+git log --oneline -1
+node --test tests/contact.test.mjs
+node --input-type=module -e '
+import { readFile } from "node:fs/promises"
+const text = (await readFile("public/AnthonyPaquet.pdf")).toString("latin1")
+console.log([...text.matchAll(/\/URI\s*\(([^)]*)\)/g)].map((m) => m[1]))'
+for h in www.anthonypaquet.com anthonypaquet.com \
+         anthonypaquet-com.anthony-paquet-portfolio.workers.dev; do
+  for p in / /fr/ /llms.txt; do
+    printf '%s%s ' "$h" "$p"
+    curl -sSL -H 'Cache-Control: no-cache' "https://$h$p" \
+      | grep -c -i -E 'calendly|savvycal|tidycal|setmore|books\.meeting'
+  done
+done
+PORTFOLIO_URL=https://www.anthonypaquet.com \
+PLAYWRIGHT_MODULE=/Users/tony/Github/nota/node_modules/playwright/index.mjs \
+BROWSER_ARTIFACT_DIR=tmp/live node tests/browser/portfolio.mjs
+PORTFOLIO_URL=https://www.anthonypaquet.com node tmp/cta-shot.mjs
+npx wrangler deployments list
+```
