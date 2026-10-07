@@ -137,3 +137,49 @@ cd /Users/tony/Documents/Resume && ./build.sh en fr   # ends with node check-pdf
 ```
 
 Open item: the dates `Bespoke Labs 2025 to 2026` and `Nota 2026 to present` were inferred from the existing catalogue and the venture launch, not supplied by the owner. Correcting either one means editing `lib/data.ts` and rerunning the CV build, where `assertMatchesSite()` will catch a half done change.
+
+## Ursly card parity shipped (2026-10-06, later the same day)
+
+The personal-project grid shipped with one card themed as a dark panel. The change, its
+reasoning and its guards are recorded in
+[`project-brand-evidence-2026-10-02.md`](project-brand-evidence-2026-10-02.md).
+
+Deployment: `npx wrangler deploy` reported version `52e7ad97-a80a-46f9-be30-ee302216e44f`.
+Rollback captured beforehand: `npx wrangler rollback 85ed7b9b-5910-4b6c-9cf0-aa496ff8f4d0`.
+
+Live evidence, read from `www.anthonypaquet.com`, `anthonypaquet.com` and the `workers.dev`
+hostname, all returning 200 for `/`, `/fr/` and `/images/logos/ursly-mark.svg`:
+
+- Each locale's HTML references `ursly-mark.svg` once, `ursly-connected` zero times,
+  `project-artwork` zero times, and carries four `class="project-logo"` images.
+- The served stylesheet `/_next/static/css/f56fc4d74368f179.css` contains no
+  `--color-ursly` token, no `.project-artwork` rule, and one rule mentioning
+  `.project-card--ursly`, whose full text is
+  `.project-card--scaleforged .project-logo,.project-card--tablix .project-logo,.project-card--ursly .project-logo{height:4.5rem}`.
+  A per-project selector now only sizes a mark.
+- `tests/browser/portfolio.mjs` against production: 0 failures.
+- `node scripts/grid-shot.mjs` against production wrote the same PNG byte counts it wrote
+  against the local export, 67,331 English and 70,086 French, so the edge is serving the
+  verified build rather than a stale cache.
+
+```sh
+npx wrangler deployments list
+node --input-type=module -e '
+for (const u of ["https://www.anthonypaquet.com/", "https://www.anthonypaquet.com/fr/"]) {
+  const h = await (await fetch(u, { cache: "no-store" })).text()
+  console.log(u, "mark", (h.match(/ursly-mark\.svg/g) || []).length,
+    "artwork", (h.match(/project-artwork/g) || []).length,
+    "logos", (h.match(/class="project-logo"/g) || []).length)
+}'
+node --input-type=module -e '
+const css = await (await fetch("https://www.anthonypaquet.com/_next/static/css/f56fc4d74368f179.css")).text()
+console.log(css.match(/\.project-card--[\w-]+[^{]*\{[^}]*\}/g))'
+PORTFOLIO_URL=https://www.anthonypaquet.com \
+PLAYWRIGHT_MODULE=/Users/tony/Github/nota/node_modules/playwright/index.mjs \
+BROWSER_ARTIFACT_DIR=tmp/browser/live node tests/browser/portfolio.mjs
+PLAYWRIGHT_MODULE=/Users/tony/Github/nota/node_modules/playwright/index.mjs \
+PORTFOLIO_URL=https://www.anthonypaquet.com node scripts/grid-shot.mjs
+```
+
+The stylesheet filename is a build hash, so it changes on the next deploy. Read it from the
+live `<link href>` rather than reusing the value above.
