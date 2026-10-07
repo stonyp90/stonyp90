@@ -40,8 +40,8 @@ export default function PersonalProjects() {
                   alt=""
                   width={project.visual.width}
                   height={project.visual.height}
-                  sizes={project.visual.kind === 'artwork' ? '(max-width: 767px) 90vw, 500px' : '300px'}
-                  className={project.visual.kind === 'artwork' ? 'project-artwork' : 'project-logo'}
+                  sizes="300px"
+                  className="project-logo"
                 />
               </div>
               <div className="project-copy">

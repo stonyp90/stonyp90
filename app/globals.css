@@ -56,11 +56,6 @@
   --color-header: #fffcf5f2;
   --color-grid: #c4b39438;
   --color-shadow: #3a2a1433;
-  --color-ursly-surface: #070b14;
-  --color-ursly-signal: #78e8dc;
-  --color-ursly-ink: #f2fbfa;
-  --color-ursly-muted: #bdd9d7;
-  --color-ursly-border: #315d61;
   --shadow-card: 0 12px 36px -22px var(--color-shadow);
   --shadow-card-hover: 0 22px 46px -22px var(--color-shadow);
   --motion-duration: 650ms;
@@ -401,22 +396,14 @@ section { position: relative; z-index: 1; }
 .project-card:hover, .project-card:focus-within { border-color: var(--color-border-strong); box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
 .project-visual { height: 12rem; display: flex; align-items: center; justify-content: center; padding: 2rem; background: var(--color-paper-soft); border-bottom: 1px solid var(--color-border); }
 .project-logo { width: auto; max-width: 76%; height: auto; max-height: 5rem; object-fit: contain; }
-.project-card--tablix .project-logo, .project-card--scaleforged .project-logo { height: 4.5rem; }
+.project-card--tablix .project-logo, .project-card--scaleforged .project-logo, .project-card--ursly .project-logo { height: 4.5rem; }
 .project-copy { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
 .project-category { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; color: var(--color-accent-text); margin-bottom: 0.5rem; }
 .project-name { font-family: var(--font-display); font-size: 1.75rem; line-height: 1.2; font-weight: 700; }
 .project-description { color: var(--color-ink-soft); font-size: 1rem; line-height: 1.65; margin: 1rem 0 1.5rem; }
-.project-slogan { padding-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; margin-top: 1rem; font-size: 1rem; font-weight: 500; }
+.project-slogan { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; margin: 1rem 0 1.5rem; font-size: 1rem; font-weight: 500; }
 .project-link { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; font-weight: 500; padding: 0.6rem 0; border-bottom: 1px solid var(--color-border-strong); margin-top: auto; color: var(--color-accent-text); transition: color 200ms var(--ease-smooth), border-color 200ms var(--ease-smooth); }
 .project-link:hover { color: var(--color-ink); border-color: var(--color-ink); }
-.project-card--ursly { background: var(--color-ursly-surface); border-color: var(--color-ursly-border); color: var(--color-ursly-ink); }
-.project-card--ursly .project-visual { background: var(--color-ursly-surface); border-color: var(--color-ursly-border); }
-.project-artwork { width: 100%; height: auto; max-height: 9rem; object-fit: contain; }
-.project-card--ursly .project-category, .project-card--ursly .project-slogan, .project-card--ursly .project-link { color: var(--color-ursly-signal); }
-.project-card--ursly .project-description { color: var(--color-ursly-muted); }
-.project-card--ursly .project-link { border-color: var(--color-ursly-border); }
-.project-card--ursly .project-link:hover { color: var(--color-ursly-ink); border-color: var(--color-ursly-signal); }
-.project-card--ursly :focus-visible { outline-color: var(--color-ursly-signal); }
 
 /* Keep decoration still; interaction and section transitions provide motion. */
 .status-live { white-space: normal; font-size: 0.75rem; }

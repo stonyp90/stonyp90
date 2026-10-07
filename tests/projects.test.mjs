@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 import ts from 'typescript'
@@ -47,5 +48,55 @@ test('French descriptions and project categories are localized', () => {
   for (let index = 0; index < english.length; index += 1) {
     assert.notEqual(english[index].description, french[index].description)
     assert.notEqual(english[index].category, french[index].category)
+  }
+})
+
+// Every card is one pattern: a brand mark on the shared light card. A per-project
+// palette is what made one card read as a dark panel inside a light grid.
+test('every project card uses a mark on the shared light card', async () => {
+  const css = await readFile(new URL('../app/globals.css', import.meta.url), 'utf8')
+  for (const locale of ['en', 'fr']) {
+    for (const project of getPersonalProjects(locale)) {
+      assert.ok(
+        project.visual.src.startsWith('/images/logos/'),
+        `${project.name} must present a brand mark, not artwork`
+      )
+    }
+  }
+  const themed = css
+    .split('\n')
+    .filter((line) => /^\.project-card--[\w-]+[^{]*\{/.test(line))
+    .filter((line) => /(background|color|border-color):/.test(line))
+  assert.deepEqual(themed, [], 'Per-project rules may size a card, never re-theme it')
+  assert.doesNotMatch(css, /--color-ursly-/, 'The retired Ursly dark palette must not return')
+})
+
+// Brand provenance is a runtime gate, not a document a reader has to trust: every
+// shipped mark must match the hash recorded for it, and no card may use an asset
+// the manifest does not declare active.
+test('every card visual is declared active and matches its recorded brand manifest', async () => {
+  const manifest = JSON.parse(
+    await readFile(new URL('../docs/project-brand-assets-2026-10-02.json', import.meta.url), 'utf8')
+  )
+  const byOutput = new Map(manifest.assets.map((asset) => [asset.output, asset]))
+  for (const locale of ['en', 'fr']) {
+    for (const project of getPersonalProjects(locale)) {
+      const entry = byOutput.get(`public${project.visual.src}`)
+      assert.ok(entry, `${project.name} ships a visual with no manifest provenance`)
+      assert.match(entry.usage ?? 'Active', /^Active/, `${project.name} uses a historical asset`)
+      const bytes = await readFile(new URL(`../public${project.visual.src}`, import.meta.url))
+      assert.equal(
+        createHash('sha256').update(bytes).digest('hex'),
+        entry.outputSha256,
+        `${project.name} visual no longer matches its recorded hash`
+      )
+      assert.equal(bytes.length, entry.outputBytes, `${project.name} visual byte length drifted`)
+      const declared = project.visual.width / project.visual.height
+      const recorded = entry.width / entry.height
+      assert.ok(
+        Math.abs(declared - recorded) / recorded < 0.01,
+        `${project.name} visual aspect ratio no longer matches its recorded geometry`
+      )
+    }
   }
 })

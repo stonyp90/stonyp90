@@ -11,7 +11,6 @@ export type PersonalProject = {
     src: string
     width: number
     height: number
-    kind: 'logo' | 'artwork'
   }
 }
 
@@ -41,10 +40,10 @@ export const personalProjectCopy: Record<Locale, ProjectSectionCopy> = {
 }
 
 const visuals = {
-  gonota: { src: '/images/logos/gonota.svg', width: 204, height: 96, kind: 'logo' },
-  tablix: { src: '/images/logos/tablix-personal.svg', width: 330, height: 330, kind: 'logo' },
-  ursly: { src: '/images/projects/ursly-connected.webp', width: 900, height: 387, kind: 'artwork' },
-  scaleforged: { src: '/images/logos/scaleforged.svg', width: 24, height: 24, kind: 'logo' },
+  gonota: { src: '/images/logos/gonota.svg', width: 204, height: 96 },
+  tablix: { src: '/images/logos/tablix-personal.svg', width: 330, height: 330 },
+  ursly: { src: '/images/logos/ursly-mark.svg', width: 240, height: 240 },
+  scaleforged: { src: '/images/logos/scaleforged.svg', width: 24, height: 24 },
 } as const
 
 /** Independent product data; presentation and external navigation stay in adapters. */
