@@ -326,7 +326,7 @@ export const experiences = [
   {
     company: 'Nota',
     url: 'https://gonota.ca',
-    position: 'Founder & Operator',
+    position: 'Founder & AI Orchestrator',
     location: 'Quebec, Canada',
     period: 'Current',
     description: 'Nota is a marketplace for notarial acts in Québec. Clients post their act, date and price, and notaries take the requests that suit them.',

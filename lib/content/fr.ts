@@ -90,8 +90,8 @@ type ExpFr = {
 
 const expFr: ExpFr[] = [
   {
-    key: 'Nota::Founder & Operator',
-    position: 'Fondateur et opérateur',
+    key: 'Nota::Founder & AI Orchestrator',
+    position: 'Fondateur et orchestrateur IA',
     location: 'Québec, Canada',
     description:
       'Nota est une place de marché pour les actes notariés au Québec. Le client publie son acte, sa date et son prix, et les notaires retiennent les demandes qui leur conviennent.',
