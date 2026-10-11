@@ -96,38 +96,38 @@ const expFr: ExpFr[] = [
     description:
       'Nota est une place de marché pour les actes notariés au Québec. Le client publie son acte, sa date et son prix, et les notaires retiennent les demandes qui leur conviennent.',
     outcomes: [
-      { metric: '17 agents IA', description: 'Marketing, développement, infrastructure et mise en marché' },
+      { metric: '17 agents IA', description: 'Marketing, développement, infrastructure et go-to-market' },
       { metric: 'Opérateur solo', description: 'Chaque fonction, orchestrée avec l’IA' },
     ],
     achievements: [
       'Fondé Nota pour moderniser l’industrie notariale québécoise, un marché mal servi, axé sur le papier, qui attendait un logiciel conçu autour du travail réel des notaires.',
       'Assure chaque fonction de l’entreprise comme seul opérateur, en orchestrant des agents IA bâtis sur les derniers modèles d’Anthropic (Claude), d’OpenAI et de xAI.',
-      'Dirige quatre équipes d’agents : marketing (5 agents), développement (2), infrastructure (5) et mise en marché (5 : partenariats, intégration des notaires, succès client, programme de référence et veille de la demande).',
+      'Dirige quatre équipes d’agents : marketing (5 agents), développement (2), infrastructure (5) et go-to-market (5 : partenariats, onboarding des notaires, customer success, programme de référence et veille de la demande).',
     ],
   },
   {
     key: 'Bespoke Labs::Senior Cloud & Security Architect',
     position: 'Architecte principal cloud et sécurité',
     location: 'Mountain View, Californie',
-    description: 'Labo d’apprentissage par renforcement financé en série A qui propulse les meilleurs modèles.',
+    description: 'Labo de RL (reinforcement learning) financé en série A qui propulse les meilleurs modèles.',
     outcomes: [
-      { metric: 'Horizon', description: 'Tâches RL, grilles et évaluations' },
-      { metric: 'Bac à sable d’éval', description: 'Plateforme microVM Firecracker' },
+      { metric: 'Horizon', description: 'Tâches RL, rubrics et évals' },
+      { metric: 'Sandbox d’évals', description: 'Plateforme microVM Firecracker' },
       { metric: '30 %', description: 'Réduction des dépenses cloud' },
     ],
     achievements: [
-      'Conçu une plateforme de bac à sable d’évaluation qui exécute des charges d’agents IA dans des microVM Firecracker isolées, avec snapshot et restauration qui survivent à la préemption Spot.',
-      'Rédigé des tâches RL, des grilles de notation et des évaluations sur Horizon, la plateforme centrale, en modélisant les environnements d’outils et la logique de récompense selon lesquels les agents sont notés.',
-      'Apporté des contributions clés à Horizon, la plateforme RL centrale, pour les grilles, les tâches et les évaluations.',
+      'Conçu une plateforme de sandbox d’évals qui exécute des workloads d’agents IA dans des microVM Firecracker isolées, avec snapshot et restauration qui survivent à la préemption Spot.',
+      'Rédigé des tâches RL, des rubrics et des évals sur Horizon, la plateforme centrale, en modélisant les environnements d’outils et la logique de reward selon lesquels les agents sont notés.',
+      'Apporté des contributions clés à Horizon, la plateforme RL centrale, pour les rubrics, les tâches et les évals.',
       'Réduit les dépenses cloud de 30 % et dirigé la conformité SOC 2 et la sécurité de la plateforme.',
     ],
   },
   {
     key: 'CREE8::Head of Engineering & Founding Engineer',
-    position: 'Chef de l’ingénierie et ingénieur fondateur',
+    position: 'Head of Engineering et ingénieur fondateur',
     location: 'West Hollywood, Californie',
     description:
-      'CREE8 simplifie l’adoption du cloud et fluidifie les flux de travail des créateurs par la centralisation, l’efficacité et l’automatisation. La plateforme permet aux équipes créatives de tirer pleinement parti du cloud en simplifiant des processus complexes.',
+      'CREE8 simplifie l’adoption du cloud et fluidifie les workflows des créateurs par la centralisation, l’efficacité et l’automatisation. La plateforme permet aux équipes créatives de tirer pleinement parti du cloud en simplifiant des processus complexes.',
     outcomes: [
       { metric: '60 %', description: 'Réduction des coûts multicloud' },
       { metric: '6 mois', description: 'SOC 2 Type II et TPN Gold' },
@@ -135,7 +135,7 @@ const expFr: ExpFr[] = [
     ],
     achievements: [
       'Bâti et dirigé une équipe de 10 ingénieurs SRE, DevOps et Full-Stack séniors pour déployer des solutions cloud de calibre entreprise.',
-      'Obtenu les certifications SOC 2 Type II et TPN Gold en 6 mois en mettant en place des flux d’automatisation de la conformité assistés par l’IA.',
+      'Obtenu les certifications SOC 2 Type II et TPN Gold en 6 mois en mettant en place des workflows d’automatisation de la conformité assistés par l’IA.',
       'Optimisé les opérations multicloud, réduisant les coûts de 60 % sur AWS, GCP et Azure grâce aux pratiques FinOps et à des améliorations d’architecture.',
       'Mis en place des flux camera-to-cloud, améliorant l’ingestion de contenu et la collaboration de plus de 50 équipes créatives réparties.',
       'Accéléré la vitesse d’itération de 40 %, renforcé la sécurité des systèmes et accru la résilience en adoptant l’IA et les pratiques DevSecOps.',
@@ -162,14 +162,14 @@ const expFr: ExpFr[] = [
     position: 'Ingénieur cloud sénior | Contractuel',
     location: 'Montréal, Canada',
     description:
-      'Dirigé la reprise après sinistre multirégion et multicompte sur AWS et intégré des outils de surveillance pour la résilience.',
+      'Dirigé le disaster recovery multirégion et multicompte sur AWS et intégré des outils de monitoring pour la résilience.',
     outcomes: [
-      { metric: 'Multirégion', description: 'Reprise après sinistre sur AWS' },
-      { metric: 'Résilience', description: 'Surveillance intégrée' },
+      { metric: 'Multirégion', description: 'Disaster recovery sur AWS' },
+      { metric: 'Résilience', description: 'Monitoring intégré' },
     ],
     achievements: [
-      'Dirigé la reprise après sinistre multirégion et multicompte sur AWS.',
-      'Intégré des outils de surveillance pour renforcer la résilience et la fiabilité.',
+      'Dirigé le disaster recovery multirégion et multicompte sur AWS.',
+      'Intégré des outils de monitoring pour renforcer la résilience et la fiabilité.',
     ],
   },
   {
@@ -310,7 +310,7 @@ const personalInfo = {
   tagline:
     'J’aide les CTO et les leaders techniques à réduire leurs coûts cloud de 30 à 60 %, à réussir les audits SOC 2 et HIPAA en quelques semaines, et à bâtir une infrastructure qui évolue sans ralentir leur feuille de route.',
   summary:
-    'Je conçois et fais évoluer des systèmes infonuagiques sécurisés et économiques, et je mène les produits de 0→1 jusqu’à l’échelle entreprise. Un travail FinOps approfondi réduit les coûts cloud, et une approche DevSecOps aide les équipes à livrer plus vite sans sacrifier la sécurité. Résultat, une infrastructure résiliente qui tient sous une charge réelle et garde les coûts bas.',
+    'Je conçois et fais évoluer des systèmes cloud sécurisés et économiques, et je mène les produits de 0→1 jusqu’à l’échelle entreprise. Un travail FinOps approfondi réduit les coûts cloud, et une approche DevSecOps aide les équipes à livrer plus vite sans sacrifier la sécurité. Résultat, une infrastructure résiliente qui tient sous une charge réelle et garde les coûts bas.',
   philosophy:
     'Le savoir est la richesse ultime. Plus on le partage, plus il grandit. Je crois en l’apprentissage continu et au fait d’outiller les autres par l’expertise.',
   location: 'Québec, Canada',
