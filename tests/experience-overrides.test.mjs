@@ -72,5 +72,5 @@ test('keys are unique on both sides so the lookup cannot silently drop one', () 
 
 test('the current role leads the French overrides instead of an index shifted list', () => {
   // Index aligned overrides put Bespoke Labs first while Nota is the current role.
-  assert.equal(french[0], 'Nota::Founder & President')
+  assert.equal(french[0], 'Nota::Founder & Operator')
 })

@@ -90,18 +90,19 @@ type ExpFr = {
 
 const expFr: ExpFr[] = [
   {
-    key: 'Nota::Founder & President',
-    position: 'Fondateur et président',
+    key: 'Nota::Founder & Operator',
+    position: 'Fondateur et opérateur',
     location: 'Québec, Canada',
     description:
-      'Nota construit l’expérience notariale moderne du Québec et remet à niveau une industrie lente et papier en concevant un logiciel adapté au travail réel des notaires et de leurs clients.',
+      'Nota est une place de marché pour les actes notariés au Québec. Le client publie son acte, sa date et son prix, et les notaires retiennent les demandes qui leur conviennent.',
     outcomes: [
-      { metric: 'Tech notariale', description: 'Modernisation d’une industrie legacy' },
-      { metric: 'Québec', description: 'Flux notariaux de droit civil' },
+      { metric: '17 agents IA', description: 'Marketing, développement, infrastructure et mise en marché' },
+      { metric: 'Opérateur solo', description: 'Chaque fonction, orchestrée avec l’IA' },
     ],
     achievements: [
       'Fondé Nota pour moderniser l’industrie notariale québécoise, un marché mal servi, axé sur le papier, qui attendait un logiciel conçu autour du travail réel des notaires.',
-      'Dirigé le produit et la direction technique de 0→1 en appliquant la boucle ship-measure-listen-iterate déjà utilisée en consultation auprès des clients.',
+      'Assure chaque fonction de l’entreprise comme seul opérateur, en orchestrant des agents IA bâtis sur les derniers modèles d’Anthropic (Claude), d’OpenAI et de xAI.',
+      'Dirige quatre équipes d’agents : marketing (5 agents), développement (2), infrastructure (5) et mise en marché (5 : partenariats, intégration des notaires, succès client, programme de référence et veille de la demande).',
     ],
   },
   {

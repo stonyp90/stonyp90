@@ -326,19 +326,20 @@ export const experiences = [
   {
     company: 'Nota',
     url: 'https://gonota.ca',
-    position: 'Founder & President',
+    position: 'Founder & Operator',
     location: 'Quebec, Canada',
     period: 'Current',
-    description: 'Nota is building the modern notary experience for Quebec, fixing a slow, paper-heavy industry with software designed around how notaries and their clients actually work.',
+    description: 'Nota is a marketplace for notarial acts in Québec. Clients post their act, date and price, and notaries take the requests that suit them.',
     outcomes: [
-      { metric: 'Notary Tech', description: 'Modernizing a legacy industry' },
-      { metric: 'Quebec', description: 'Civil-law notary workflows' },
+      { metric: '17 AI agents', description: 'Marketing, development, infrastructure and go-to-market' },
+      { metric: 'Solo operator', description: 'Every function, orchestrated with AI' },
     ],
     achievements: [
       'Founded Nota to modernize the Quebec notary industry, an underserved, paper-heavy space overdue for software built around how notaries actually work.',
-      'Leading product and technical direction from 0→1, applying the same ship-measure-listen-iterate loop used with consulting clients.',
+      'Run every function of the company as its sole operator, orchestrating AI agents built on the latest models from Anthropic (Claude), OpenAI and xAI.',
+      'Direct four agent teams: marketing (5 agents), development (2), infrastructure (5) and go-to-market (5: partnerships, notary onboarding, client success, referral program and demand monitoring).',
     ],
-    tags: ['Legal Tech', 'Notary Tech', 'Quebec', 'Founder', '0→1'],
+    tags: ['Legal Tech', 'Notary Tech', 'Quebec', 'Founder', 'AI Agents', '0→1'],
   },
   {
     company: 'Bespoke Labs',
